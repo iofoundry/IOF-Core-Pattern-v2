@@ -1,2 +1,71 @@
 \chapter{Instructions to the authors}
 
+This document is a compendium of IOF Core patterns. Patterns are small, but repetitive fragments of a knowledge graph. The purpose of this work is to develop patterns that can be used by data modellers or developers in mapping legacy data using the IOF Core vocabulary. This pattern shows how to properly use the IOF Core in real-life data modelling practice. 
+
+We divide this document into a set of aspects, which are common topics for industrial data (maybe for other kinds of data too), e.g., person and agent, measurements, and time. 
+
+Many different scenarios can be addressed for each aspect, e.g., for Person and agent-related information, one scenario may address how to store a natural person's information and another scenario may address how the same person can be employed or assigned to different job positions or accounts. Within the aspect `Time', scenarios can be how to express duration or clock time, how to link time to space, etc. 
+
+Each scenario will be developed by some author. However, the scenarios will be discussed in the group before they start developing them. Each scenario will be peer-reviewed, i.e., each author will review other authors' work.   
+
+Each scenario must include a description of the pattern in general and at least one use case demonstrating how the pattern can be practically used. There can be more than one use case but each use case must include an object diagram, example data set, and SPARQL INSERT query showing the data mapping. It is also highly recommended to provide a data validation mechanism using SPARQL queries and SHACL validator. A template is available in the \cref{chapter-scenario-template} which also contains instructions for each section. 
+
+\subsection*{Project setup}
+
+Once a scenario is allocated to you as an author, please follow the following steps to set up your work environment. 
+Please make sure you have access to the Overleaf project called \textbf{\href{https://www.overleaf.com/project/675089944acddad8118ab6f8}{IOF Core Pattern v2}} and the \href{https://github.com/iofoundry/IOF-Core-Pattern-v2}{GitHub repository} of the same name. 
+
+\begin{enumerate}
+    \item In overleaf project, create a new folder for your scenario and make two more folders named `image' and `data' under it.
+    \item Create a new file called \texttt{<scenario-name>.tex}. 
+    \item Copy the `Scenario Template' from \cref{chapter-scenario-template} the new file. Edit the scenario name.  
+    \item Sync the project with Github: Go to `Github' in the `Menu' and then press `Push Overleaf changes to Github' button.
+    \item Clone the Git repository or pull in your local repository. You will find the image and data folder under your scenario folder. You can use these folders to develop diagrams, queries and data files or any other work that cannot be performed in Overleaf.
+
+    Your Project setup is complete!
+\end{enumerate}
+
+\subsection*{Diagramming}
+
+Each author is required to develop at least two diagrams, one \textbf{class-relation diagram} for `General Pattern' and one `object diagram' for every `Use Case', for each scenario. 
+
+To harmonize the style of the diagram across all scenarios, the authors need to select one of the following two methods of drawing diagrams:
+
+\subsubsection{PlantUML using IOF visual notation library}
+
+PlantUML diagrams can be drafted using online editors, such as, \href{https://www.plantuml.com/plantuml/uml}{PlantUML official server}, \href{https://www.planttext.com/}{PlantText}, \href{https://plantuml-editor.kkeisuke.dev/}{PlantUML Editor}, and \href{https://plantumleditor.com/webedit/}{Pladitor}. You can also set up PlantUML rendering in Visual Studio Code (VS Code) for live preview using \href{https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml}{PlantUML plugin}. For setting up your own PlantUML server and use it in VS Code, please see \href{https://paregov.net/setup-plantuml-with-docker-and-visual-studio-code-locally/}{Paregov's short instruction}.
+
+A standard library for PlantUML is developed (\href{https://github.com/iofoundry/ontopuml}{iofoundry/ontopuml}) for ontology notations and IOF styling. The standard library provides a set of procedures which can be conveniently used to draw Class-relation and Object diagrams. Authors only need to import the library URL in their diagram as follows to be able to use the library in any PlantUML editor.  
+
+\begin{verbatim}
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+'...
+' Write your code here!
+'...
+@enduml
+\end{verbatim}
+Although the standard library provides full support to notations for every construct in OWL 2.0, only a few of them are required for drawing a Class-relation or Object diagram. These syntaxes are given below. 
+
+
+
+\subsubsection{Draw.io using IOF visual notation library}
+
+A library with all basic patterns is available to be used with \href{http://draw.io/}{draw.io}. Please follow the steps below to set up \href{http://draw.io/}{draw.io} for diagramming.
+
+\begin{enumerate}
+    \item \href{http://draw.io/}{Draw.io} may be used as an online app or installed on desktop. 
+    \begin{enumerate}
+        \item To use it online, simply go to \href{https://app.diagrams.net/}{Flowchart Maker \& Online Diagram Software} 
+        \item Download and install \href{http://draw.io/}{draw.io} from \href{https://www.drawio.com/}{draw.io} 
+    \end{enumerate}
+    \item Download “IOF Visual Notation“ library from \href{https://github.com/iofoundry/IOF-Core-Pattern-v2/blob/main/etc/IOF-visual-notation.drawio}{here}.
+    \item In \href{http://draw.io/}{draw.io}, go to File > New and select “Blank Diagram“. The online app may ask you to choose a location to save the file. 
+    \item Go to File > Open Library… (for the online app, choose Device 
+    \begin{enumerate}
+        \item In the explorer select the IOF-visual-notation.drawio file.
+        \item The library with all basic patterns will be loaded on the left sidebar.
+    \end{enumerate}
+    \item Start diagramming!
+\end{enumerate}
+ 

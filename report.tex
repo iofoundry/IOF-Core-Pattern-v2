@@ -14,6 +14,18 @@
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
 % Define the instruction box style
 \specialcomment{instruction}{\begingroup\color{red}\itshape}{\endgroup}
 \excludecomment{instruction} % Exclude all instructions from printing
