@@ -1,0 +1,17 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1, bfo:Object)
+class(c2, bfo:Site)
+class(c3, bfo:SpatialRegion)
+class(c4, bfo:TemporalRegion)
+class(c5, bfo:SpatioTemporalRegion)
+class(c6, bfo:TemporalInterval)
+class(c7, bfo:TemporalInstant)
+subClass(c6, c4)
+subClass(c7, c4)
+equiSome(c1, bfo:locatedInAtSomeTime, c2, down)
+equiSome(c2, bfo:occupiesSpatialRegionAtAllTimes, c3, down)
+equiSome(c5, bfo:spatiallyProjectsOntoAtAllTimes, c3, right)
+equiSome(c5, bfo:temporallyProjectsOntoAt, c4, right)
+equiSome(c1, bfo:existsAt, c4)
+@enduml
