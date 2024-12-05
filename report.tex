@@ -1,0 +1,98 @@
+\documentclass{tudelft-report}
+
+%% Set up the bibliography
+\usepackage{biblatex}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem} 
+\usepackage{titlesec} % For title formatting
+\usepackage{comment}
+\usepackage{tabularx}
+\addbibresource{report.bib}
+
+%% Additional packages and commands
+\usepackage{parskip}
+\setlist{itemsep=-2pt} % Reducing white space in lists slightly
+\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
+
+% Define the instruction box style
+\specialcomment{instruction}{\begingroup\color{red}\itshape}{\endgroup}
+\excludecomment{instruction} % Exclude all instructions from printing
+
+%% ----------------------------------------------------------------------
+%%    Begin of document + Frontmatter (Roman page numbering)
+%% ----------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+%% Define the main parameters
+\title{IOF Core Patterns}
+\subtitle{A compendium of Semantic Data Patterns based on IOF Core}
+\author{Author1 \\ Author2}
+
+\subject{Draft} % Cover only
+\affiliation{NIST} % Cover only
+\coverimage{figures/College-Cover-Page.pdf} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{fee7dd} % Color for cover title
+
+\makecover
+
+\input{frontmatter/title-report}
+\input{frontmatter/preface}
+\input{frontmatter/summary}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\input{frontmatter/glossary}
+
+%% ----------------------------------------------------------------------
+%%    Mainmatter (Arabic page numbering)
+%% ----------------------------------------------------------------------
+
+\mainmatter
+
+\input{mainmatter/introduction}
+
+%\input{mainmatter/chapter-4} % Create file to add
+
+%% ----------------------------------------------------------------------
+%%    Aspects and scenerios
+%% ----------------------------------------------------------------------
+\textit{
+Only add aspects that are main chapters. Each scenario will be a section with TOC entry only with the scenario name. Compile scenarios under the aspect chapters below.
+}
+
+\input{mainmatter/space-location}
+\input{mainmatter/time}
+\input{mainmatter/objects-artifact-material}
+\input{mainmatter/assembly-organisation}
+\input{mainmatter/person-agent}
+\input{mainmatter/roles}
+\input{mainmatter/changes}
+\input{mainmatter/process-event}
+\input{mainmatter/state-situation}
+\input{mainmatter/information}
+\input{mainmatter/planning}
+\input{mainmatter/measurement}
+\input{mainmatter/utility}
+
+%% Prevent urls running into margins in bibliography
+\setcounter{biburlnumpenalty}{7000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{7000}
+
+%% Add bibliography
+\printbibliography[heading=bibintoc,title=References]
+
+%% ----------------------------------------------------------------------
+%%    Appendix (Letters for chapters)
+%% ----------------------------------------------------------------------
+
+\appendix
+
+\input{appendix/scenario-template}
+\input{appendix/chapter-latex-instruction}
+\end{document}

@@ -1,0 +1,66 @@
+\chapter{Scenerio Template}
+\textit{This template should be used to create a scenario. Please copy to a dedicated folder under folder `scenario'. All images should be referred from `image' folder under the dedicated folder. For example, please see: \\
+\cref{sec-change-location}}
+
+\section*{<Scenario title>}
+\addcontentsline{toc}{section}{Basic Formal Ontology}
+
+\textit{Short Phrase (e.g., Change of object's location over time)}
+
+\textbf{Created by:} Arkopaul Sarkar \\
+\textbf{Modified by:} Arkopaul Sarkar \\
+
+\subsection*{Scenario Objective}
+% Instruction box
+\textit{ 
+Describe the general purpose of representing the pattern (e.g., demonstrating how you can depict measurements with IOF core).}
+
+
+\subsection*{General Pattern Figure}
+\textit{  
+Provide a figure containing the pattern independent of the use case (e.g., just measurements in general as opposed to measuring a particular thing such as pH or length). \\
+\noindent \textit{This diagram is generally a simple class-relation diagram. Please see examples of class-relation diagram here.}
+  }
+
+
+\subsection*{General Pattern Description}
+\textit{ 
+Describe the general pattern, including any background why such types and relations are used. Also mention any alternative or shortcuts. Please provide a background of the types and relations in the context of IOF (please prefer logical arguments to didactic arguments).
+}
+
+
+\subsection*{Use Case: <Use-Case title>}
+ \textit{ 
+Describe a concrete use case for the pattern. (Multiple use cases can be described for one pattern. If multiple, please use distinct use case titles and repeat all subsubsections for each use case.)
+  }
+
+\subsubsection*{Use-Case Diagram}
+ \textit{ 
+Provide a diagram which matches the use-case pattern description. \\
+\noindent \textit{This diagram is generally an object diagram. Please see examples of object diagram here.}
+  }
+
+\subsubsection*{Use-Case Pattern Description}
+ \textit{ 
+Describe how the general pattern is applied to the use case. It is important to highlight within the description how the use-case-specific concepts align with the general pattern (e.g., SubClassOf Class for general pattern).
+  }
+
+\subsubsection*{Use-Case Example Data}
+ \textit{ 
+Provide a description of the data set used to demonstrate the use case pattern (e.g., format as JSON, CSV, XML, column/attribute/node name and their description, relation between datasets if multiple are used). Use not less than 3 and not more than 7 records/transactions.
+  }
+
+\subsubsection*{Data Mapping}
+ \textit{ 
+Describe how the data was mapped to RDF. Provide an INSERT DATA/ INSERT SPARQL for mapping. Use INSERT only when the use case example data needs further manipulation. \\
+For INSERT DATA SPARQL, use only 2/3 records/transactions with named class and individuals. \\
+For INSERT SPARQL, declare column names by `\{ \}' to the variable.  
+For INSERT query, 
+For both, do not use blank nodes.    
+  }
+
+\subsubsection*{Data Validation}
+ \textit{ 
+Data validation can be performed in two ways: accessing interesting facts using SPARQL or validating whether the entire data conforms to the ontology using SHACL. It is preferable to provide both. \\
+Provide the SPARQL query in the code block along with the result of the query. \\
+  }
