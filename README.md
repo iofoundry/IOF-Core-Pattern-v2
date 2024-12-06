@@ -46,8 +46,9 @@ Your project setup is complete!
 
 | **Scenario**                      | **Assigned To**        | **Status**       | **Reviewed By**       |
 |-----------------------------------|------------------------|------------------|------------------------|
-| Change of object's location over time | Milos Drobnjakovic     | In Progress      | [Reviewer Name]        |
+| Change of object's location over time | Milos Drobnjakovic     | In Progress  | [Reviewer Name]        |
 | Algorithm execution               | Arkopaul Sarkar        | In Progress      | [Reviewer Name]        |
+| Assign measurement value with unit| All                    | Assigned         | [Reviewer Name]        |
 
 ---
 
