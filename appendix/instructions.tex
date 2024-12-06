@@ -39,13 +39,13 @@ A standard library for PlantUML is developed (\href{https://github.com/iofoundry
 
 \begin{verbatim}
 @startuml
-!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/iof.iuml
 '...
 ' Write your code here!
 '...
 @enduml
 \end{verbatim}
-Although the standard library provides full support to notations for every construct in OWL 2.0, only a few of them are required for drawing a Class-relation or Object diagram. These syntaxes are given below. 
+Although the standard library provides full support to notations for every construct in OWL 2.0, only a few of them are required for drawing a Class-relation or Object diagram. A quick introduction to both of these diagrams and the minimum syntax for getting you started can be found \href{https://iofoundry.github.io/ontopuml/quick-diagram}{here}.
 
 
 
@@ -68,4 +68,66 @@ A library with all basic patterns is available to be used with \href{http://draw
     \end{enumerate}
     \item Start diagramming!
 \end{enumerate}
- 
+
+\subsection*{Naming and style convention}
+
+\begin{enumerate}
+    \item Every label of ontological terms that are used in a diagram or text must accompany a namespace. Only a namespace prefix should be used, e.g., bfo:Occurrent. The prefixes should be common across all diagrams and text and should be declared in the front matter. 
+        \begin{enumerate}
+            \item individuals may use namespace \texttt{ns1}, \texttt{ns2} etc. Multiple namespaces may be used to denote data coming from different sources. However, using a namespace for individuals is not obligatory. 
+            \item Any new class that is not part of BFO and IOF must use namespace \texttt{ns}.
+        \end{enumerate}
+
+    \item See the following table for choosing a proper case style of the label according to the element type.
+
+\begin{tabular}{|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{10cm}|}
+\hline
+\textbf{Type} & \textbf{Case style} \\ \hline
+
+Class (\texttt{owl:Class}) & 
+The class name should be written in PascalCase (The first letter of every word is in uppercase and the spaces are removed). \\
+& It is better to use the label (\texttt{rdf:Label}) for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to PascalCase. \\
+& Example: \texttt{bfo:GenericallyDependentContinuant} \\ \hline
+
+Individual (\texttt{owl:Individual}) & 
+The individual name should be in kebab-case (all letters are in lowercase, and spaces are replaced by a single hyphen). \\
+& Avoid using abbreviated or shortened strings as names, e.g., \texttt{bn1}. \\
+& Do not use the same name as the class it is a member of. Use the same name suffixed by indices for multiple individuals of the same class. \\
+& Examples: \texttt{my-bicycle}, \texttt{house-of-joe}, \texttt{engine-1}, \texttt{engine-2}. \\ \hline
+
+Object Property (\texttt{owl:ObjectProperty}) & 
+The object property name should be written in camelCase (The first letters of every word except the first word are in uppercase, and spaces are removed). \\
+& It is better to use the label (\texttt{rdf:Label}) of the property for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to camelCase. \\
+& Example: \texttt{bfo:hasContinuantPartAtSomeTime}. \\
+& Additional symbols may be added before the name to represent qualifiers and cardinalities. Please see details in the next section. \\ \hline
+
+Data Property (\texttt{rdf:DatatypeProperty}) & 
+The data property name should be written in camelCase (The first letters of every word except the first word are in uppercase, and spaces are removed). \\
+& It is better to use the label (\texttt{rdf:Label}) of the property for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to camelCase. \\
+& Example: \texttt{iof:hasSimpleExpressionValue}. \\ \hline
+
+\end{tabular}
+
+\end{enumerate} 
+
+\subsection*{Common name for different roles}
+Different intended audiences of this document need to be addressed in a unified manner. For example, the sentence: ``...the developer/data modeller/architect may use the following SPARQL...'' addresses some purported user of some SPARQL query. In the following table, a set of unified names is given for various roles that may be used in this document. This list will grow with time. 
+
+\begin{itemize}
+    \item \textbf{Ontologiest}: 
+    \item \textbf{Data modeller}:
+    \item \textbf{Developer}:
+\end{itemize}
+
+\subsection*{Notes:}
+
+\begin{enumerate}
+    \item While referring to non-existing sections or chapters, mention a label prefixed by \texttt{?}. e.g.,
+    \begin{verbatim}
+        ...which is detailed in \cref{?chapter-space-location}. 
+    \end{verbatim}
+    \item All overflowing inline verbatim should be split with a next line, e.g.,
+    \begin{verbatim}
+         ...while projecting on a single \texttt{bfo:SpatialReg\\ion}.
+    \end{verbatim}
+\end{enumerate}
