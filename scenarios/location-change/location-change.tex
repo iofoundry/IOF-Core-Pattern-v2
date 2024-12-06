@@ -14,7 +14,7 @@ This scenario illustrates how to represent the change in an object's physical lo
 \end{itemize}
 
 \subsection*{General Pattern Description}
-\includegraphics[scale=0.38]{scenarios/location-change/images/change-location-general.png}
+\includegraphics[scale=0.38]{scenarios/location-change/images/change-of-location-general.png}
 
 An object may be located in different places at different times. In this scenario, the object can be related to multiple locations as \texttt{bfo:Site} by \texttt{bfo:locatedInAtSomeTime} property. Similarly, the object can be related to multiple \texttt{bfo:TemporalRegion}, each being either \texttt{bfo:TemporalInterval} or \texttt{bfo:TemporalInstant} by \texttt{bfo:existsAt}. As the object cannot be at two different locations at the same time, the times and the locations need to be paired up to denote at which location the object was at what time. This pairing can be done by different \texttt{bfo:SpationTemporalRegion}. Following the 4D ontology of BFO, the object's spatial and temporal co-occupation can be represented by a \texttt{bfo:SpationTemporalRegion}, which \texttt{bfo:temporallyProjectsOnto} the temporal region the object exists at and \texttt{bfo:spatiallyProjectsOntoAtAllTimes} the \texttt{bfo:SpatialRegion} the object occupies (\texttt{occupiesSpatialRegionAtAllTimes}). 
 
@@ -26,7 +26,7 @@ Note further that a \texttt{SpatioTemporalRegion} cannot project onto two or mor
 A freight train operated by BNSF Railway hauls coal from Powder River Basin, Wyoming, to the Port of Long Beach in California. It was located at Powder River Basin station at 11:00 AM on Wednesday and then at Long Beach station at midnight on Thursday.
 
 \subsubsection*{Use-Case Pattern Description}
-\includegraphics[scale=0.45]{scenarios/location-change/images/change-location-usecase1.png}
+\includegraphics[scale=0.27]{scenarios/location-change/images/change-of-location-usecase1.png}
 \begin{itemize}
     \item The train \texttt{ns1:freight-train} is located at (\texttt{bfo:locatedInAtSomeTime}) two different locations: \texttt{ns1:powder-river-basin} and \texttt{ns1:long-beach-port}, both of which are instances of \texttt{bfo:site}.
     \item Two separate instances of \texttt{bfo:SpatialRegion}: \texttt{ns1:spatial-region-powder-river-basin} and \texttt{ns1:spatial-region-long-beach}.
