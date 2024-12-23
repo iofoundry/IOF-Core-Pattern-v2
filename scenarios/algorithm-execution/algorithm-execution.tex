@@ -99,3 +99,54 @@ INSERT DATA {
 \end{verbatim}
 
 \subsubsection*{Data Validation}
+
+\begin{verbatim}
+# Shape for MeasuredValueExpression
+ns-1:MeasuredValueExpressionShape a sh:NodeShape ;
+    sh:targetClass iof-core:MeasuredValueExpression ;
+    sh:property [
+        sh:path bfo:continuantPartOf ;
+        sh:class ns-1:DataSet ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Each MeasuredValueExpression must be part of a DataSet." ;
+    ] .
+
+# Shape for ComputingProcess
+ns-1:ComputingProcessShape a sh:NodeShape ;
+    sh:targetClass iof-core:ComputingProcess ;
+    sh:property [
+        sh:path iof-core:hasInput ;
+        sh:class ns-1:DataSet ;
+        sh:nodeKind sh:IRI ;
+        sh:message "ComputingProcess must have an input of type DataSet." ;
+    ] ;
+    sh:property [
+        sh:path iof-core:hasSpecifiedOutput ;
+        sh:class iof-core:ValueExpression ;
+        sh:nodeKind sh:IRI ;
+        sh:message "ComputingProcess must have an output of type ValueExpression." ;
+    ] ;
+    sh:property [
+        sh:path bfo:hasParticipant ;
+        sh:class iof-core:Agent ;
+        sh:nodeKind sh:IRI ;
+        sh:message "ComputingProcess must have a participant of type Agent." ;
+    ] .
+
+# Shape for EncodedAlgorithm
+ns-1:EncodedAlgorithmShape a sh:NodeShape ;
+    sh:targetClass iof-core:EncodedAlgorithm ;
+    sh:property [
+        sh:path bfo:isConcretizedBy ;
+        sh:class iof-core:ComputingProcess ;
+        sh:nodeKind sh:IRI ;
+        sh:message "EncodedAlgorithm must be concretized by a ComputingProcess." ;
+    ] ;
+    sh:property [
+        sh:path bfo:genericallyDependsOn ;
+        sh:class iof-core:Agent ;
+        sh:nodeKind sh:IRI ;
+        sh:message "EncodedAlgorithm must generically depend on an Agent." ;
+    ] .
+\end{verbatim}
+
