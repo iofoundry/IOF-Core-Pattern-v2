@@ -6,11 +6,14 @@
 
 \subsection*{Scenario Objective}
 
-This scenario depicts how to express executions of algorithms by using BFO/IOF ontology.
 
-Specifically, this pattern focuses on algorithm executions which produce Information Content Entities (ICEs) as outputs. As such, algorithms that return no ‘outputs’ are not included in this pattern.
+This scenario demonstrates how to represent the execution of algorithms within the context of the \textbf{BFO/IOF ontology}. It specifically addresses cases where algorithm executions generate \textbf{Information Content Entities (ICEs)} as outputs. Algorithms that do not produce outputs are beyond the scope of this pattern.
 
-This scenario is limited to algorithms that are part of a software system.
+\subsection*{Key Points}
+\begin{itemize}
+    \item This pattern is intended for algorithms integrated into a software system.
+    \item Only algorithm executions resulting in ICEs are covered; executions without outputs are excluded.
+\end{itemize}
 
 
 \subsection*{General Pattern Description}
@@ -24,8 +27,33 @@ A multilayer perceptron (MLP – a type of a neural network) is used to predict 
 \subsubsection*{Use-Case Pattern Description}
 
 \includegraphics[scale=0.23]{scenarios/algorithm-execution/images/algorithm-execution-usecase1.png}
+This use case illustrates the execution of a machine learning model, \texttt{mutltilayerperceptron}, on a computer system. The model is an instance of \texttt{Encoded Algorithm} and is \texttt{concretized} through a \texttt{Computing Process} representing its execution.
 
-The machine learning model (MultiLayerPerceptron1) - an instance of:Encoded Algorithm is being concretized in a model execution process - an instance of:Computing Process. The MLP generically depends on a computer system (in this case an instance of Agent) which participates in the model execution process. Model execution utilizes the measured values associated with the drill and the drilling process and produces a ClassificationResult which is an instance of a ValueExpression. Since the objective is to predict machine failure the ClassificationResult is a prediction of the DrillFunction. The ClassificationResult can have two values associated with hasSimpleExpressionValue: 1) FAIL or 2) NOT FAIL. On the diagram bellow an example with the FAIL value is given. For brevity purposes the actual measurement values and their units are excluded from the diagram. Also, the association of the measured values with “drill attributes” or the “drilling process” are omitted. For a detailed guide on connecting the measured values with different entties - the user should see (placeholder link).
+\subsection*{Actors and Dependencies}  
+\begin{itemize}
+    \item The \texttt{mutltilayerperceptron}  \texttt{generically depends on} a \texttt{computer} (an instance of \texttt{Agent}) that \texttt{participates in} the \texttt{machine-learning-execution} (an instance of \texttt{ComputingProcess}.
+    \item M\texttt{machine-learning-execution} relies on (\texttt{hasInput}) measured values associated with the drill and the drilling process as input data (represented as various instances of \texttt{MeasuredValueExpression}.
+\end{itemize}
+
+\subsection*{Process and Output}  
+\begin{itemize}
+    \item The model execution produces (\texttt{has-specified-output}) a \texttt{classification-result}, an instance of \texttt{ValueExpression}.
+    \item The \texttt{classification-result} can take one of two possible values, represented by the \texttt{hasSimpleExpressionValue} property:
+    \begin{enumerate}
+        \item \texttt{NOT-FAILURE}
+        \item \texttt{FAILURE}
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Diagram Context}  
+The diagram below demonstrates a specific example where the \texttt{classification-result} has the value \texttt{NOT-FAILURE}. For simplicity:
+\begin{itemize}
+    \item The actual measurement values and their units are excluded from the diagram.
+    \item Associations between measured values and entities such as “drill attributes” or the “drilling process” are not shown.
+\end{itemize}
+
+\subsection*{Further Guidance}  
+For details on connecting measured values with their respective entities, please refer to the \href{placeholder link}{detailed guide}.  
 
 \subsubsection*{Use-Case Example Data}
 
@@ -35,14 +63,13 @@ The dataset is a single CSV table consisting of the columns: ‘tool wear’, �
 
 \begin{tabularx}{\textwidth}{|l|X|X|X|X|X|X|X|X|X|X|}
 \hline
-UDI & Product ID & Type & Air temperature {[}K{]} & Process temperature {[}K{]} & Rotational speed {[}rpm{]} & Torque {[}Nm{]} & Tool wear {[}min{]} & Target & Failure Type \\ \hline
-1   & M14860     & M    & 298.1                   & 308.6                       & 1551                       & 42.8            & 0                   & 0      & No Failure   \\
-2   & L47181     & L    & 298.2                   & 308.7                       & 1408                       & 46.3            & 3                   & 0      & No Failure   \\
-3   & L47182     & L    & 298.1                   & 308.5                       & 1498                       & 49.4            & 5                   & 0      & No Failure   \\ \hline
+Product ID & Type & Air temperature {[}K{]} & Process temperature {[}K{]} & Rotational speed {[}rpm{]} & Torque {[}Nm{]} & Tool wear {[}min{]} & Target & Failure Type \\ \hline
+M14860     & M    & 298.1                   & 308.6                       & 1551                       & 42.8            & 0                   & 0      & No Failure   \\
+L47181     & L    & 298.2                   & 308.7                       & 1408                       & 46.3            & 3                   & 0      & No Failure   \\
+L47182     & L    & 298.1                   & 308.5                       & 1498                       & 49.4            & 5                   & 0      & No Failure   \\ \hline
 \end{tabularx}
 
-For prediction purposes, type and Product ID are omitted and are as such not included in the RDF. The exact type of failure is not utilized in this UC, since the model target is binary classification. Finally, `process id' is utilized for IRI construction of the drill.
-
+For prediction purposes, type and Product ID are omitted and are as such not included in the RDF. The model outputs the entries of the  target column which is then converted to 'No-failure' or 'Failure'. For brevity, conversion of target to failure type is omitted.
 \subsubsection*{Data Mapping Description}
 
 \begin{verbatim}

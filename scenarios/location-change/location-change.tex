@@ -36,7 +36,7 @@ A freight train operated by BNSF Railway hauls coal from Powder River Basin, Wyo
 
 \subsubsection*{Use-Case Example Data}
 
-\begin{table}[]
+\begin{table}[h]
 % \caption{}
 \label{tab:freight-train-timetable}
 \resizebox{\columnwidth}{!}{%
@@ -55,21 +55,106 @@ Train Number & Source             & Destination        & Departure Time & Arriva
 
 \begin{verbatim}
 INSERT DATA {
-    ns1:freight-train a bfo:Entity;
-                      rdfs:label "BNSF Freight Train";   
-                      bfo:locatedInAtSomeTime ns1:powder-river-basin;
-                      bfo:locatedInAtSomeTime ns1:long-beach-port;
-                      bfo:existsAt ns1:temporal-instant-powder-river-basin;
-                      bfo:existsAt ns1:temporal-instant-long-beach.
     ns1:powder-river-basin a bfo:Site; 
                       bfo:occupiesSpatialRegionAtAllTimes ns1:spatial-region-long-beach.
     ns1:powder-river-basin a bfo:Site; 
                       bfo:occupiesSpatialRegionAtAllTimes ns1:spatial-region-powder-river-basin.
     ns1:spatial-region-long-beach a bfo:SpatialRegion.
     ns1:spatial-region-powder-river-basin a bfo:SpatialRegion.
+    ns1:temporal-instant-departure a bfo:TemporalInstant.
+    ns1:temporal-instant-arrival a bfo:TemporalInstant.
     ns1:spatio-temporal-1 a bfo:SpatioTemporalRegion;
-                          bfo:temporallyProjectsOnto 
+                      bfo:temporallyProjectsOnto ns1:temporal-instant-powder-river-basin;
+                      bfo:temporallyProjectsOnto ns1:temporal-instant-long-beach;
+                      bfo:spatiallyProjectsOntoAtAllTimes ns1:spatial-region-long-beach;
+                      bfo:spatiallyProjectsOntoAtAllTimes ns1:spatial-region-powder-river-basin. 
+    ns1:freight-train a bfo:Object;
+                      rdfs:label "BNSF Freight Train";   
+                      bfo:locatedInAtSomeTime ns1:powder-river-basin;
+                      bfo:locatedInAtSomeTime ns1:long-beach-port;
+                      bfo:existsAt ns1:temporal-instant-powder-river-basin;
+                      bfo:existsAt ns1:temporal-instant-long-beach.               
+}
+\end{verbatim}
+\noindent\rule{\linewidth}{0.1pt}
+\begin{verbatim}
+INSERT {
+    _:source a bfo:Site; 
+                      iof:hasValueExpressionAtAllTimes ?location1; 
+                      bfo:occupiesSpatialRegionAtAllTimes _:spatial-region-source.
+    _:destination a bfo:Site; 
+                      iof:hasValueExpressionAtAllTimes ?location2; 
+                      bfo:occupiesSpatialRegionAtAllTimes _:spatial-region-destination.
+    _:spatial-region-source a bfo:SpatialRegion.
+    _:spatial-region-destination a bfo:SpatialRegion.
+    _:temporal-instant-departure a bfo:TemporalInstant;
+                      iof:hasValueExpressionAtAllTimes ?departure.
+    _:temporal-instant-arrival a bfo:TemporalInstant;
+                      iof:hasValueExpressionAtAllTimes ?arrival.
+    _:spatio-temporal-1 a bfo:SpatioTemporalRegion;
+                      bfo:temporallyProjectsOnto _:temporal-instant-departure;
+                      bfo:spatiallyProjectsOntoAtAllTimes _:spatial-region-source. 
+    _:spatio-temporal-2 a bfo:SpatioTemporalRegion;
+                      bfo:temporallyProjectsOnto _:temporal-instant-arrival;
+                      bfo:spatiallyProjectsOntoAtAllTimes _:spatial-region-destination.
+    ?freight-train a bfo:Object;
+                      rdfs:label "BNSF Freight Train";   
+                      bfo:locatedInAtSomeTime _:source;
+                      bfo:locatedInAtSomeTime _:destination;
+                      bfo:existsAt _:temporal-instant-departure;
+                      bfo:existsAt _:temporal-instant-arrival.              
+}
+WHERE{
+    BIND(COLUMN("Train Number") as ?freight-train).
+    BIND(COLUMN("Source") as ?location1).
+    BIND(COLUMN("Destination") as ?location2).
+    BIND(COLUMN("Departure Time") as ?departure).
+    BIND(COLUMN("Arrival Time") as ?arrival).
 }
 \end{verbatim}
 
 \subsubsection*{Data Validation}
+
+\begin{verbatim}
+# Shape for bfo:SpatioTemporalRegion
+ns1:SpatioTemporalRegionShape a sh:NodeShape ;
+    sh:targetClass bfo:SpatioTemporalRegion ;
+    sh:property [
+        sh:path bfo:temporallyProjectsOnto ;
+        sh:class ns1:TemporalInstant ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:spatiallyProjectsOntoAtAllTimes ;
+        sh:class bfo:SpatialRegion ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+# Shape for the object
+ns1:ObjectShape a sh:NodeShape ;
+    sh:targetClass bfo:Object ;
+    sh:property [
+        sh:path bfo:locatedInAtSomeTime ;
+        sh:or ( 
+            [ sh:class bfo:Site ] ;
+            [ sh:class bfo:SpatialRegion ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:existsAt ;
+        sh:class ns1:TemporalInstant ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for bfo:Site (if ns1:ObjectShape has bfo:Site as the target of path bfo:locatedInAtSomeTime)
+ns1:SiteShape a sh:NodeShape ;
+    sh:targetClass bfo:Site ;
+    sh:property [
+        sh:path bfo:occupiesSpatialRegionAtAllTimes ;
+        sh:class bfo:SpatialRegion ;
+        sh:minCount 1 ;
+    ] .
+\end{verbatim}
