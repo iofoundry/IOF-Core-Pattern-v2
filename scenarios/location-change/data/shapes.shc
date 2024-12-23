@@ -1,0 +1,41 @@
+# Shape for bfo:SpatioTemporalRegion
+ns1:SpatioTemporalRegionShape a sh:NodeShape ;
+    sh:targetClass bfo:SpatioTemporalRegion ;
+    sh:property [
+        sh:path bfo:temporallyProjectsOnto ;
+        sh:class ns1:TemporalInstant ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:spatiallyProjectsOntoAtAllTimes ;
+        sh:class bfo:SpatialRegion ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+# Shape for the object
+ns1:ObjectShape a sh:NodeShape ;
+    sh:targetClass bfo:Object ;
+    sh:property [
+        sh:path bfo:locatedInAtSomeTime ;
+        sh:or ( 
+            [ sh:class bfo:Site ] ;
+            [ sh:class bfo:SpatialRegion ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:existsAt ;
+        sh:class ns1:TemporalInstant ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for bfo:Site (if ns1:ObjectShape has bfo:Site as the target of path bfo:locatedInAtSomeTime)
+ns1:SiteShape a sh:NodeShape ;
+    sh:targetClass bfo:Site ;
+    sh:property [
+        sh:path bfo:occupiesSpatialRegionAtAllTimes ;
+        sh:class bfo:SpatialRegion ;
+        sh:minCount 1 ;
+    ] .  
