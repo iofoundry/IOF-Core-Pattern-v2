@@ -47,9 +47,27 @@ For prediction purposes, type and Product ID are omitted and are as such not inc
 
 \begin{verbatim}
 INSERT DATA {
-    <http://example.org/ns1:freight-train> a <http://example.org/bfo:Entity>;
-    <http://example.org/ns1:freight-train> <http://example.org/bfo:locatedInAtSomeTime> 
-        <http://example.org/ns1:powder-river-basin>.
+  ns-1:air-temperature-value a iof-core:MeasuredValueExpression ;
+    bfo:continuantPartOf ns-1:data-vector-1 .
+  ns-1:process-temperature-value a iof-core:MeasuredValueExpression ;
+    bfo:continuantPartOf ns-1:data-vector-1 .
+  ns-1:tool-wear-value a iof-core:MeasuredValueExpression ;
+    bfo:continuantPartOf ns-1:data-vector-1 .
+  ns-1:torque-value a iof-core:MeasuredValueExpression ;
+    bfo:continuantPartOf ns-1:data-vector-1 .
+  ns-1:rotational-speed-value a iof-core:MeasuredValueExpression ;
+    bfo:continuantPartOf ns-1:data-vector-1 .
+  ns-1:data-vector-1 a ns-1:DataSet .
+  ns-1:DataSet rdfs:subClassOf iof-core:InformationContentEntity .
+  ns-1:machine-learning-execution a iof-core:ComputingProcess ;
+    iof-core:hasInput ns-1:data-vector-1 ;
+    iof-core:hasSpecifiedOutput ns-1:classification-result ;
+    bfo:hasParticipant ns-1:computer .
+  ns-1:classification-result a iof-core:ValueExpression .
+  ns-1:computer a iof-core:Agent .
+  ns-1:multilayerperceptron a iof-core:EncodedAlgorithm ;
+    bfo:isConcretizedBy ns-1:machine-learning-execution ;
+    bfo:genericallyDependsOn ns-1:computer .
 }
 \end{verbatim}
 

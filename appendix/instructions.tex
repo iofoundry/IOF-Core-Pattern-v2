@@ -72,15 +72,41 @@ A library with all basic patterns is available to be used with \href{http://draw
 \subsection*{Naming and style convention}
 
 \begin{enumerate}
-    \item Every label of ontological terms that are used in a diagram or text must accompany a namespace. Only a namespace prefix should be used, e.g., bfo:Occurrent. The prefixes should be common across all diagrams and text and should be declared in the front matter. 
+    \item \textbf{Namespace:} Every label of ontological terms that are used in a diagram or text must accompany a namespace. Only a namespace prefix should be used, e.g., bfo:Occurrent. The prefixes should be common across all diagrams and text and should be declared in the front matter. 
         \begin{enumerate}
             \item individuals may use namespace \texttt{ns1}, \texttt{ns2} etc. Multiple namespaces may be used to denote data coming from different sources. However, using a namespace for individuals is not obligatory. 
             \item Any new class that is not part of BFO and IOF must use namespace \texttt{ns}.
         \end{enumerate}
 
-    \item See the following table for choosing a proper case style of the label according to the element type.
+    \item \textbf{Colors and font style}: The colours and font styles for diagrams are mentioned in \cref{tab:color-font-table}. 
+    
+    % Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\caption{Colors and fonts}
+\label{tab:color-font-table}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{Block type}    & \textbf{Prefix} & \textbf{Background Color}          & \textbf{Font Color} & \textbf{Border Color} & \textbf{Font style} \\ \hline
+\multirow{5}{*}{Class} & bfo             & Golden Yellow \#DFA702             & White               & Black                 & Bold                \\ \cline{2-6} 
+                       & iof             & Dodger Blue or Vivid Blue \#1e90ff & White               & Black                 & Bold                \\ \cline{2-6} 
+                       & ns              & Green \#008000                     & White               & Black                 & Bold                \\ \cline{2-6} 
+                       & others          & Sunflower Yellow \#DFA702          & White               & Black                 & Bold                \\ \cline{2-6} 
+                       & Without prefix  & Blue \#0000ff                      & White               & Black                 & Bold                \\ \hline
+Individual             & ns1             & Mauve \#76608A                     & White               & White                 & Underlined          \\ \hline
+\end{tabular}%
+}
+\end{table}
 
-\begin{tabular}{|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{10cm}|}
+    \item See the \cref{case-style-table} for choosing a proper case style of the label according to the element type.
+
+\begin{table}[]
+\caption{Case styles}
+\label{case-style-table}
+\begin{tabular}
+{|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{10cm}|}
 \hline
 \textbf{Type} & \textbf{Case style} \\ \hline
 
@@ -107,6 +133,7 @@ The data property name should be written in camelCase (The first letters of ever
 & Example: \texttt{iof:hasSimpleExpressionValue}. \\ \hline
 
 \end{tabular}
+\end{table}
 
 \end{enumerate} 
 
@@ -126,8 +153,15 @@ Different intended audiences of this document need to be addressed in a unified 
     \begin{verbatim}
         ...which is detailed in \cref{?chapter-space-location}. 
     \end{verbatim}
+    Although this will cause the reference not to print correctly, these markings will help us correct them later. 
+    
     \item All overflowing inline verbatim should be split with a next line, e.g.,
     \begin{verbatim}
          ...while projecting on a single \texttt{bfo:SpatialReg\\ion}.
     \end{verbatim}
+\end{enumerate}
+
+\subsection*{Other tools}
+\begin{enumerate}
+    \item For generating \LaTeX\xspace table, use \href{Table Genrator}{https://www.tablesgenerator.com/}. Please follow the format of the table as in \cref{tab:color-font-table}.
 \end{enumerate}
