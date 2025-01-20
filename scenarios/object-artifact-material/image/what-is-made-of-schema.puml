@@ -1,0 +1,10 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1, "bfo:Object")   
+class(c2, "core:MaterialComponent")
+class(c3, "bfo:quality")
+
+equiSome(c1, bfo:hasContinuantPartAtSomeTime, c2, right)
+equiSome(c2, bfo:bearerOf, c3, right)
+
+@enduml

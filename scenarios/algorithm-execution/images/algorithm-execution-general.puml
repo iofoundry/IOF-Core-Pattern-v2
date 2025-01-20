@@ -1,16 +1,15 @@
 @startuml
 !include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
-class(c1,core:InformationContentEntity)
-class(c2,core:InformationContentEntity)
-class(c3,core:ComputingProcess)
-class(c4,core:Agent)
-class(c5,core:EncodedAlgorithm)
+class(c1,iof:InformationContentEntity)
+class(c2,iof:InformationContentEntity)
+class(c3,iof:ComputingProcess)
+class(c4,iof:Agent)
+class(c5,iof:EncodedAlgorithm)
 
-equiSome(c5,bfo:genericallyDependsOn,c4,down)
-equiSome(c5,bfo:isConcretizedBy,c3,right)
-equiSome(c3,core:hasSpecifiedOutput,c1,up)
-equiSome(c3,bfo:hasParticipant,c4)
-equiSome(c3,core:hasInput,c2,right)
-disjoint(c1,c2,down)
+xSome(c5,bfo:genericallyDependsOn,c4,down)
+xSome(c5,bfo:isConcretizedBy,c3,right)
+xSome(c3,iof:hasSpecifiedOutput,c1,up)
+xSome(c3,bfo:hasParticipant,c4,down)
+xSome(c3,iof:hasInput,c2,right)
 
 @enduml

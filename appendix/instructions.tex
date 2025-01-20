@@ -159,7 +159,15 @@ Different intended audiences of this document need to be addressed in a unified 
     \begin{verbatim}
          ...while projecting on a single \texttt{bfo:SpatialReg\\ion}.
     \end{verbatim}
-\end{enumerate}
+
+    \item  Use cases, particularly those involving data management, should not necessitate the axiomatization of a class. Instead, the system should facilitate the creation of new subclasses dynamically, as required, to accommodate evolving requirements and domain-specific needs.
+
+    \item It was decided on 12/23/2024 that scenarios will only show \texttt{INSERT DATA} SPARQL query, including at least the triples necessary to create the first row or multiple rows with some pattern. 
+
+        \item The same INSERT DATA query, or preferably a fully mapped query, should be saved in a \texttt{*.q} type file under the data folder.
+
+    \item A workflow needs to be separately written to create SPARQL and SHACL uniformly.     
+ \end{enumerate}
 
 \subsection*{Other tools}
 \begin{enumerate}

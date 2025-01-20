@@ -16,11 +16,11 @@ This scenario illustrates how to represent the change in an object's physical lo
 \subsection*{General Pattern Description}
 \includegraphics[scale=0.38]{scenarios/location-change/images/change-of-location-general.png}
 
-An object may be located in different places at different times. In this scenario, the object can be related to multiple locations as \texttt{bfo:Site} by \texttt{bfo:locatedInAtSomeTime} property. Similarly, the object can be related to multiple \texttt{bfo:TemporalRegion}, each being either \texttt{bfo:TemporalInterval} or \texttt{bfo:TemporalInstant} by \texttt{bfo:existsAt}. As the object cannot be at two different locations at the same time, the times and the locations need to be paired up to denote at which location the object was at what time. This pairing can be done by different \texttt{bfo:SpationTemporalRegion}. Following the 4D ontology of BFO, the object's spatial and temporal co-occupation can be represented by a \texttt{bfo:SpationTemporalRegion}, which \texttt{bfo:temporallyProjectsOnto} the temporal region the object exists at and \texttt{bfo:spatiallyProjectsOntoAtAllTimes} the \texttt{bfo:SpatialRegion} the object occupies (\texttt{occupiesSpatialRegionAtAllTimes}). 
+An object may be located in different places at different times. In this scenario, the object can be related to multiple locations as \texttt{bfo:Site} by the \texttt{bfo:locatedInAtSomeTime} property. Similarly, the object can be related to multiple instances of \texttt{bfo:TemporalRegion}, each being either a \texttt{bfo:TemporalInterval} or a \texttt{bfo:TemporalInstant} by the \texttt{bfo:existsAt} property. As the object cannot be at two different locations at the same time, the times and the locations need to be paired up to denote at which location the object was at what time. Each pairing can be done by a different \texttt{bfo:SpatioTemporalRegion}. Following the 4D ontology of BFO, the object's spatial and temporal co-occupation can be represented by a \texttt{bfo:SpationTemporalRegion}, which \texttt{bfo:temporallyProjectsOnto} the temporal region the object exists at and \texttt{bfo:spatiallyProjectsOntoAtAllTimes} the \texttt{bfo:SpatialRegion} the object occupies (\texttt{occupiesSpatialRegionAtAllTimes}). 
 
 Note that the pattern shows that it is the object's location (a \texttt{bfo:Site}) that \texttt{occupiesSpatialRegion\\AtAllTimes}. However, an object also occupies the same spatial region that its location occupies. Therefore, this pattern can also be used by directly relating the object to a spatial region by \texttt{occupiesSpa\\tialRegionAtAllTimes}. The choice depends on the kind of location, which is detailed in \cref{?chapter-space-location}.   
 
-Note further that a \texttt{SpatioTemporalRegion} cannot project onto two or more different \texttt{bfo:SpatialRegio\\n}s while projecting on a single \texttt{bfo:TemporalRegion}, as an object cannot be at two different locations at the same time. But it can be in the same location at different times. Therefore, a \texttt{SpatioTemporalRegion} can project onto two or more different \texttt{bfo:TemporalRegion} while projecting on a single \texttt{bfo:SpatialReg\\ion}. However, the data mapping becomes easier if one pair of temporal and spatial regions is related to each spatio-temporal region. If the object is in the same location at different times, two spatio-temporal regions can relate each temporal region to the same spatial region. Observe that these two spatio-temporal regions are simply parts of the spatio-temporal region that projects onto two temporal regions. Therefore, they capture the same semantics while making data mapping easier.     
+Note further that a \texttt{SpatioTemporalRegion} cannot project onto two or more different instances of \texttt{bfo:SpatialRegion} while projecting on a single \texttt{bfo:TemporalRegion}, as an object cannot be at two different locations at the same time. But it can be in the same location at different times. Therefore, a \texttt{SpatioTemporalRegion} can project onto two or more different instances of \texttt{bfo:TemporalRegion} while projecting onto a single \texttt{bfo:SpatialRegion}. However, the data mapping becomes easier if one pair of temporal and spatial regions is related to each spatio-temporal region. If the object is in the same location at different times, two spatio-temporal regions can relate each temporal region to the same spatial region. Observe that these two spatio-temporal regions are simply parts of the spatio-temporal region that projects onto two temporal regions. Therefore, they capture the same semantics while making data mapping easier.     
 
 \subsubsection*{Use Case: Freight Train Location Change} 
 A freight train operated by BNSF Railway hauls coal from Powder River Basin, Wyoming, to the Port of Long Beach in California. It was located at Powder River Basin station at 11:00 AM on Wednesday and then at Long Beach station at midnight on Thursday.
@@ -55,7 +55,7 @@ Train Number & Source             & Destination        & Departure Time & Arriva
 
 \begin{verbatim}
 INSERT DATA {
-    ns1:powder-river-basin a bfo:Site; 
+    ns1:long-beach a bfo:Site; 
                       bfo:occupiesSpatialRegionAtAllTimes ns1:spatial-region-long-beach.
     ns1:powder-river-basin a bfo:Site; 
                       bfo:occupiesSpatialRegionAtAllTimes ns1:spatial-region-powder-river-basin.
@@ -157,4 +157,6 @@ ns1:SiteShape a sh:NodeShape ;
         sh:class bfo:SpatialRegion ;
         sh:minCount 1 ;
     ] .
+
+Q. 1: How many 
 \end{verbatim}
