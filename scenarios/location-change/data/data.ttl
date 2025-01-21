@@ -1,31 +1,25 @@
-_:b0    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
-
 [ a       <http://purl.obolibrary.org/obo/Site> ;
   <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
           _:b0 ;
   <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
-          "Long Beach"
+          "Powder River Basin"
 ] .
 
-_:b1    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+[ a       <http://purl.obolibrary.org/obo/Site> ;
+  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
+          _:b1 ;
+  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
+          "Powder River Basin"
+] .
 
 _:b2    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
 
 [ a       <http://purl.obolibrary.org/obo/Site> ;
   <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b3 ;
+          _:b2 ;
   <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
           "Long Beach"
 ] .
-
-[ a       <http://purl.obolibrary.org/obo/Site> ;
-  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b4 ;
-  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
-          "Long Beach"
-] .
-
-_:b5    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
 
 [ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
   <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
@@ -34,18 +28,70 @@ _:b5    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
           [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
 ] .
 
+[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
+  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
+          _:b4 ;
+  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
+          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
+] .
+
 [ a       <http://purl.obolibrary.org/obo/Site> ;
   <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b6 ;
+          _:b5 ;
+  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
+          "Long Beach"
+] .
+
+[ a       <http://purl.obolibrary.org/obo/Site> ;
+  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
+          _:b4 ;
   <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
           "Powder River Basin"
 ] .
 
 [ a       <http://purl.obolibrary.org/obo/Site> ;
   <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b2 ;
+          _:b6 ;
+  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
+          "Long Beach"
+] .
+
+_:b4    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+
+_:b5    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+
+[ a       <http://purl.obolibrary.org/obo/Site> ;
+  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
+          _:b7 ;
   <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
           "Powder River Basin"
+] .
+
+[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
+  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
+          _:b1 ;
+  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
+          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
+] .
+
+_:b0    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+
+_:b3    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+
+_:b7    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
+
+[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
+  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
+          _:b7 ;
+  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
+          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
+] .
+
+[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
+  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
+          _:b6 ;
+  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
+          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
 ] .
 
 _:b6    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
@@ -57,25 +103,13 @@ _:b6    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
           [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
 ] .
 
-[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
-  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
-          _:b4 ;
-  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
-          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
-] .
+_:b1    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
 
 [ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
   <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
           _:b0 ;
   <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
           [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
-] .
-
-[ a       <http://purl.obolibrary.org/obo/Site> ;
-  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b1 ;
-  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
-          "Powder River Basin"
 ] .
 
 [ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
@@ -87,41 +121,7 @@ _:b6    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
 
 [ a       <http://purl.obolibrary.org/obo/Site> ;
   <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b5 ;
-  <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
-          "Powder River Basin"
-] .
-
-_:b7    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
-
-_:b4    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
-
-[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
-  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
-          _:b7 ;
-  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
-          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
-] .
-
-[ a       <http://purl.obolibrary.org/obo/Site> ;
-  <http://purl.obolibrary.org/obo/occupiesSpatialRegionAtAllTimes>
-          _:b7 ;
+          _:b3 ;
   <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
           "Long Beach"
-] .
-
-[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
-  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
-          _:b6 ;
-  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
-          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
-] .
-
-_:b3    a       <http://purl.obolibrary.org/obo/SpatialRegion> .
-
-[ a       <http://purl.obolibrary.org/obo/SpatioTemporalRegion> ;
-  <http://purl.obolibrary.org/obo/spatiallyProjectsOntoAtAllTimes>
-          _:b1 ;
-  <http://purl.obolibrary.org/obo/temporallyProjectsOnto>
-          [ a       <http://purl.obolibrary.org/obo/TemporalInstant> ]
 ] .
