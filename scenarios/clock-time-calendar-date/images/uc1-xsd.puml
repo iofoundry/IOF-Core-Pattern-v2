@@ -1,0 +1,19 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+oClass(bfo:Process)
+oClass(bfo:TemporalInterval)
+oClass(iof:TemporalInstantValueExpression)
+oClass(bfo:TemporalInstant)
+oIndividual(ns1:launch-of-iphone)
+typeOf(ns1:launch-of-iphone, bfo:Process)
+oIndividual(ns1:launch-interval)
+typeOf(ns1:launch-interval, bfo:TemporalInterval)
+property(ns1:launch-of-iphone, iof:occupiesTemporalRegion, ns1:launch-interval, right)
+oIndividual(ns1:launch-start-time)
+typeOf(ns1:launch-start-time, bfo:TemporalInstant)
+property(ns1:launch-interval, bfo:hasFirstInstant, ns1:launch-start-time, right)
+oIndividual(ns1:instant-expression-xsd)
+typeOf(ns1:instant-expression-xsd, iof:TemporalInstantValueExpression)
+property(ns1:launch-start-time, iof:hasValueExpressionAtAllTimes, ns1:instant-expression-xsd, right)
+data(ns1:instant-expression-xsd, iof:hasDateTimeInstantValue, 2007-06-29T18:00:00Z)
+@enduml
