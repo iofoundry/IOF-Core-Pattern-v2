@@ -31,13 +31,13 @@ This use case illustrates the execution of a machine learning model, \texttt{mut
 
 \subsection*{Actors and Dependencies}  
 \begin{itemize}
-    \item The \texttt{mutltilayerperceptron}  \texttt{generically depends on} a \texttt{computer} (an instance of \texttt{Agent}) that \texttt{participates in} the \texttt{machine-learning-execution} (an instance of \texttt{ComputingProcess}.
-    \item M\texttt{machine-learning-execution} relies on (\texttt{hasInput}) measured values associated with the drill and the drilling process as input data (represented as various instances of \texttt{MeasuredValueExpression}.
+    \item The \texttt{mutltilayerperceptron}  \texttt{generically depends on} a \texttt{computer} (an instance of \texttt{Agent}) that \texttt{participates in} the \texttt{machine-learning-execution} (an instance of \texttt{ComputingProcess}).
+    \item The \texttt{machine-learning-execution} relies on (\texttt{hasInput}) measured values associated with the drill and the drilling process as input data (represented as various instances of \texttt{MeasuredValueExpression}).
 \end{itemize}
 
 \subsection*{Process and Output}  
 \begin{itemize}
-    \item The model execution produces (\texttt{has-specified-output}) a \texttt{classification-result}, an instance of \texttt{ValueExpression}.
+    \item The \texttt{machine-learning-execution} produces (\texttt{has-specified-output}) a \texttt{classification-result}, an instance of \texttt{ValueExpression}.
     \item The \texttt{classification-result} can take one of two possible values, represented by the \texttt{hasSimpleExpressionValue} property:
     \begin{enumerate}
         \item \texttt{NOT-FAILURE}
@@ -57,9 +57,9 @@ For details on connecting measured values with their respective entities, please
 
 \subsubsection*{Use-Case Example Data}
 
-For this use case a publicly available dataset was used: Predictive Maintenance⚙️ 
+For this use case a publicly available dataset was used: \href{https://www.kaggle.com/code/zakikurdya/predictive-maintenance}{Predictive Maintenance}⚙️ 
 
-The dataset is a single CSV table consisting of the columns: ‘tool wear’, ‘air temperature’, ‘process temperature’, ‘torque’,’rotational speed’, ‘type’ and ‘product ID’, ‘failure type’.
+The dataset is a single CSV table consisting of the columns: ‘product ID’, ‘type’, ‘air temperature’, ‘process temperature’, ’rotational speed’, ‘torque’, ‘tool wear’, ‘target’, and ‘failure type’.
 
 \begin{tabularx}{\textwidth}{|l|X|X|X|X|X|X|X|X|X|X|}
 \hline
@@ -69,7 +69,7 @@ L47181     & L    & 298.2                   & 308.7                       & 1408
 L47182     & L    & 298.1                   & 308.5                       & 1498                       & 49.4            & 5                   & 0      & No Failure   \\ \hline
 \end{tabularx}
 
-For prediction purposes, type and Product ID are omitted and are as such not included in the RDF. The model outputs the entries of the  target column which is then converted to 'No-failure' or 'Failure'. For brevity, conversion of target to failure type is omitted.
+For prediction purposes, type and Product ID are omitted and are as such not included in the RDF. The model outputs the entries of the target column which is then converted to 'No-failure' or 'Failure'. For brevity, conversion of target to failure type is omitted.
 \subsubsection*{Data Mapping Description}
 
 \begin{verbatim}
