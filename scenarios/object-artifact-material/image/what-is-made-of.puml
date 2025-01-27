@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+
+class(c1, bfo:MaterialEntity)
+class(c2, bfo:Component)
+
+individual(o1, ns1:table)
+individual(o2, ns1:tempered-glass-top)
+individual(o3, ns1:steel-rectangular-frame)
+individual(o4, ns1:steel-round-leg)
+individual(o5, ns1:nylon-rubber-wheel)
+
+property(o1, bfo:hasContinuantPartAtSomeTime, o2, down)
+property(o1, bfo:hasContinuantPartAtSomeTime, o3, down)
+property(o1, bfo:hasContinuantPartAtSomeTime, o4, down)
+property(o1, bfo:hasContinuantPartAtSomeTime, o5, down)
+
+typeOf(o1, c1)
+typeOf(o2, c2)
+typeOf(o3, c2)
+typeOf(o4, c2)
+typeOf(o5, c2)
+
+@enduml

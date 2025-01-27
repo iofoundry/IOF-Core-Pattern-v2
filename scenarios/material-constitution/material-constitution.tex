@@ -1,34 +1,30 @@
-\section{What an Object is Made of}
+\section{object vs artifact}
 \label{chapter-scenario-template}
 
 \textbf{Created by:} Perawit Charoenwut \\
 \textbf{Modified by:}
 
 \subsection*{Scenario Objective}
-This scenario illustrates how to represent what materials an object is made of using the IOF/BFO ontology framework. It focuses on representing what components make up an object.
 
+An object is constituted of one or more materials. In this scenario, the bfo:Object is related to multiple core:MaterialComponent via the bfo:has continuant part at some. Each core:MaterialComponent is related to a bfo:quality via the bfo:bearerOf.
 \subsection*{General Pattern Description}
 
 \includegraphics[scale=0.5]{scenarios/object-artifact-material/image/what-is-made-of-schema.png}
-
 A material entity (bfo:MaterialEntity) may be composed of multiple components (iof:Component). The relationships between a material entity and its components are represented using bfo:hasContinuantPartAtSomeTime.
 
 \subsection*{Use Case: Glass Top Steel Table}
 A modern table with a tempered glass top and stainless steel frame demonstrates how different materials compose different parts of an object.
 
-\subsection*{Use Case Pattern Description}
-
-\includegraphics[scale=0.5]{scenarios/object-artifact-material/image/what-is-made-of.png}
-
-The table (ns1:table) is represented as a bfo:MaterialEntity that has four main components:
-
+\subsubsection*{Use-Case Pattern Description}
+The table is a bfo:Object. It has three main material components that are instances of core:MaterialComponent: 
 \begin{itemize}
-    \item A tempered glass top (ns1:glass-top)
-    \item A stainless steel frame (ns1:steel-frame)component for the frame
-    \item Steel legs (ns1:steel-leg)
-    \item Nylon wheels (ns1:nylon-wheel)
+    \item Tempered glass component for the top
+    \item Stainless steel rectangle tube component for the frame
+    \item Stainless steel round rod component for the legs
+    \item Nylon wheels with rubber coating
 \end{itemize}
 
+Each component specifies its material type and quality
 \subsubsection*{Use-Case Example Data}
 \begin{table}[h]
 % \caption{}
