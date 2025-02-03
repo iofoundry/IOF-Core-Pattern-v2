@@ -13,18 +13,24 @@ This scenario illustrates how to associate clock time and calendar dates with th
 
 \includegraphics[scale=0.28]{scenarios/clock-time-calendar-date/images/general-clock-calendar.png}
 
+the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \texttt{TemporalInstantValueExpression} or OWL-Time class \texttt{time:General\\DateTimeDescription} as both are subclass of \texttt{time:TemporalPosition} (\texttt{core:TemporalInstantValue\\Expression} is mapped as subclass of \texttt{time:TemporalPosition}.  
+
 \subsubsection*{Use Case: Launch of first iPhone} 
-The original iPhone was first launched on June 29, 2007 during the Macworld Conference \& Expo in San Francisco, California. In the following three patterns, the date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
+The original iPhone was first launched on June 29, 2007 during the Macworld Conference \& Expo in San Francisco, California. 
+
+The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
 
 \subsubsection*{Use-Case Pattern Description}
 
-\paragraph{XSD dateTime format \\}
+\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-dow-mn.png}
 
-\includegraphics[scale=0.29]{scenarios/clock-time-calendar-date/images/uc1-xsd.png}
+The launch date and time are expressed in three different ways.  
 
-The above pattern shows that the IOF Core data property \texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
+\texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
 
-\paragraph{Custom date and time format \\}
+\paragraph{various other standard \\}
+
+In the above pattern, the launch date and time of the iPhone in New York are expressed in the day of the week and the month's name.     
 
 
 
