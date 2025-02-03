@@ -28,10 +28,15 @@ The launch date and time are expressed in three different ways.
 
 \texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
 
-\paragraph{various other standard \\}
+\paragraph{Other components of a clock time \\}
 
-In the above pattern, the launch date and time of the iPhone in New York are expressed in the day of the week and the month's name.     
+In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}. 
 
+\paragraph{Using custom clock time format \\}
+
+GPS Time is the number of seconds since an epoch in 1980, encoded as the number of weeks + seconds into the week. A new class \texttt{GPSTimeDescription} is extended from \texttt{time:DateTimeDescription} by referring to the specification at \url{https://www.ipses.com/eng/products/gps-timing-and-frequency/} as its \texttt{time:TemporalReferenceSystem}. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class has cardinality restriction on data properties \texttt{time:second} and \texttt{time:week}.
+
+A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e. numeric offset from an epoch); (c) temporal ordinal reference systems (i.e. ordered sequence of named intervals, not necessarily of equal duration).
 
 
 \subsubsection*{Data Mapping Description}
