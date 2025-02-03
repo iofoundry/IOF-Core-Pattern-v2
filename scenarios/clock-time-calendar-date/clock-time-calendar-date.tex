@@ -1,4 +1,4 @@
-\section{Associating clock time and calendar date}
+\section{Clock time and calendar date}
 \label{sec-change-location}
 
 \textbf{Created by:} Arkopaul Sarkar \\
@@ -30,7 +30,8 @@ The launch date and time are expressed in three different ways.
 
 \paragraph{Other components of a clock time \\}
 
-In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}. 
+In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}.
+Various combinations of data properties of \texttt{GeneralisedDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \texttt{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \texttt{time:timeZone} property.       
 
 \paragraph{Using custom clock time format \\}
 
@@ -44,13 +45,23 @@ In the above pattern the launch date is expressed in `GPS time'. As GPS time is 
 \begin{verbatim}
 INSERT DATA {
     ns1:launch-of-iphone a bfo:Process;
-                         bfo:occupiesTemporalRegion ns1:launch-interval;
+                        bfo:occupiesTemporalRegion ns1:launch-interval.
     ns1:launch-interval a bfo:TemporalInterval;
                         iof:hasFirstInstant ns1:launch-start-time.
     ns1:launch-start-time a bfo:TemporalInstant;
-                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-xsd.
-    ns1:instant-expression-xsd a iof:TemporalInstantValueExpression; 
-                        iof:hasDateTimeInstantValue 2007-06-29T18:00:00Z^^xsd:dateTime.
+                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-xsd;
+                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-month;
+                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-dow;
+                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-gps.
+    ns1:instant-expression-xsd a iof:TemporalInstantValueExpression;
+                        iof:hasDateTimeInstantValue "2007-06-29T18:00:00Z"^^xsd:dateTime.
+    ns1:instant-expression-month a time:DateTimeDescription;
+                        time:month "--06"^^xsd:gMonth.
+    ns1:instant-expression-dow a time:DateTimeDescription;
+                        time:dayOfWeek time:Friday.
+    ns1:instant-expression-gps a ns:GPSTimeDescription;
+                        time:week "1430"^^xsd:decimal;
+                        time:second "324018"^^xsd:decimal. 
 }
 \end{verbatim}
 
