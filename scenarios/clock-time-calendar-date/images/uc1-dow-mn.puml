@@ -23,7 +23,6 @@ typeOf(time:Friday, time:DayOfWeek)
 property(ns1:time-instant-expression1, time:dayOfWeek, time:Friday, down)
 
 oIndividual(ns1:time-instant-expression2)
-oClass(time:DateTimeDescription)
 typeOf(ns1:time-instant-expression2, time:DateTimeDescription)
 property(ns1:launch-start-time, iof:hasValueExpressionAtAllTimes, ns1:time-instant-expression2, down)
 data(ns1:time-instant-expression2, time:month, --06^^xsd:gMonth)
@@ -33,5 +32,6 @@ oClass(iof:TemporalInstantValueExpression)
 typeOf(ns1:time-instant-expression3, iof:TemporalInstantValueExpression)
 property(ns1:launch-start-time, iof:hasValueExpressionAtAllTimes, ns1:time-instant-expression3, down)
 data(ns1:time-instant-expression3, iof:hasDateTimeInstantValue, 2007-06-29T18:00:00Z)
+
 
 @enduml
