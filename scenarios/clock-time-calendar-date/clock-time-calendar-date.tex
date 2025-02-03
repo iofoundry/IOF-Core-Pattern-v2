@@ -34,9 +34,9 @@ In the above pattern, the launch date and time of the iPhone in New York are exp
 
 \paragraph{Using custom clock time format \\}
 
-GPS Time is the number of seconds since an epoch in 1980, encoded as the number of weeks + seconds into the week. A new class \texttt{GPSTimeDescription} is extended from \texttt{time:DateTimeDescription} by referring to the specification at \url{https://www.ipses.com/eng/products/gps-timing-and-frequency/} as its \texttt{time:TemporalReferenceSystem}. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class has cardinality restriction on data properties \texttt{time:second} and \texttt{time:week}.
+\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-custom.png}
 
-A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e. numeric offset from an epoch); (c) temporal ordinal reference systems (i.e. ordered sequence of named intervals, not necessarily of equal duration).
+In the above pattern the launch date is expressed in `GPS time'. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class  \texttt{GPSTimeDescription}, extended from \texttt{time:DateTimeDescription}, should contain values for data properties \texttt{time:second} and \texttt{time:week}. The example does not provide details of \texttt{GPSTimeSystem}, which is a \texttt{time:TemporalReferenceSystem}, and may refer to a suitable description of `GPS time', e.g., A taxonomy of temporal reference systems is provided in ISO 19108:2002. 
 
 
 \subsubsection*{Data Mapping Description}
