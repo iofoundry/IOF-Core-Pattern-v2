@@ -1,0 +1,31 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1, iof:Organization)
+class(c2, iof:BusinessOrganization)
+class(c3, iof:BusinessFunction)
+class(c4, iof:SellingBusinessProcess)
+
+class(c5, iof:Manufacturer)
+class(c6, iof:ManufacturerRole)
+class(c7, iof:ProductProductionProcess)
+
+class(c8, iof:MaterialProduct)
+
+
+subClass(c2, c1)
+subClass(c5, c1)
+
+
+
+xSome(c2,iof:hasFunction, c3,"",left)
+xSome(c3, bfo:realize, c4,"", down)
+xSome(c4, iof:hasParticipantAtSomeTime, c8,"", down)
+
+xSome(c5,iof:hasRole, c6,"", right)
+xSome(c6, bfo:realize, c7,"", down)
+xSome(c7, iof:hasOutput, c8,"", down)
+
+
+
+
+@enduml

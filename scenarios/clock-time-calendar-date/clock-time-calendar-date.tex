@@ -65,6 +65,26 @@ INSERT DATA {
 }
 \end{verbatim}
 
+\texttt{ns:GPSTimeDescription} class has a temporal reference system as \texttt{ns:GPSTimeSystem}, which refer to the specification of GPS time format. Following the standard, a \texttt{GPSTimeDescription} has a 
+
+\begin{verbatim}
+:GPSTimeDescription rdf:type owl:Class ;
+    rdfs:subClassOf 
+    <http://www.w3.org/2006/time#GeneralDateTimeDescription> ,
+    [ rdf:type owl:Restriction ;
+        owl:onProperty <http://www.w3.org/2006/time#hasTRS> ;
+        owl:hasValue :GPSTimeSystem
+    ] ,
+    [ rdf:type owl:Restriction ;
+        owl:onProperty <http://www.w3.org/2006/time#unitType> ;
+        owl:hasValue <http://www.w3.org/2006/time#unitSecond>
+    ] .    
+
+:GPSTimeSystem rdf:type owl:NamedIndividual ,
+    <http://www.w3.org/2006/time#TRS> ;
+    AnnotationVocabulary:adaptedFrom "https://en.wikipedia.org/?title=GPS_time" .
+\end{verbatim}
+
 
 \subsubsection*{Data Validation}
 

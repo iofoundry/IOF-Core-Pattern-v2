@@ -1,0 +1,22 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1,iof:MeasurementProcess)
+class(c2,iof:MeasurementInformationContentEntity)
+class(c3,iof:MaterialEntity)
+class(c7,iof:MaterialEntity)
+class(c8,bfo:SpecificallyDependentContinuant)
+class(c9,iof:ComputingProcess)
+class(c10,iof:ValueExpression)
+
+
+xSome(c1,iof:hasSpecifiedOutput,c2)
+xSome(c1,bfo:hasParticipant,c3,$direction = down)
+xSome(c1,iof:hasInput,c8,$direction = up)
+xSome(c2,iof:isMeasuredValueOfAtSomeTime,c8)
+xSome(c3,iof:measuresAtSomeTime,c8)
+xSome(c7,bfo:bearerOf,c8)
+xSome(c2,iof:isAbout,c7)
+xSome(c9,iof:hasInput,c2)
+xSome(c9,iof:hasSpecifiedOutput,c10,$direction = down)
+
+@enduml

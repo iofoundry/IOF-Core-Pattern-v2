@@ -1,0 +1,50 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1, iof:Organization)
+class(c2, iof:BusinessOrganization)
+class(c3, iof:BusinessFunction)
+class(c4, iof:SellingBusinessProcess)
+
+class(c5, iof:Manufacturer)
+class(c6, iof:ManufacturerRole)
+class(c7, iof:ProductProductionProcess)
+
+class(c8, iof:MaterialProduct)
+
+subClass(c2, c1, down)
+subClass(c5, c1, down)
+
+individual(o1, ns1:ge-aerospace)
+individual(o2, ns1:jet-engine-selling-function)
+individual(o3, ns1:jet-engine-selling-process)
+
+individual(o4, ns1:jet-engine-production-role)
+individual(o5, ns1:jet-engine-production-process)
+
+individual(o6, ns1:jet-engine)
+
+typeOf(o1, c2)
+typeOf(o1, c5)
+typeOf(o2, c3)
+typeOf(o3, c4)
+typeOf(o4, c6)
+typeOf(o5, c7)
+typeOf(o6, c8)
+
+property(o1,iof:hasFunction, o2,down)
+property(o2, bfo:realize, o3, down)
+property(o3, iof:hasParticipantAtSomeTime, o6,right)
+
+property(o1,iof:hasRole, o4, down)
+property(o4, bfo:realize, o5, down)
+property(o5, iof:hasOutput, o6, left)
+
+' xSome(c3, bfo:realize, c4,"", down)
+' xSome(c4, bfo:hasParticipantAtSomeTime, c8,"", down)
+
+' xSome(c5,iof:hasRole, c6,"", right)
+' xSome(c6, bfo:realize, c7,"", down)
+' xSome(c7, bfo:hasOutput, c8,"", down)
+
+
+@enduml
