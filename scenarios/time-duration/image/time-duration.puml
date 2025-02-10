@@ -1,0 +1,23 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+oClass(iof:TemporalDurationValueExpression)
+oClass(bfo:TemporalInterval)
+xSome(iof:TemporalDurationValueExpression, iof:isValueExpressionOfAtAllTimes, bfo:TemporalInterval, "", up)
+oClass(time:TemporalDuration)
+equivalent(iof:TemporalDurationValueExpression, time:TemporalDuration, right)
+oClass(time:DurationDescription)
+subClass(time:DurationDescription, time:TemporalDuration)
+oClass(time:TemporalUnit)
+xSome(time:DurationDescription, time:unitType, time:TemporalUnit, "", down)
+oClass(time:TRS)
+xOnly(time:DurationDescription, time:hasTRS, time:TRS, "", right)
+xOnlyData(time:DurationDescription, time:years, xsd:decimal)
+xOnlyData(time:DurationDescription, time:months, xsd:decimal)
+xOnlyData(time:DurationDescription, time:days, xsd:decimal)
+xOnlyData(time:DurationDescription, time:hours, xsd:decimal)
+xOnlyData(time:DurationDescription, time:minutes, xsd:decimal)
+xOnlyData(time:DurationDescription, time:seconds, xsd:decimal)
+oClass(time:Duration)
+subClass(time:Duration, time:TemporalDuration)
+xSomeData(time:Duration, time:numericDuration, xsd:decimal, "[1]", right)
+@enduml

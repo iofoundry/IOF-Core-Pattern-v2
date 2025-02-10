@@ -1,0 +1,76 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix bfo:   <http://purl.obolibrary.org/obo/bfo#> .
+@prefix iof:   <http://example.org/iof#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix ns1:   <http://example.org/ns1#> .
+@prefix ns:    <http://example.org/ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+
+#################################################################
+# Shape for bfo:TemporalInstant nodes (e.g. ns1:launch-start-time)
+#################################################################
+ns1:TemporalInstantShape a sh:NodeShape ;
+    sh:targetClass bfo:TemporalInstant ;
+    sh:property [
+        sh:path iof:hasValueExpressionAtAllTimes ;
+        sh:or ( 
+            [ sh:class iof:TemporalInstantValueExpression ]
+            [ sh:class time:GeneralizedDateTimeDescription ]
+        ) ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Shape for ns1:instant-expression-xsd
+#################################################################
+ns1:InstantExpressionShape a sh:NodeShape ;
+    sh:targetNode iof:TemporalInstantValueExpression ;
+    sh:property [
+        sh:path iof:isValueExpressionOfAtAllTimes ;
+        sh:datatype xsd:dateTime ;
+        # The pattern ensures that only the expected literal is allowed.
+        sh:pattern "^2007-06-29T18:00:00Z$" ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Shape for ns1:instant-expression-month
+#################################################################
+ns1:InstantExpressionMonthShape a sh:NodeShape ;
+    sh:targetNode ns1:instant-expression-month ;
+    sh:property [
+        sh:path time:month ;
+        sh:datatype xsd:gMonth ;
+        sh:pattern "^--06$" ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Shape for ns1:instant-expression-dow
+#################################################################
+ns1:InstantExpressionDowShape a sh:NodeShape ;
+    sh:targetNode ns1:instant-expression-dow ;
+    sh:property [
+        sh:path time:dayOfWeek ;
+        sh:hasValue time:Friday ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Shape for ns1:instant-expression-gps
+#################################################################
+ns1:InstantExpressionGPSShape a sh:NodeShape ;
+    sh:targetNode ns1:instant-expression-gps ;
+    sh:property [
+        sh:path time:week ;
+        sh:datatype xsd:decimal ;
+        sh:hasValue "1430"^^xsd:decimal ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path time:second ;
+        sh:datatype xsd:decimal ;
+        sh:hasValue "324018"^^xsd:decimal ;
+        sh:minCount 1 ;
+    ] .

@@ -1,19 +1,42 @@
-<http://www.w3.org/2001/XMLSchema#launch-interval>
-        a       <http://purl.obolibrary.org/obo/TemporalInterval> ;
-        <https://spec.industrialontologies.org/ontology/core/Core/hasFirstInstant>
-                <http://www.w3.org/2001/XMLSchema#launch-start-time> .
+<http://www.example.com/data/launch-start-time>
+        a       <http://purl.obolibrary.org/obo/TemporalInstant> .
 
-<http://www.w3.org/2001/XMLSchema#instant-expression-xsd>
+<http://www.example.com/data/instant-expression-xsd>
         a       <https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression> ;
         <https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue>
-                "2007-06-29T18:00:00Z"^^<http://www.w3.org/#dateTime> .
+                "2007-06-29T18:00:00Z"^^<http://www.w3.org/#dateTime> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/launch-start-time> .
 
-<http://www.w3.org/2001/XMLSchema#launch-of-iphone>
+<http://www.example.com/data/launch-of-iphone>
         a       <http://purl.obolibrary.org/obo/Process> ;
         <http://purl.obolibrary.org/obo/occupiesTemporalRegion>
-                <http://www.w3.org/2001/XMLSchema#launch-interval> .
+                <http://www.example.com/data/launch-interval> .
 
-<http://www.w3.org/2001/XMLSchema#launch-start-time>
-        a       <http://purl.obolibrary.org/obo/TemporalInstant> ;
-        <https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes>
-                <http://www.w3.org/2001/XMLSchema#instant-expression-xsd> .
+<http://www.example.com/data/launch-interval>
+        a       <http://purl.obolibrary.org/obo/TemporalInterval> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/hasFirstInstant>
+                <http://www.example.com/data/launch-start-time> .
+
+<http://www.example.com/data/instant-expression-gps>
+        a       <http://www.example.com/GPSTimeDescription> ;
+        <http://www.w3.org/2006/time#second>
+                "324018"^^<http://www.w3.org/#decimal> ;
+        <http://www.w3.org/2006/time#week>
+                "1430"^^<http://www.w3.org/#decimal> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/launch-start-time> .
+
+<http://www.example.com/data/instant-expression-dow>
+        a       <http://www.w3.org/2006/time#DateTimeDescription> ;
+        <http://www.w3.org/2006/time#dayOfWeek>
+                <http://www.w3.org/2006/time#Friday> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/launch-start-time> .
+
+<http://www.example.com/data/instant-expression-month>
+        a       <http://www.w3.org/2006/time#DateTimeDescription> ;
+        <http://www.w3.org/2006/time#month>
+                "--06"^^<http://www.w3.org/#gMonth> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/launch-start-time> .
