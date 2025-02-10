@@ -1,0 +1,268 @@
+\chapter{Measurement}
+
+\section{Simple vs Aggregate Measurement}
+\subsection*{Scenario Objective}
+
+
+This scenario demonstrates how to represent measurements within the context of the \textbf{BFO/IOF ontology}. It then also represents how to capture processing simple measurements to get an aggregate result (such as doing an average). 
+
+\subsection*{Key Points}
+\begin{itemize}
+    \item This pattern highlights the connection between a measurement and the attribute that is being measured
+    \item The pattern demonstrates how measurements are processed and introduces a distinction between measured data and process data and its association with an attribute
+    \item For the examples in hand QUDT is used for representing units according to the guide x. It should be noted that using QUDT is not normative for the IOF
+\end{itemize}
+
+\subsection*{General Pattern Description}
+\includegraphics[scale=0.4]{scenarios/measurements/image/measurement_aggregate_general.png}
+
+\subsection{Use case: Measuring protein concentration with a  Bicinchoninic Acid (BCA) Assay}
+Within a laboratory environment protein concentration during batch purification is typically measured by using the BCA assay. The assay is based on a colorimetric detection method, where the analyte reacts with a specific reagent to produce a quantifiable color change. The absorbance of the reaction product is measured at a defined wavelength using a spectrophotometer, with the signal intensity correlating to the analyte concentration according to a pre-established standard curve.  The details of converting absorbance into concentration are excluded in the pattern given here. To capture this conversion ontologically the reader should take a look at [placeholder UC] 
+
+Each concentration measurement is performed in triplicate to ensure accuracy, reproducibility, and compliance with quality control standards. Three independent aliquots (samples) are analyzed under identical experimental conditions, with results recorded separately. The final reported concentration value is then derived from the mean of these replicates. It should be noted that in addition to the mean the standard deviation is reported. However, this is outside of the scope of the pattern. For representing standard deviation the reader can look at [placeholder]
+
+\subsubsection*{Use-Case Pattern Description}
+
+\includegraphics[scale=0.23]{scenarios/measurements/image/measurement_aggregate_usecase1.png}
+\section{Actors}
+The primary actors involved in this use case include:
+\begin{itemize}[noitemsep]
+    \item \textbf{Spectrophotometer:} A material entity that participates in the measurement process by measuring the protein solution.
+    \item \textbf{Measurement Process:} The activity that records the protein concentration from the aliquot.
+    \item \textbf{Protein Solution Aliquot:} The sample containing the protein solution subject to measurement.
+    \item \textbf{Concentration Quality:} The quality or attribute of the protein solution that is being measured.
+    \item \textbf{Measurement Result:} The recorded output from the measurement process, which includes a numerical value and unit.
+    \item \textbf{Computing Process (Average Calculation):} The process that computes an average concentration value from multiple measurement results.
+    \item \textbf{Average Value:} The computed average concentration, which serves as a more reliable representation of the protein concentration.
+\end{itemize}
+
+\subsubsection{Preconditions}
+Before the process can begin:
+\begin{itemize}[noitemsep]
+    \item A protein solution aliquot must be prepared.
+    \item The spectrophotometer must be calibrated and ready for use.
+    \item The ontology and corresponding semantic data model should be in place to accurately capture measurement processes and outcomes.
+\end{itemize}
+
+\subsubsection{Process Steps}
+The process unfolds through the following steps:
+\begin{enumerate}[noitemsep]
+    \item \textbf{Measurement Execution:}
+    \begin{itemize}[noitemsep]
+        \item The spectrophotometer measures the protein concentration of the solution aliquot.
+        \item The measurement process produces a result that includes a concentration value and a unit (MilliMOL-PER-L).
+    \end{itemize}
+    \item \textbf{Data Association:}
+    \begin{itemize}[noitemsep]
+        \item The measurement result is linked to the concentration quality of the protein solution.
+        \item The result is annotated with the appropriate unit of measure to ensure data consistency.
+    \end{itemize}
+    \item \textbf{Average Calculation:}
+    \begin{itemize}[noitemsep]
+        \item A computing process aggregates multiple measurement results.
+        \item An average value is computed, providing a reliable estimate of the protein concentration.
+        \item The computed average is linked back to the protein solution for further reference.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Postconditions}
+After the process is complete:
+\begin{itemize}[noitemsep]
+    \item A verified average protein concentration is stored, complete with its unit.
+    \item The protein solution retains references to both individual measurements and the computed average, ensuring traceability.
+\end{itemize}
+
+\subsubsection*{Use-Case Example Data}
+Three rows of a CSV table are given bellow where each row constitutes an id of the material from which the aliquots are taken from. The concentration of each aliquot and finally the aggregate measurement. 
+Concentrations are reported in g/l.
+
+\begin{table}[ht]
+\centering
+\caption{Triplicate Measurement Data after a purification step (Concentrations in mmol/l)}
+\label{tab:triplicate_measurements}
+\begin{tabular}{lccc c}
+\toprule
+\textbf{Material ID} & \textbf{Aliquot 1 (mmol/l)} & \textbf{Aliquot 2 (mmol/l)} & \textbf{Aliquot 3 (mmol/l)} & \textbf{Aggregate (mmol/l)} \\
+\midrule
+ID001 & 0.45 & 0.46 & 0.455 & 0.455 \\
+ID002 & 0.50 & 0.52 & 0.51  & 0.51  \\
+ID003 & 0.42 & 0.43 & 0.425 & 0.425 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Data Mapping Description}
+
+\begin{verbatim}
+INSERT DATA {
+# Classes
+   ns:AverageCalculation rdfs:subClassOf iof:ComputingProcess .  
+  # Individuals
+  ns1:measurement-process-1 a iof:MeasurementProcess .
+  ns1:measurement-result-1 a iof:MeasurementInformationContentEntity .
+  ns1:protein-solution-aliquot-1 a iof:MaterialEntity .
+  ns1:concentration-1 a bfo:Quality .
+  ns1:spectrophotometer a iof:MaterialEntity .
+  ns1:average-calculation-process-1 a ns:AverageCalculation .
+  ns1:average-value a iof:ValueExpression .
+  ns1:protein-solution a iof:MaterialEntity .
+  qudt:MilliMOL-PER-L a qudt:Unit .
+  
+  # Relationships
+  ns1:measurement-process-1 iof:hasSpecifiedOutput ns1:measurement-result-1 .
+  ns1:measurement-process-1 iof:hasInput ns1:concentration-1 .
+  ns1:measurement-process-1 bfo:hasParticipant ns1:spectrophotometer .
+  
+  ns1:spectrophotometer iof:measuresAtSomeTime ns1:concentration-1 .
+  ns1:protein-solution-aliquot-1 iof:hasQuality ns1:concentration-1 .
+  ns1:measurement-result-1 iof:isMeasuredValueOfAtSomeTime ns1:concentration-1 .
+  ns1:measurement-result-1 iof:isAbout ns1:concentration-1 .
+  
+  ns1:measurement-result-1 qudt:hasUnit qudt:MilliMOL-PER-L .
+  ns1:measurement-result-1 core:hasSimpleExpressionValue "0.45" .
+  
+  ns1:average-calculation-process-1 iof:hasInput ns1:measurement-result-1 .
+  ns1:average-calculation-process-1 iof:hasSpecifiedOutput ns1:average-value .
+  ns1:average-value iof:isValueExpressionOfAtSomeTime ns1:protein-solution .
+  ns1:average-value core:hasSimpleExpressionValue "0.455" .
+  ns1:average-value qudt:hasUnit qudt:MilliMOL-PER-L .
+  
+  ns1:protein-solution-aliquot-1 bfo:continuantPartOfAtSomeTime ns1:protein-solution .
+  
+  # Additional measurement instances (measurement 2 & 3 follow the same pattern)
+  ns1:measurement-process-2 a iof:MeasurementProcess .
+  ns1:measurement-result-2 a iof:MeasurementInformationContentEntity .
+  ns1:protein-solution-aliquot-2 a iof:MaterialEntity .
+  ns1:concentration-2 a bfo:Quality .
+  
+  ns1:measurement-process-2 iof:hasSpecifiedOutput ns1:measurement-result-2 .
+  ns1:measurement-process-2 iof:hasInput ns1:concentration-2 .
+  ns1:measurement-process-2 bfo:hasParticipant ns1:spectrophotometer .
+  
+  ns1:spectrophotometer iof:measuresAtSomeTime ns1:concentration-2 .
+  ns1:protein-solution-aliquot-2 iof:hasQuality ns1:concentration-2 .
+  ns1:measurement-result-2 iof:isMeasuredValueOfAtSomeTime ns1:concentration-2 .
+  ns1:measurement-result-2 iof:isAbout ns1:concentration-2 .
+  
+  ns1:measurement-result-2 qudt:hasUnit qudt:MilliMOL-PER-L .
+  ns1:measurement-result-2 core:hasSimpleExpressionValue "0.46" .
+  
+  ns1:protein-solution-aliquot-2 bfo:continuantPartOfAtSomeTime ns1:protein-solution .
+  
+  ns1:measurement-process-3 a iof:MeasurementProcess .
+  ns1:measurement-result-3 a iof:MeasurementInformationContentEntity .
+  ns1:protein-solution-aliquot-3 a iof:MaterialEntity .
+  ns1:concentration-3 a bfo:Quality .
+  
+  ns1:measurement-process-3 iof:hasSpecifiedOutput ns1:measurement-result-3 .
+  ns1:measurement-process-3 iof:hasInput ns1:concentration-3 .
+  ns1:measurement-process-3 bfo:hasParticipant ns1:spectrophotometer .
+  
+  ns1:spectrophotometer iof:measuresAtSomeTime ns1:concentration-3 .
+  ns1:protein-solution-aliquot-3 iof:hasQuality ns1:concentration-3 .
+  ns1:measurement-result-3 iof:isMeasuredValueOfAtSomeTime ns1:concentration-3 .
+  ns1:measurement-result-3 iof:isAbout ns1:concentration-3 .
+  
+  ns1:measurement-result-3 qudt:hasUnit qudt:MilliMOL-PER-L .
+  ns1:measurement-result-3 core:hasSimpleExpressionValue "0.455" .
+  
+  ns1:protein-solution-aliquot-3 bfo:continuantPartOfAtSomeTime ns1:protein-solution .
+}
+
+\end{verbatim}
+
+\subsubsection*{Data Validation}
+
+\begin{verbatim}
+# Shape for MeasurementProcess
+ns:MeasurementProcessShape a sh:NodeShape;
+    sh:targetClass iof:MeasurementProcess;
+    sh:property [
+        sh:path iof:hasSpecifiedOutput;
+        sh:class iof:MeasurementInformationContentEntity;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path iof:hasInput;
+        sh:class bfo:Quality;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path bfo:hasParticipant;
+        sh:class iof:MaterialEntity;
+        sh:minCount 1;
+    ].
+
+# Shape for MeasurementInformationContentEntity
+ns:MeasurementResultShape a sh:NodeShape;
+    sh:targetClass iof:MeasurementInformationContentEntity;
+    sh:property [
+        sh:path iof:isMeasuredValueOfAtSomeTime;
+        sh:class bfo:Quality;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ];
+    sh:property [
+        sh:path iof:isAbout;
+        sh:class bfo:Quality;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path qudt:hasUnit;
+        sh:class qudt:Unit;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path core:hasSimpleExpressionValue;
+        sh:datatype xsd:string;
+        sh:minCount 1;
+    ].
+
+# Shape for Average Calculation Process
+ns:AverageCalculationShape a sh:NodeShape;
+    sh:targetClass iof:ComputingProcess;
+    sh:property [
+        sh:path iof:hasInput;
+        sh:class iof:MeasurementInformationContentEntity;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path iof:hasSpecifiedOutput;
+        sh:class iof:ValueExpression;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ].
+
+# Shape for ValueExpression
+ns:ValueExpressionShape a sh:NodeShape;
+    sh:targetClass iof:ValueExpression;
+    sh:property [
+        sh:path iof:isValueExpressionOfAtSomeTime;
+        sh:class iof:MaterialEntity;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path core:hasSimpleExpressionValue;
+        sh:datatype xsd:string;
+        sh:minCount 1;
+    ];
+    sh:property [
+        sh:path qudt:hasUnit;
+        sh:class qudt:Unit;
+        sh:minCount 1;
+    ].
+
+\end{verbatim}
+\section{Unitless measurements}
+count, percentage. ratio
+
+\section{Multiple measurements of the same object at the same time}
+different measurement processes 
+measurements using different instruments
+
+\section{Time-series measurement}
+(process characteristics)
+
+\section{uncertainty, range of values}
+if time permits
+

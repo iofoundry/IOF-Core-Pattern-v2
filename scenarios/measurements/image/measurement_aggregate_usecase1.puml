@@ -1,0 +1,108 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+class(c1,iof:MeasurementProcess)
+class(c2,iof:MeasurementInformationContentEntity)
+class(c7,iof:MaterialEntity)
+class(c8,bfo:Quality)
+class(c9,ns:AverageCalculation)
+class(c0,iof:ValueExpression)
+class(c18,bfo:SpecificallyDependentContinuant)
+class(c19,iof:ComputingProcess)
+class(c29,qudt:Unit)
+
+subClass(c8,c18)
+subClass(c9,c19)
+individual(o1, ns1:measurement-process-1)
+individual(o2, ns1:measurement-result-1)
+individual(o4, ns1:protein-solution-aliquot-1)
+individual(o5, ns1:concentration-1)
+
+individual(o11, ns1:measurement-process-2)
+individual(o12, ns1:measurement-result-2)
+individual(o14, ns1:protein-solution-aliquot-2)
+individual(o15, ns1:concentration-2)
+
+individual(o21, ns1:measurement-process-3)
+individual(o22, ns1:measurement-result-3)
+individual(o24, ns1:protein-solution-aliquot-3)
+individual(o25, ns1:concentration-3)
+
+individual(o3, ns1:spectrophotometer)
+individual(o6, ns1:average-calculation-process-1)
+individual(o7, ns1:average-value)
+individual(o8, ns1:protein-solution)
+
+individual(o31, qudt:MilliMOL-PER-L)
+
+typeOf(o1, c1)
+typeOf(o2, c2)
+typeOf(o4, c7)
+typeOf(o5, c8)
+
+typeOf(o11, c1)
+typeOf(o12, c2)
+typeOf(o14, c7)
+typeOf(o15, c8)
+
+typeOf(o21, c1)
+typeOf(o22, c2)
+typeOf(o24, c7)
+typeOf(o25, c8)
+
+typeOf(o3, c7)
+typeOf(o6, c9)
+typeOf(o7, c0)
+typeOf(o8, c7)
+
+typeOf(o31, c29)
+
+property(o1, iof:hasSpecifiedOutput, o2,$direction = down)
+property(o11, iof:hasSpecifiedOutput, o12,$direction = down)
+property(o21, iof:hasSpecifiedOutput, o22,$direction = down)
+
+property(o1, iof:hasInput, o5,$direction = up)
+property(o11, iof:hasInput, o15,$direction = up)
+property(o21, iof:hasInput, o25,$direction = up)
+
+property(o1, bfo:hasParticipant, o3)
+property(o11, bfo:hasParticipant, o3)
+property(o21, bfo:hasParticipant, o3)
+
+property(o3, iof:measuresAtSomeTime, o5)
+property(o3, iof:measuresAtSomeTime, o15)
+property(o3, iof:measuresAtSomeTime, o25)
+
+property(o4, iof:hasQuality, o5)
+property(o14, iof:hasQuality, o15)
+property(o24, iof:hasQuality, o25)
+
+property(o2,iof:isMeasuredValueOfAtSomeTime, o5)
+property(o12, iof:isMeasuredValueOfAtSomeTime, o15)
+property(o22, iof:isMeasuredValueOfAtSomeTime, o25)
+
+property(o2,iof:isAbout, o5)
+property(o12, iof:isAbout, o15)
+property(o22,iof:isAbout, o25)
+
+data(o2, core:hasSimpleExpressionValue, "0.45")
+data(o12, core:hasSimpleExpressionValue, " 0.46")
+data(o22, core:hasSimpleExpressionValue, "0.455")
+
+property(o2,qudt:hasUnit, o31)
+property(o12, qudt:hasUnit, o31)
+property(o22, qudt:hasUnit, o31)
+
+property(o6, iof:hasInput, o2,$direction = down)
+property(o6, iof:hasInput, o12,$direction = down)
+property(o6, iof:hasInput, o22,$direction = down)
+
+property(o6, iof:hasSpecifiedOutput, o7)
+property(o7,iof:isValueExpressionOfAtSomeTime, o8)
+data(o7, core:hasSimpleExpressionValue, "0.455")
+property(o7, qudt:hasUnit, o31)
+
+property(o4, bfo:continuantPartOfAtSomeTime, o8)
+property(o14,  bfo:continuantPartOfAtSomeTime, o8)
+property(o24,  bfo:continuantPartOfAtSomeTime, o8)
+
+@enduml
