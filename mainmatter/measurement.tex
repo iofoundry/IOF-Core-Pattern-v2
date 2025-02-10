@@ -23,54 +23,45 @@ Each concentration measurement is performed in triplicate to ensure accuracy, re
 
 \subsubsection*{Use-Case Pattern Description}
 
-\includegraphics[scale=0.23]{scenarios/measurements/image/measurement_aggregate_usecase1.png}
-\section{Actors}
+\includegraphics[scale=0.15]{scenarios/measurements/image/measurement_aggregate_usecase1.png}
+\subsubsection{Actors}
 The primary actors involved in this use case include:
 \begin{itemize}[noitemsep]
-    \item \textbf{Spectrophotometer:} A material entity that participates in the measurement process by measuring the protein solution.
-    \item \textbf{Measurement Process:} The activity that records the protein concentration from the aliquot.
-    \item \textbf{Protein Solution Aliquot:} The sample containing the protein solution subject to measurement.
-    \item \textbf{Concentration Quality:} The quality or attribute of the protein solution that is being measured.
-    \item \textbf{Measurement Result:} The recorded output from the measurement process, which includes a numerical value and unit.
-    \item \textbf{Computing Process (Average Calculation):} The process that computes an average concentration value from multiple measurement results.
-    \item \textbf{Average Value:} The computed average concentration, which serves as a more reliable representation of the protein concentration.
+    \item \textbf{Spectrophotometer (ns1:spectrophotometer):} A material entity that participates in the measurement process by performing the actual measurement of the protein solution.
+    \item \textbf{Measurement Process (ns1:measurement-process-1):} The process responsible for recording the protein concentration from the sample. (Note: Additional measurement processes, such as \texttt{ns1:measurement-process-2} and \texttt{ns1:measurement-process-3}, follow the same pattern.)
+    \item \textbf{Protein Solution Aliquot (ns1:protein-solution-aliquot-1):} The sample containing the protein solution that is subject to measurement.
+    \item \textbf{Concentration Quality (ns1:concentration-1):} The quality attribute of the protein solution representing the measured concentration.
+    \item \textbf{Measurement Result (ns1:measurement-result-1):} The output produced by the measurement process, capturing the numerical concentration value along with its unit.
+    \item \textbf{Computing Process (Average Calculation) (ns1:average-calculation-process-1):} The process that aggregates multiple measurement results to compute an average concentration value.
+    \item \textbf{Average Value (ns1:average-value):} The computed average concentration value, representing a more reliable measurement of the protein concentration.
+    \item \textbf{Protein Solution (ns1:protein-solution):} The overall material entity to which the measurement and computed average are associated.
 \end{itemize}
 
-\subsubsection{Preconditions}
-Before the process can begin:
-\begin{itemize}[noitemsep]
-    \item A protein solution aliquot must be prepared.
-    \item The spectrophotometer must be calibrated and ready for use.
-    \item The ontology and corresponding semantic data model should be in place to accurately capture measurement processes and outcomes.
-\end{itemize}
+
 
 \subsubsection{Process Steps}
-The process unfolds through the following steps:
+The process unfolds in the following steps:
 \begin{enumerate}[noitemsep]
     \item \textbf{Measurement Execution:}
     \begin{itemize}[noitemsep]
-        \item The spectrophotometer measures the protein concentration of the solution aliquot.
-        \item The measurement process produces a result that includes a concentration value and a unit (MilliMOL-PER-L).
+        \item The spectrophotometer (\texttt{ns1:spectrophotometer}) measures the protein concentration of the aliquot (\texttt{ns1:protein-solution-aliquot-1}).
+        \item The measurement process (\texttt{ns1:measurement-process-1}) records a result (\texttt{ns1:measurement-result-1}) that includes a concentration value (e.g., "0.45") and its unit (\texttt{qudt:MilliMOL-PER-L}).
     \end{itemize}
     \item \textbf{Data Association:}
     \begin{itemize}[noitemsep]
-        \item The measurement result is linked to the concentration quality of the protein solution.
-        \item The result is annotated with the appropriate unit of measure to ensure data consistency.
+        \item The measurement result (\texttt{ns1:measurement-result-1}) is linked to the concentration quality (\texttt{ns1:concentration-1}) of the protein solution.
+        \item The result is annotated with the appropriate unit of measure, ensuring data consistency.
     \end{itemize}
     \item \textbf{Average Calculation:}
     \begin{itemize}[noitemsep]
-        \item A computing process aggregates multiple measurement results.
-        \item An average value is computed, providing a reliable estimate of the protein concentration.
-        \item The computed average is linked back to the protein solution for further reference.
+        \item A computing process (\texttt{ns1:average-calculation-process-1}) aggregates multiple measurement results.
+        \item An average value (\texttt{ns1:average-value}) is computed, offering a reliable estimate of the protein concentration.
+        \item The computed average is associated with the overall protein solution (\texttt{ns1:protein-solution}).
     \end{itemize}
 \end{enumerate}
 
-\subsubsection{Postconditions}
-After the process is complete:
-\begin{itemize}[noitemsep]
-    \item A verified average protein concentration is stored, complete with its unit.
-    \item The protein solution retains references to both individual measurements and the computed average, ensuring traceability.
-\end{itemize}
+By following this pattern the protein solution retains references to both individual measurements and the computed average, ensuring traceability. 
+
 
 \subsubsection*{Use-Case Example Data}
 Three rows of a CSV table are given bellow where each row constitutes an id of the material from which the aliquots are taken from. The concentration of each aliquot and finally the aggregate measurement. 
