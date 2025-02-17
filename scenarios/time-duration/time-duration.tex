@@ -21,11 +21,13 @@ The date and time of the launch are captured in 1) XSD dateTime format, 2) in a 
 
 \subsubsection*{Use-Case Pattern Description}
 
-\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-dow-mn.png}
+\includegraphics[scale=0.35]{scenarios/time-duration/image/uc1}
 
 The launch date and time are expressed in three different ways.  
 
 \texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
+
+\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-dow-mn.png}
 
 \paragraph{Other components of a clock time \\}
 
@@ -43,24 +45,25 @@ In the above pattern the launch date is expressed in `GPS time'. As GPS time is 
 
 \begin{verbatim}
 INSERT DATA {
-    ns1:launch-of-iphone a bfo:Process;
-                        bfo:occupiesTemporalRegion ns1:launch-interval.
-    ns1:launch-interval a bfo:TemporalInterval;
-                        iof:hasFirstInstant ns1:launch-start-time.
-    ns1:launch-start-time a bfo:TemporalInstant;
-                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-xsd;
-                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-month;
-                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-dow;
-                        iof:hasValueExpressionAtAllTimes ns1:instant-expression-gps.
-    ns1:instant-expression-xsd a iof:TemporalInstantValueExpression;
-                        iof:hasDateTimeInstantValue "2007-06-29T18:00:00Z"^^xsd:dateTime.
-    ns1:instant-expression-month a time:DateTimeDescription;
-                        time:month "--06"^^xsd:gMonth.
-    ns1:instant-expression-dow a time:DateTimeDescription;
-                        time:dayOfWeek time:Friday.
-    ns1:instant-expression-gps a ns:GPSTimeDescription;
-                        time:week "1430"^^xsd:decimal;
-                        time:second "324018"^^xsd:decimal. 
+    ns1:ontocommons-project a bfo:Process ;
+                             bfo:occupiesTemporalRegion ns1:oc-project-interval .
+
+    ns1:oc-project-interval a bfo:TemporalInterval .
+
+    ns1:oc-project-duration1 a time:DurationDescription ;
+                              iof:isValueExpressionOfAtAllTimes ns1:oc-project-interval ;
+                              time:years "3"^^xsd:decimal ;
+                              time:months "8"^^xsd:decimal ;
+                              time:days "2"^^xsd:decimal .
+
+    ns1:oc-project-duration2 a time:Duration ;
+                              iof:isValueExpressionOfAtAllTimes ns1:oc-project-interval ;
+                              time:numericDuration "1165"^^xsd:decimal ;
+                              time:unitType time:unitDay .
+
+    ns1:oc-project-duration3 a ns:FiscalQuarter ;
+                              iof:isValueExpressionOfAtAllTimes ns1:oc-project-interval ;
+                              ns:fiscalQuarters "12"^^xsd:decimal .
 }
 \end{verbatim}
 
