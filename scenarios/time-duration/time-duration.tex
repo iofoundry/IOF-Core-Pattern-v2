@@ -10,12 +10,12 @@ This scenario demonstrates how to represent time durations of time intervals. Du
 
 \subsection*{General Pattern Description}
 
-\includegraphics[scale=0.28]{scenarios/clock-time-calendar-date/images/general-clock-calendar.png}
+\includegraphics[scale=0.36]{scenarios/time-duration/image/time-duration.png}
 
-the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \texttt{TemporalInstantValueExpression} or OWL-Time class \texttt{time:General\\DateTimeDescription} as both are subclass of \texttt{time:TemporalPosition} (\texttt{core:TemporalInstantValue\\Expression} is mapped as subclass of \texttt{time:TemporalPosition}.  
+The duration of a temporal interval can be expressed by associating different instances \texttt{iof:TemporalDurationValueExpression} or some subtype of OWL-Time class \texttt{time:TemporalDuration} to the instance of \texttt{bfo:TemporalInterval} using \texttt{iof:isValueExpressionOfAtAllTimes} as they are equivalent classes. An instance of \texttt{time:DurationDescription}, which is a subclass of \texttt{time:TemporalDuration}, provides several data properties to assert the duration value in various units used in Gregorian Calendar, e.g., \texttt{time:years}, \texttt{time:months}, and \texttt{time:minutes}. Alternatively, a numeric value and corresponding duration type can be asserted using the instance of \texttt{time:Duration}. A custom duration description class can be defined by extending \texttt{time:GeneralDurationDescription} class with an appropriate temporal reference system. 
 
-\subsubsection*{Use Case: Launch of first iPhone} 
-The original iPhone was first launched on June 29, 2007 during the Macworld Conference \& Expo in San Francisco, California. 
+\subsubsection*{Use Case: Duration of OntoCommons project} 
+OntoCommons project started on Wednesday, 1 September 2021 and ended on Saturday, 9 November 2024. It ran for 1165 days from the start date to the end date, not including the end date.
 
 The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
 
