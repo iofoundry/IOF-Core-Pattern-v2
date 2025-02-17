@@ -25,31 +25,17 @@ An Organization can simultaneously be:
 This use case demonstrates how a company like GE operates as both a manufacturer and a business organization using the same material products.
 
 \subsubsection*{Use-Case Pattern Description}
+\includegraphics[scale=0.4]{scenarios/different-type-organizations/image/different-type-organizations}
 
-Consider GE's jet engine division, which demonstrates both manufacturing and business aspects:
-
-\begin{itemize}
-    \item As a Manufacturer: 
-    \begin{itemize}
-        \item Bears a ManufacturerRole
-        \item Realizes this role through ProductProductionProcess
-        \item Produces jet engines as MaterialProduct
-    \end{itemize}
-    \item As a BusinessOrganization: 
-    \begin{itemize}
-        \item Has BusinessFunction
-        \item Realizes this through SellingBusinessProcess
-        \item Sells jet engines as MaterialProduct
-    \end{itemize}
-\end{itemize}
+GE Aerospace (\texttt{iof:Organization}) operates as both a manufacturer and a business organization (\texttt{iof: BusinessOrganization}) with respect to jet engines(\texttt{iof:MaterialProduct}). As a manufacturer (\texttt{iof:Manufacturer}), GE Aerospace bears \texttt{iof:ManufacturerRole} which is \texttt{bfo:realize} through \texttt{iof:ProductProductionProcess}, producing jet engines as \texttt{iof:MaterialProduct}. The same organization is a business organization by having \texttt{iof:BusinessFunction} which is \texttt{bfo:realize} through \texttt{iof:SellingBusinessProcess}, where the same jet engines \texttt{are bfo:hasParticipantAtSomeTime} in the selling process.
 
 \subsubsection*{Use-Case Example Data}
-\includegraphics[scale=0.4]{scenarios/different-type-organizations/image/different-type-organizations}
+
 
 \begin{table}[h]
 % \caption{}
 \label{tab:organization-structure}
-\resizebox{\columnwidth}{!}{%
+% \resizebox{\columnwidth}{!}{%
 \begin{tabular}{|l|l|}
 \hline
 Entity & Function/Role \\ \hline
@@ -59,7 +45,7 @@ Manufacturing & Manufactures product \\
 Sales & Sells product \\
 \hline
 \end{tabular}%
-}
+% }
 \end{table}
 
 
