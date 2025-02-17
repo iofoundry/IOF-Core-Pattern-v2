@@ -15,30 +15,21 @@ This scenario demonstrates how to represent time durations of time intervals. Du
 The duration of a temporal interval can be expressed by associating different instances \texttt{iof:TemporalDurationValueExpression} or some subtype of OWL-Time class \texttt{time:TemporalDuration} to the instance of \texttt{bfo:TemporalInterval} using \texttt{iof:isValueExpressionOfAtAllTimes} as they are equivalent classes. An instance of \texttt{time:DurationDescription}, which is a subclass of \texttt{time:TemporalDuration}, provides several data properties to assert the duration value in various units used in Gregorian Calendar, e.g., \texttt{time:years}, \texttt{time:months}, and \texttt{time:minutes}. Alternatively, a numeric value and corresponding duration type can be asserted using the instance of \texttt{time:Duration}. A custom duration description class can be defined by extending \texttt{time:GeneralDurationDescription} class with an appropriate temporal reference system. 
 
 \subsubsection*{Use Case: Duration of OntoCommons project} 
-OntoCommons project started on Wednesday, 1 September 2021 and ended on Saturday, 9 November 2024. It ran for 1165 days from the start date to the end date, not including the end date.
+OntoCommons project started on Wednesday, 1 September 2021 and ended on Saturday, 9 November 2024. It ran for 1165 days from the start to the end date, not including the end date.
 
-The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
+The duration of the temporal interval (\texttt{ns1:oc-project-interval}), that the project (\texttt{ns1:ontocommons-project}) ran for, can be expressed in typical duration units from Gregorian calendar, e.g., year, month, day, hour, minute, and second, using OWL Time classes. OWL Time also provides mechanisms for creating custom duration descriptions. 
 
 \subsubsection*{Use-Case Pattern Description}
 
-\includegraphics[scale=0.35]{scenarios/time-duration/image/uc1}
+\includegraphics[scale=0.40]{scenarios/time-duration/image/uc1-time-duration.png}
 
-The launch date and time are expressed in three different ways.  
-
-\texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
-
-\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-dow-mn.png}
-
-\paragraph{Other components of a clock time \\}
-
-In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}.
-Various combinations of data properties of \texttt{GeneralisedDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \texttt{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \texttt{time:timeZone} property.       
+The duration value can be expressed by linking an instance of \texttt{time:DurationDescription} or \texttt{time:Duration}. \texttt{DurationDescription} provides dedicated data properties in various units, allowing users to express the duration value in mixed units, e.g., the project duration is 3 years 8 months and 2 days. \texttt{time:Duration} allows expression of the duration value in a single unit (various common unit instances are already provided by OWL Time), e.g., 1165 days.
 
 \paragraph{Using custom clock time format \\}
 
-\includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-custom.png}
+\includegraphics[scale=0.38]{scenarios/time-duration/image/uc2-custom-duration.png}
 
-In the above pattern the launch date is expressed in `GPS time'. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class  \texttt{GPSTimeDescription}, extended from \texttt{time:DateTimeDescription}, should contain values for data properties \texttt{time:second} and \texttt{time:week}. The example does not provide details of \texttt{GPSTimeSystem}, which is a \texttt{time:TemporalReferenceSystem}, and may refer to a suitable description of `GPS time', e.g., A taxonomy of temporal reference systems is provided in ISO 19108:2002. 
+In the above pattern the launch date is expressed in `Fiscal Quarters'. The new duration description class \texttt{DurationDescriptionInFiscalQuater}, extended from \texttt{time:GeneralDurationDescription}, with restriction that the number of fiscal quarter can be asserted in decimal using only \texttt{ns:fiscalQuarters} data property. The example does not provide details of \texttt{FiscalQuarterReferenceSystem}, which is a \texttt{time:TemporalReferenceSystem}, and may refer to a suitable description of `fiscal quarter'. 
 
 
 \subsubsection*{Data Mapping Description}
@@ -67,24 +58,62 @@ INSERT DATA {
 }
 \end{verbatim}
 
-\texttt{ns:GPSTimeDescription} class has a temporal reference system as \texttt{ns:GPSTimeSystem}, which refer to the specification of GPS time format. Following the standard, a \texttt{GPSTimeDescription} has a 
+\texttt{ns:DurationDescriptionInFiscalQuarter} class has a temporal reference system as \\ \texttt{ns:FiscalQuarterReferenceSystem}, which refers to the specification of fiscal quarter duration format. The class restrict the usage of other data properties from \texttt{time:GeneralDurationDescription} and allows exactly one decimal value to be linked with data property \texttt{ns:fiscalQuarters}
 
 \begin{verbatim}
-:GPSTimeDescription rdf:type owl:Class ;
+:DurationDescriptionInFiscalQuarter rdf:type owl:Class ;
     rdfs:subClassOf 
-    <http://www.w3.org/2006/time#GeneralDateTimeDescription> ,
-    [ rdf:type owl:Restriction ;
-        owl:onProperty <http://www.w3.org/2006/time#hasTRS> ;
-        owl:hasValue :GPSTimeSystem
-    ] ,
-    [ rdf:type owl:Restriction ;
-        owl:onProperty <http://www.w3.org/2006/time#unitType> ;
-        owl:hasValue <http://www.w3.org/2006/time#unitSecond>
-    ] .    
+        <http://www.w3.org/2006/time#DurationDescription> ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#hasTRS> ;
+          owl:allValuesFrom :FiscalQuarterReferenceSystem
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty :fiscalQuarters ;
+          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          owl:onDataRange xsd:decimal
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#days> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#hours> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#minutes> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#months> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#seconds> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#weeks> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] ,
+        
+        [ rdf:type owl:Restriction ;
+          owl:onProperty <http://www.w3.org/2006/time#years> ;
+          owl:cardinality "0"^^xsd:nonNegativeInteger
+        ] .
 
-:GPSTimeSystem rdf:type owl:NamedIndividual ,
-    <http://www.w3.org/2006/time#TRS> ;
-    AnnotationVocabulary:adaptedFrom "https://en.wikipedia.org/?title=GPS_time" .
+:FiscalQuarterReferenceSystem rdf:type owl:Class ;
+    rdfs:subClassOf <http://www.w3.org/2006/time#TRS> .
+
 \end{verbatim}
 
 
