@@ -1,0 +1,34 @@
+<http://www.example.com/data/oc-project-duration3>
+        a       <http://www.example.com/FiscalQuarter> ;
+        <http://www.example.com/fiscalQuarters>
+                "12"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/oc-project-interval> .
+
+<http://www.example.com/data/oc-project-duration1>
+        a       <http://www.w3.org/2006/time#DurationDescription> ;
+        <http://www.w3.org/2006/time#days>
+                "2"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://www.w3.org/2006/time#months>
+                "8"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://www.w3.org/2006/time#years>
+                "3"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/oc-project-interval> .
+
+<http://www.example.com/data/oc-project-interval>
+        a       <http://purl.obolibrary.org/obo/TemporalInterval> .
+
+<http://www.example.com/data/oc-project-duration2>
+        a       <http://www.w3.org/2006/time#Duration> ;
+        <http://www.w3.org/2006/time#numericDuration>
+                "1165"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://www.w3.org/2006/time#unitType>
+                <http://www.w3.org/2006/time#unitDay> ;
+        <https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes>
+                <http://www.example.com/data/oc-project-interval> .
+
+<http://www.example.com/data/ontocommons-project>
+        a       <http://purl.obolibrary.org/obo/Process> ;
+        <http://purl.obolibrary.org/obo/occupiesTemporalRegion>
+                <http://www.example.com/data/oc-project-interval> .

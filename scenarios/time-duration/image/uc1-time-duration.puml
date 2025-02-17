@@ -1,0 +1,30 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+oClass(bfo:process)
+oIndividual(ns1:ontocommons-project)
+typeOf(ns1:ontocommons-project, bfo:process)
+oClass(bfo:TemporalInterval)
+oIndividual(ns1:oc-project-interval)
+typeOf(ns1:oc-project-interval, bfo:TemporalInterval)
+property(ns1:ontocommons-project, bfo:occupiesTemporalRegion, ns1:oc-project-interval, right)
+
+oClass(time:DurationDescription)
+oIndividual(ns1:oc-project-duration1)
+typeOf(ns1:oc-project-duration1, time:DurationDescription)
+property(ns1:oc-project-duration1, bfo:isValueExpressionOfAtAllTimes, ns1:oc-project-interval, up)
+data(ns1:oc-project-duration1, time:years, 3^xsd:decimal)
+data(ns1:oc-project-duration1, time:months, 8^xsd:decimal)
+data(ns1:oc-project-duration1, time:days, 2^xsd:decimal)
+
+
+oClass(time:Duration)
+oIndividual(ns1:oc-project-duration2)
+typeOf(ns1:oc-project-duration2, time:Duration)
+property(ns1:oc-project-duration2, bfo:isValueExpressionOfAtAllTimes, ns1:oc-project-interval, up)
+data(ns1:oc-project-duration2, time:numericDuration, 1165^xsd:decimal)
+oIndividual(time:unitDay)
+oClass(time:TemporalUnit)
+typeOf(time:unitDay, time:TemporalUnit)
+property(ns1:oc-project-duration2, time:unitType, time:unitDay, down)
+
+@enduml

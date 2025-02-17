@@ -1,0 +1,114 @@
+@prefix : <http://example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.com/> .
+
+<http://example.com/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2006/time#hasTRS
+<http://www.w3.org/2006/time#hasTRS> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/fiscalQuarters
+:fiscalQuarters rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#days
+<http://www.w3.org/2006/time#days> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#hours
+<http://www.w3.org/2006/time#hours> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#minutes
+<http://www.w3.org/2006/time#minutes> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#months
+<http://www.w3.org/2006/time#months> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#seconds
+<http://www.w3.org/2006/time#seconds> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#weeks
+<http://www.w3.org/2006/time#weeks> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#years
+<http://www.w3.org/2006/time#years> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/DurationDescriptionInFiscalQuarter
+:DurationDescriptionInFiscalQuarter rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://www.w3.org/2006/time#DurationDescription> ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#hasTRS> ;
+                                                      owl:allValuesFrom :FiscalQuarterReferenceSystem
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :fiscalQuarters ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange xsd:decimal
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#days> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#hours> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#minutes> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#months> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#seconds> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#weeks> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty <http://www.w3.org/2006/time#years> ;
+                                                      owl:cardinality "0"^^xsd:nonNegativeInteger
+                                                    ] .
+
+
+###  http://example.com/FiscalQuarterReferenceSystem
+:FiscalQuarterReferenceSystem rdf:type owl:Class ;
+                              rdfs:subClassOf <http://www.w3.org/2006/time#TRS> .
+
+
+###  http://www.w3.org/2006/time#DurationDescription
+<http://www.w3.org/2006/time#DurationDescription> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TRS
+<http://www.w3.org/2006/time#TRS> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
