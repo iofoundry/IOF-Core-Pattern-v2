@@ -44,6 +44,13 @@ Describe how the general pattern is applied to the use case. It is important to 
  \textit{ 
 Provide a description of the data set used to demonstrate the use case pattern (e.g., format as JSON, CSV, XML, column/attribute/node name and their description, relation between datasets if multiple are used). Use not less than 3 and not more than 7 records/transactions.
   }
+    
+\csvautotabular{data/EventLog.csv} 
+\begin{tabular}{l|l}%
+    \textbf{Time (s)} & \textbf{Zeroed time (s)}% specify table head
+    \csvreader[head to column names]{data/EventLog.csv}{}% use head of csv as column names
+
+\end{tabular}
 
 \subsubsection*{Data Mapping}
  \textit{ 
