@@ -1,4 +1,4 @@
-﻿Time Stamp,Event Type,Start-Stop
+﻿Timestamp,EventType,Start-Stop
 2025-02-21T07:08:00:54,Heat Water,Start
 2025-02-22T07:08:02:01,Heat Water,Stop
 2025-02-23T07:08:02:02,Soak Coffee,Start
