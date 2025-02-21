@@ -18,7 +18,7 @@ An Organization can simultaneously be:
     \item A Manufacturer that has a ManufacturerRole, which is realized through a ProductProductionProcess and  has the MaterialProduct as its output.
 \end{enumerate}
 
-\includegraphics[scale=0.42]{scenarios/different-type-organizations/image/different-type-organizations-schema}
+\includegraphics[scale=0.6]{scenarios/different-type-organizations/image/different-type-organizations-schema}
 
 \subsection*{Use Case: }
 
@@ -27,8 +27,7 @@ This use case demonstrates how a company like GE operates as both a manufacturer
 \subsubsection*{Use-Case Pattern Description}
 \includegraphics[scale=0.4]{scenarios/different-type-organizations/image/different-type-organizations}
 
-GE Aerospace (\texttt{iof:Organization}) operates as both a manufacturer and a business organization (\texttt{iof: BusinessOrganization}) with respect to jet engines(\texttt{iof:MaterialProduct}). As a manufacturer (\texttt{iof:Manufacturer}), GE Aerospace bears \texttt{iof:ManufacturerRole} which is \texttt{bfo:realize} through \texttt{iof:ProductProductionProcess}, producing jet engines as \texttt{iof:MaterialProduct}. The same organization is a business organization by having \texttt{iof:BusinessFunction} which is \texttt{bfo:realize} through \texttt{iof:SellingBusinessProcess}, where the same jet engines \texttt{are bfo:hasParticipantAtSomeTime} in the selling process.
-
+GE Aerospace (\texttt{ns1:ge-aerospace}) operates as both an organization (\texttt{iof:Organization}) and a business organization (\texttt{iof:BusinessOrganization}) with respect to jet engines (\texttt{ns1:jet-engine}). Through its manufacturing division (\texttt{ns1:ge-manufacturer}), which is \texttt{bfo:continuantPartOfAtAllTimes} of GE Aerospace, it bears a manufacturer role (\texttt{ns1:jet-engine-production-role}) which is \texttt{bfo:realize} through a production process (\texttt{ns1:jet-engine-production-process}), producing jet engines as \texttt{iof:hasOutput}. The organization also has a business function (\texttt{ns1:jet-engine-selling-function}) which is \texttt{bfo:realize} through a selling process (\texttt{ns1:jet-engine-selling-process}), where the same jet engines are sold (\texttt{bfo:hasParticipantAtSomeTime}) in the selling process.
 \subsubsection*{Use-Case Example Data}
 
 
@@ -39,9 +38,9 @@ GE Aerospace (\texttt{iof:Organization}) operates as both a manufacturer and a b
 \begin{tabular}{|l|l|}
 \hline
 Entity & Function/Role \\ \hline
-GE Aerospace & Manufactures and sells product \\
+GE Aerospace & Sells products and has Manufacturer \\
 Jet engine & Product \\
-Manufacturing & Manufactures product \\
+GE Manufacturer & Manufactures product \\
 Sales & Sells product \\
 \hline
 \end{tabular}%
