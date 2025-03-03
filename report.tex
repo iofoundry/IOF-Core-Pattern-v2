@@ -11,6 +11,9 @@
 \usepackage{hyperref}
 \usepackage[l3]{csvsimple}
 \addbibresource{report.bib}
+\usepackage{xifthen}
+
+
 
 %% Additional packages and commands
 \usepackage{parskip}
@@ -40,11 +43,37 @@
 \specialcomment{instruction}{\begingroup\color{red}\itshape}{\endgroup}
 \excludecomment{instruction} % Exclude all instructions from printing
 
+%% Move higher if acceptable to all
+%%
+%% Jim's suggestioned contruct styles,
+%% borrowed from Ian Horrocks' DL macros
+\newcommand{\nsprefix}[1]{%
+    \ifthenelse{\equal{#1}{}}%
+    {}%
+    {%
+        {\footnotesize\textsf{#1}:}%
+    }%
+}
+
+\newcommand{\cname}[2]{%
+    \nsprefix{#1}%
+    \textsf{#2}%
+}
+\newcommand{\opname}[2]{%
+    \nsprefix{#1}%
+    \textsl{#2}%
+}
+\newcommand{\dpname}[1]{\textsf{#1}}
+
+
 %% ----------------------------------------------------------------------
 %%    Begin of document + Frontmatter (Roman page numbering)
 %% ----------------------------------------------------------------------
 
 \begin{document}
+
+
+
 
 \frontmatter
 
