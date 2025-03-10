@@ -1,0 +1,34 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+
+oClass(iof:MaterialArtifact)
+oIndividual(ns1:car1)
+typeOf(ns1:car1, iof:MaterialArtifact)
+
+oClass(iof:DesignativeInformationContentEntity)
+oClass(iof:Identifier)
+subClass(iof:Identifier, iof:DesignativeInformationContentEntity)
+oIndividual(ns1:car1-vin-number)
+typeOf(ns1:car1-vin-number, iof:Identifier)
+property(ns1:car1-vin-number, iof:designates, ns1:car1, right)
+data(ns1:car1-vin-number, rdf:value, "1HGCM82633A123456")
+
+oClass(iof:InformationContentEntity)
+oIndividual(ns1:car1-model-name)
+typeOf(ns1:car1-model-name, iof:InformationContentEntity)
+property(ns1:car1-model-name, iof:denotes, ns1:car1, up)
+data(ns1:car1-model-name, rdf:value, "Toyota Camry")
+
+oClass(iof:DescriptiveInformationContentEntity)
+oIndividual(ns1:car1-tagline)
+typeOf(ns1:car1-tagline, iof:DescriptiveInformationContentEntity)
+property(ns1:car1-tagline, iof:describes, ns1:car1, up)
+data(ns1:car1-tagline, rdf:value, "Toyota Camry XLE 2025 – Elevate Your Drive")
+
+oClass(iof:DirectiveInformationContentEntity)
+oIndividual(ns1:passenger-vehicle-specification)
+typeOf(ns1:passenger-vehicle-specification, iof:DirectiveInformationContentEntity)
+property(ns1:passenger-vehicle-specification, iof:prescribes, ns1:car1, down)
+data(ns1:passenger-vehicle-specification, rdf:value, "Gross Vehicle Weight Rating (GVWR) under 10,000 lbs")
+
+@enduml

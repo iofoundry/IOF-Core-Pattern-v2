@@ -1,0 +1,18 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+
+oClass(iof:InformationContentEntity)
+oClass(iof:DesignativeInformationContentEntity)
+oClass(iof:DescriptiveInformationContentEntity)
+oClass(iof:DirectiveInformationContentEntity)
+oClass(iof:Identifier)
+subClass(iof:DesignativeInformationContentEntity, iof:InformationContentEntity)
+subClass(iof:DescriptiveInformationContentEntity, iof:InformationContentEntity)
+subClass(iof:DirectiveInformationContentEntity, iof:InformationContentEntity)
+subClass(iof:Identifier, iof:DesignativeInformationContentEntity)
+oClass(bfo:Entity)
+xSome(iof:DescriptiveInformationContentEntity, iof:describes, bfo:Entity, "", down)
+xSome(iof:DirectiveInformationContentEntity, iof:prescribes, bfo:Entity, "", down)
+xSome(iof:DesignativeInformationContentEntity, iof:designates, bfo:Entity, "<<exactly>> 1", down)
+xSome(iof:InformationContentEntity, iof:denotes, bfo:Entity, "", right)
+@enduml
