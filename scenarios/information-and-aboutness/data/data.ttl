@@ -1,0 +1,30 @@
+<http://example.org/ns1#passenger-vehicle-specification>
+        a       <http://example.org/iof#DirectiveInformationContentEntity> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                "Gross Vehicle Weight Rating (GVWR) under 10,000 lbs" ;
+        <http://example.org/iof#prescribes>
+                <http://example.org/ns1#car1> .
+
+<http://example.org/ns1#car1-tagline>
+        a       <http://example.org/iof#DescriptiveInformationContentEntity> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                "Toyota Camry XLE 2025 â€“ Elevate Your Drive" ;
+        <http://example.org/iof#describes>
+                <http://example.org/ns1#car1> .
+
+<http://example.org/ns1#car1-model-name>
+        a       <http://example.org/iof#InformationContentEntity> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                "Toyota Camry" ;
+        <http://example.org/iof#denotes>
+                <http://example.org/ns1#car1> .
+
+<http://example.org/ns1#car1-vin-number>
+        a       <http://example.org/iof#Identifier> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                "1HGCM82633A123456" ;
+        <http://example.org/iof#designates>
+                <http://example.org/ns1#car1> .
+
+<http://example.org/ns1#car1>
+        a       <http://example.org/iof#MaterialArtifact> .
