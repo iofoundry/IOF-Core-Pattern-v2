@@ -1,90 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rdf:RDF [
-	<!ENTITY bfo "http://purl.obolibrary.org/obo/">
-	<!ENTITY dc "http://purl.org/dc/elements/1.1/">
-	<!ENTITY inst "https://ontogenesis-solutions.com/ontologies/examples/instances/">
-	<!ENTITY iof-av "https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/">
-	<!ENTITY iof-core "https://spec.industrialontologies.org/ontology/core/Core/">
-	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
-	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
-	<!ENTITY terms "http://purl.org/dc/terms/">
-	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
-]>
-<rdf:RDF xml:base="https://ontogenesis-solutions.com/ontologies/examples/instances/"
-	xmlns:bfo="http://purl.obolibrary.org/obo/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:inst="https://ontogenesis-solutions.com/ontologies/examples/instances/"
-	xmlns:iof-av="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/"
-	xmlns:iof-core="https://spec.industrialontologies.org/ontology/core/Core/"
-	xmlns:owl="http://www.w3.org/2002/07/owl#"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-	xmlns:terms="http://purl.org/dc/terms/"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-	
-	<owl:Ontology rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/">
-		<owl:imports rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/"/>
-	</owl:Ontology>
-	
-	<owl:Class rdf:about="&bfo;BFO_0000015">
-	</owl:Class>
-	
-	<owl:AnnotationProperty rdf:about="&bfo;BFO_0000199">
-	</owl:AnnotationProperty>
-	
-	<owl:Class rdf:about="&bfo;BFO_0000202">
-	</owl:Class>
-	
-	<owl:Class rdf:about="&bfo;BFO_0000203">
-	</owl:Class>
-	
-	<owl:AnnotationProperty rdf:about="&bfo;BFO_0000222">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&bfo;BFO_0000224">
-	</owl:AnnotationProperty>
-	
-	<owl:NamedIndividual rdf:about="&inst;e1">
-		<rdf:type rdf:resource="&bfo;BFO_0000203"/>
-		<iof-core:hasValueExpressionAtAllTimes rdf:resource="&inst;tive2"/>
-	</owl:NamedIndividual>
-	
-	<owl:NamedIndividual rdf:about="&inst;p1">
-		<rdf:type rdf:resource="&bfo;BFO_0000015"/>
-		<bfo:BFO_0000199 rdf:resource="&inst;ti1"/>
-	</owl:NamedIndividual>
-	
-	<owl:NamedIndividual rdf:about="&inst;s1">
-		<rdf:type rdf:resource="&bfo;BFO_0000203"/>
-		<iof-core:hasValueExpressionAtAllTimes rdf:resource="&inst;tive1"/>
-	</owl:NamedIndividual>
-	
-	<owl:NamedIndividual rdf:about="&inst;ti1">
-		<rdf:type rdf:resource="&bfo;BFO_0000202"/>
-		<bfo:BFO_0000222 rdf:resource="&inst;s1"/>
-		<bfo:BFO_0000224 rdf:resource="&inst;e1"/>
-	</owl:NamedIndividual>
-	
-	<owl:NamedIndividual rdf:about="&inst;tive1">
-		<rdf:type rdf:resource="&iof-core;TemporalInstantValueExpression"/>
-		<iof-core:hasDateTimeInstantValue rdf:datatype="&xsd;dateTime">2025-02-21T07:08:00</iof-core:hasDateTimeInstantValue>
-	</owl:NamedIndividual>
-	
-	<owl:NamedIndividual rdf:about="&inst;tive2">
-		<rdf:type rdf:resource="&iof-core;TemporalInstantValueExpression"/>
-		<iof-core:hasDateTimeInstantValue rdf:datatype="&xsd;dateTime">2025-02-21T07:08:02</iof-core:hasDateTimeInstantValue>
-	</owl:NamedIndividual>
-	
-	<owl:Class rdf:about="&iof-core;TemporalInstantValueExpression">
-	</owl:Class>
-	
-	<owl:AnnotationProperty rdf:about="&iof-core;hasDateTimeInstantValue">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&iof-core;hasValueExpressionAtAllTimes">
-	</owl:AnnotationProperty>
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xml:base="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bfo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:inst="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:iof-av="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/"
+     xmlns:iof-core="https://spec.industrialontologies.org/ontology/core/Core/">
+    <owl:Ontology rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/">
+        <owl:imports rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/"/>
+    </owl:Ontology>
+    
 
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000199 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000199"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000222 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000222"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000224 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000224"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue -->
+
+    <owl:AnnotationProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes -->
+
+    <owl:AnnotationProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000202 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000202"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000203 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000203"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression -->
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/e1 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/e1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/tive2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/p1 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/p1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <bfo:BFO_0000199 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/ti1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/s1 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/s1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/tive1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/ti1 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/ti1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000202"/>
+        <bfo:BFO_0000222 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/s1"/>
+        <bfo:BFO_0000224 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/e1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/tive1 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/tive1">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:00</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/tive2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/tive2">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:02</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
