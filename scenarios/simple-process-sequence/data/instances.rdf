@@ -19,44 +19,6 @@
     
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000199 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000199"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000222 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000222"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000224 -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000224"/>
-    
-
-
-    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue -->
-
-    <owl:AnnotationProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue"/>
-    
-
-
-    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes -->
-
-    <owl:AnnotationProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes"/>
     
 
 
