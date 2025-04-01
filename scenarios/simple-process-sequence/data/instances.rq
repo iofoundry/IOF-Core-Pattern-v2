@@ -1,4 +1,4 @@
-PREFIX ex: <http://example.com/schema/>
+prefix ex: <http://example.com/schema/>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix bfo: <http://purl.obolibrary.org/obo/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
@@ -16,7 +16,6 @@ prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 CONSTRUCT {
     $pid 
         rdf:type
-#            owl:NamedIndividual ,
             $bfoProcess ,
             $class;
         $bfoOccupiesTemporalRegion $interval .
@@ -24,37 +23,32 @@ CONSTRUCT {
 
     $interval
         rdf:type
-#            owl:NamedIndividual ,
             $bfoTemporalInterval ;
         $bfoHasFirstInstant $firstInstant ;
         $bfoHasLastInstant $lastInstant .
 
     $firstInstant
         rdf:type
-#            owl:NamedIndividual ,
             $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $firstVE .
 
     $lastInstant
         rdf:type
-#            owl:NamedIndividual ,
             $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $lastVE .
 
     $firstVE
         rdf:type
-#            owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $startTime .
 
     $lastVE
            rdf:type
-#            owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $endTime .
 }
 
-where {
+WHERE {
     $startId
         ex:startStop "Start";
         ex:eventType $eventType;
@@ -67,14 +61,14 @@ where {
             ex:timestamp $endTime.
     }
     
-    bind(bfo:BFO_0000203 as $bfoTemporalInstant)
-    bind(bfo:BFO_0000015 as $bfoProcess)
-    bind(bfo:BFO_0000199 as $bfoOccupiesTemporalRegion)
-    bind(bfo:BFO_0000202 as $bfoTemporalInterval)
-    bind(bfo:BFO_0000222 as $bfoHasFirstInstant)
-    bind(bfo:BFO_0000224 as $bfoHasLastInstant)
+    BIND(bfo:BFO_0000203 AS $bfoTemporalInstant)
+    BIND(bfo:BFO_0000015 AS $bfoProcess)
+    BIND(bfo:BFO_0000199 AS $bfoOccupiesTemporalRegion)
+    BIND(bfo:BFO_0000202 AS $bfoTemporalInterval)
+    BIND(bfo:BFO_0000222 AS $bfoHasFirstInstant)
+    BIND(bfo:BFO_0000224 AS $bfoHasLastInstant)
 
-    BIND(IRI(CONCAT(STR($startId), "/process")) AS $pid)  # UUID with startTime ensures uniqueness
+    BIND(IRI(CONCAT(STR($startId), "/process")) AS $pid)
     BIND(IRI(CONCAT(STR($startId), "/interval")) AS $interval)
     BIND(IRI(CONCAT(STR($startId), "/firstInstant")) AS $firstInstant)
     BIND(IRI(CONCAT(STR($startId), "/lastInstant")) AS $lastInstant)
