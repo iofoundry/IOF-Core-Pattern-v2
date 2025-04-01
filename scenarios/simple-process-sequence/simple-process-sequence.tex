@@ -76,20 +76,18 @@ The following table shows CSV data resulting from a fictitious machine that make
 \end{table}    
 
 \subsubsection*{Data Mapping}
+The following SPARQL converts the CSV file into RDF triples. Its WHERE clause connects to a service that makes each row in the CSV file available, it binds each CSV field to a variable, constructs an IRI from a universally unique identifier (UUID). Its INSERT clause then uses those variables from a row in the CSV file to insert a pattern of three triples into a repository. The predicates of those triples exist to connect the IRI (bound to the variable "?id") to the three fields of each row.
 
-\lstinputlisting[language=sparql]{data/csv2rdf.rq}
+\lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/csv2rdf.rq}
 
-\begin{lstlisting}[language=sparql]
-    \input{scenarios/simple-process-sequence/data/csv2rdf.rq}
-\end{lstlisting}
+After the content of the CSV file is inserted into the triple store, the next SPARQL query pairs up the start and end of each type of event and then properly instantiates classes and properties from the IOF Core ontology. The syntax here demonstrates what may be a more familiar variable notation for some practitioners.
 
-\textit{ 
-Describe how the data was mapped to RDF. Provide an INSERT DATA/ INSERT SPARQL for mapping. Use INSERT only when the use case example data needs further manipulation. \\
-For INSERT DATA SPARQL, use only 2/3 records/transactions with named class and individuals. \\
-For INSERT SPARQL, declare column names by `\{ \}' to the variable.  
-For INSERT query, 
-For both, do not use blank nodes.    
-  }
+Note that the last row of the CSV file (shown in \ref{tab:DripCoffee}) has no "Stop" row because the drip coffee maker continues to heat the carafe until it is turned off, which, in this fictitious model, also disconnects power from the internal computer producing the event file. The SPARQL query handles this using an "OPTIONAL" clause. Also note that the UUID from the "Start" is used as a prefix for \textit{all} of the related instance IRIs, which keeps them together when listed and provides a sensible, human-readable suffix.
+
+Given a pattern match in the "WHERE" clause, all of the variables are ready for the "CONSTRUCT" clause.
+
+\lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/instances.rq}
+
 
 \subsubsection*{Data Validation}
  \textit{ 
