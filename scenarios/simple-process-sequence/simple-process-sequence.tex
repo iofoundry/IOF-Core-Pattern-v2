@@ -37,7 +37,7 @@ Describe the general pattern, including any background why such types and relati
 }
 
 
-\subsection*{Use Case: Simple Process Sequence}
+\subsection*{Use Case: Simple Process Sequence}\label{SimpleProcessSequence}
 This first use case is the simplest. It uses the example data, shown below, to create corresponding instances in the IOF theory of what must have existed in the world to justify the data.
 
  \textit{ 
@@ -50,6 +50,8 @@ Describe a concrete use case for the pattern. (Multiple use cases can be describ
 This use case follows the pattern in \ref{sec-clock-calendar}.
 Each timestamp in a row that is marked "Start" creates several instances at once and then wires them together as follows:
 a \cname{bfo}{Process} that \opname{core}{occupiesTemporalRegion} a \ti that \opname{bfo}{hasFirstInstant} a \cname{bfo}{TemporalInstant} that \cname{iof}{hasValueExpressionAtAllTimes} a \cname{time}{DateTimeDescription}.
+
+Note that in this first use case, the EventType is used to create a generic \cname{bfo}{process}. A subsequent use case will create an instance of a more specific type of process that corresponds to the EventType.
 
 Each timestamp in a row that is marked "Stop" augments what was already created for a "Start" row with several more instances, and then wires them together as follows:
 the already-created \cname{bfo}{TemporalRegion} \opname{bfo}{hasLastInstant} a \cname{bfo}{TemporalInstant} that \cname{iof}{hasValueExpressionAtAllTimes} a \cname{time}{DateTimeDescription}.
@@ -64,12 +66,24 @@ Describe how the general pattern is applied to the use case. It is important to 
   }
 
 \subsubsection*{Use-Case Example Data}
-The following table shows CSV data resulting from a fictitious machine that makes drip coffee. Each row contains the date and time at which a type of event started or stopped.
+The following table shows CSV data resulting from a fictitious machine that makes drip coffee. Each row contains the date and time at which an instance of a type of process started or stopped.
 
-
+\begin{table}[ht]
+    \centering
+    \csvautotabular{scenarios/simple-process-sequence/data/EventLog.csv}
+    \caption{An Example Event Log for Making Drip Coffee}
+    \label{tab:DripCoffee}
+\end{table}    
 
 \subsubsection*{Data Mapping}
- \textit{ 
+
+\lstinputlisting[language=sparql]{data/csv2rdf.rq}
+
+\begin{lstlisting}[language=sparql]
+    \input{scenarios/simple-process-sequence/data/csv2rdf.rq}
+\end{lstlisting}
+
+\textit{ 
 Describe how the data was mapped to RDF. Provide an INSERT DATA/ INSERT SPARQL for mapping. Use INSERT only when the use case example data needs further manipulation. \\
 For INSERT DATA SPARQL, use only 2/3 records/transactions with named class and individuals. \\
 For INSERT SPARQL, declare column names by `\{ \}' to the variable.  
@@ -84,6 +98,8 @@ Provide the SPARQL query in the code block along with the result of the query. \
   }
 
 \subsection*{Use Case: Typed Process Sequence}
+This use case extends the use case from section \ref{SimpleProcessSequence} with specializations of \cname{bfo}{process} corresponding to the EventType column in Table \ref{tab:DripCoffee}.
+
  \textit{ 
 Describe a concrete use case for the pattern. (Multiple use cases can be described for one pattern. If multiple, please use distinct use case titles and repeat all subsubsections for each use case.)
   }
@@ -101,12 +117,7 @@ Describe how the general pattern is applied to the use case. It is important to 
 \subsubsection*{Use-Case Example Data}
 The following table shows CSV data resulting from a fictitious machine that makes drip coffee. Each row contains the date and time at which a type of event started or stopped.
 
-\begin{table}[ht]
-    \centering
-    \csvautotabular{scenarios/simple-process-sequence/data/EventLog.csv}
-    \caption{An Example Event Log for Making Coffee}
-    \label{tab:my_label}
-\end{table}    
+
 
 
 \subsubsection*{Data Mapping}
