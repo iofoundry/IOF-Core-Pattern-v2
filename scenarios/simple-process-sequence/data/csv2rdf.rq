@@ -1,7 +1,6 @@
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix ex: <http://example.com/schema/>
 BASE <http://example.com/base/>
-
 CONSTRUCT {
   ?id
     ex:timestamp ?Timestamp ;
@@ -9,9 +8,10 @@ CONSTRUCT {
     ex:startStop ?StartStop .
 }
 WHERE {
-  BIND(xsd:dateTime(?c_Timestamp) as ?Timestamp) .
-  BIND( ?c_EventType AS ?EventType ) .
-  BIND( ?c_StartStop AS ?StartStop ) .
-  BIND(IRI(CONCAT("https://ontogenesis-solutions.com/ontologies/examples/instances/", STRUUID())) AS ?id)
-
+  SERVICE <http://localhost:7333/repositories/ontorefine:2117727886747> {
+    BIND(xsd:dateTime(?c_Timestamp) as ?Timestamp) .
+    BIND( ?c_EventType AS ?EventType ) .
+    BIND( ?c_StartStop AS ?StartStop ) .
+    BIND(IRI(CONCAT("https://ontogenesis-solutions.com/ontologies/examples/instances/", STRUUID())) AS ?id)
+  }
 }
