@@ -15,9 +15,8 @@ prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 
 CONSTRUCT {
     $pid 
-#       ex:test $startId ;
         rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             $bfoProcess ,
             $class;
         $bfoOccupiesTemporalRegion $interval .
@@ -25,32 +24,32 @@ CONSTRUCT {
 
     $interval
         rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             $bfoTemporalInterval ;
         $bfoHasFirstInstant $firstInstant ;
         $bfoHasLastInstant $lastInstant .
 
     $firstInstant
         rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $firstVE .
 
     $lastInstant
         rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $lastVE .
 
     $firstVE
         rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $startTime .
 
     $lastVE
            rdf:type
-            owl:NamedIndividual ,
+#            owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $endTime .
 }
@@ -75,15 +74,12 @@ where {
     bind(bfo:BFO_0000222 as $bfoHasFirstInstant)
     bind(bfo:BFO_0000224 as $bfoHasLastInstant)
 
-
-    BIND(IRI(CONCAT(STR($startId), "-process")) AS $pid)  # UUID with startTime ensures uniqueness
-    BIND(IRI(CONCAT(STR($startId), "-interval")) AS $interval)
-    BIND(IRI(CONCAT(STR($startId), "-first")) AS $firstInstant)
-    BIND(IRI(CONCAT(STR($startId), "-last")) AS $lastInstant)
-    BIND(IRI(CONCAT(STR($startId), "-firstVE")) AS $firstVE)
-    BIND(IRI(CONCAT(STR($startId), "-lastVE")) AS $lastVE)
-    BIND(xsd:dateTime($startTime) AS $xsdStartTime)
-    BIND(xsd:dateTime($endTime) AS $xsdEndTime)
+    BIND(IRI(CONCAT(STR($startId), "/process")) AS $pid)  # UUID with startTime ensures uniqueness
+    BIND(IRI(CONCAT(STR($startId), "/interval")) AS $interval)
+    BIND(IRI(CONCAT(STR($startId), "/firstInstant")) AS $firstInstant)
+    BIND(IRI(CONCAT(STR($startId), "/lastInstant")) AS $lastInstant)
+    BIND(IRI(CONCAT(STR($startId), "/firstVE")) AS $firstVE)
+    BIND(IRI(CONCAT(STR($startId), "/lastVE")) AS $lastVE)
 
     BIND(IRI(CONCAT("https://ontogenesis-solutions.com/ontologies/examples/classes/", $eventType)) AS $class)
 
