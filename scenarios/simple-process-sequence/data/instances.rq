@@ -14,56 +14,68 @@ prefix iof-av: <https://spec.industrialontologies.org/ontology/core/meta/Annotat
 prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 
 CONSTRUCT {
-	$pid 
+    $pid 
+#       ex:test $startId ;
         rdf:type
             owl:NamedIndividual ,
-            bfo:BFO_0000015 ,
+            $bfoProcess ,
             $class;
-    	ex:test $startId ;
-        bfo:BFO_0000199 $interval .
+        $bfoOccupiesTemporalRegion $interval .
+
 
     $interval
         rdf:type
-        	owl:NamedIndividual ,
-            bfo:BFO_0000202 ;
-        bfo:BFO_0000222 $firstInstant ;
-        bfo:BFO_0000224 $lastInstant .
+            owl:NamedIndividual ,
+            $bfoTemporalInterval ;
+        $bfoHasFirstInstant $firstInstant ;
+        $bfoHasLastInstant $lastInstant .
 
-	$firstInstant
+    $firstInstant
         rdf:type
-        	owl:NamedIndividual ,
-            bfo:BFO_0000203 ;
+            owl:NamedIndividual ,
+            $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $firstVE .
 
     $lastInstant
         rdf:type
-        	owl:NamedIndividual ,
-            bfo:BFO_0000203 ;
+            owl:NamedIndividual ,
+            $bfoTemporalInstant ;
         iof-core:hasValueExpressionAtAllTimes $lastVE .
 
-	$firstVE
+    $firstVE
         rdf:type
-        	owl:NamedIndividual ,
+            owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $startTime .
 
-	$lastVE
-       	rdf:type
+    $lastVE
+           rdf:type
             owl:NamedIndividual ,
             iof-core:TemporalInstantValueExpression ;
         iof-core:hasDateTimeInstantValue $endTime .
 }
+
 where {
     $startId
         ex:startStop "Start";
-    	ex:eventType $eventType;
-    	ex:timestamp $startTime.
+        ex:eventType $eventType;
+        ex:timestamp $startTime.
+
     OPTIONAL {
         $endId
             ex:startStop "Stop";
-    		ex:eventType $eventType;
-        	ex:timestamp $endTime.
+            ex:eventType $eventType;
+            ex:timestamp $endTime.
     }
+    
+    bind(bfo:BFO_0000203 as $bfoTemporalInstant)
+    bind(bfo:BFO_0000015 as $bfoProcess)
+    bind(bfo:BFO_0000199 as $bfoOccupiesTemporalRegion)
+    bind(bfo:BFO_0000202 as $bfoTemporalInterval)
+    bind(bfo:BFO_0000222 as $bfoHasFirstInstant)
+    bind(bfo:BFO_0000224 as $bfoHasLastInstant)
+
+
     BIND(IRI(CONCAT(STR($startId), "-process")) AS $pid)  # UUID with startTime ensures uniqueness
     BIND(IRI(CONCAT(STR($startId), "-interval")) AS $interval)
     BIND(IRI(CONCAT(STR($startId), "-first")) AS $firstInstant)
