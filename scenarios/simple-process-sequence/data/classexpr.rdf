@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/"
+     xml:base="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cls="https://ontogenesis-solutions.com/ontologies/examples/classes/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:AnnotationVocabulary="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/">
+    <owl:Ontology rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/">
+        <owl:imports rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000118"/>
+                        <owl:someValuesFrom rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_HeatCarafe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000118"/>
+                        <owl:someValuesFrom rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000118"/>
+                        <owl:someValuesFrom rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_SoakCoffee"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_HeatCarafe -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_HeatCarafe">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatCarafe"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
+                        <owl:someValuesFrom rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_SoakCoffee"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatCarafe"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_HeatWater -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_HeatWater">
+        <rdfs:subClassOf rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_SoakCoffee -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/MakeDripCoffee_SoakCoffee">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classes/SoakCoffee"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
+                        <owl:someValuesFrom rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/SoakCoffee"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
