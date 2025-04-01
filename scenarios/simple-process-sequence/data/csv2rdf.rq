@@ -1,7 +1,7 @@
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix ex: <http://example.com/schema/>
 BASE <http://example.com/base/>
-CONSTRUCT {
+INSERT {
   ?id
     ex:timestamp ?Timestamp ;
     ex:eventType ?EventType ;
