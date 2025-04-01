@@ -1,6 +1,6 @@
 ﻿Timestamp,EventType,StartStop
-2025-02-21T07:08:00:54,HeatWater,Start
-2025-02-21T07:08:02:01,HeatWater,Stop
-2025-02-21T07:08:02:02,SoakCoffee,Start
-2025-02-21T07:08:04:30,SoakCoffee,Stop
-2025-02-21T07:08:04:31,HeatCarafe,Start
+2025-02-21T07:08:00,HeatWater,Start
+2025-02-21T07:08:02,HeatWater,Stop
+2025-02-21T07:08:02,SoakCoffee,Start
+2025-02-21T07:08:04,SoakCoffee,Stop
+2025-02-21T07:08:04,HeatCarafe,Start
