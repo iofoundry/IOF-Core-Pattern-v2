@@ -82,7 +82,7 @@ The following SPARQL converts the CSV file into RDF triples. Its WHERE clause co
 
 After the content of the CSV file is inserted into the triple store, the next SPARQL query pairs up the start and end of each type of event and then properly instantiates classes and properties from the IOF Core ontology. The syntax here demonstrates what may be a more familiar variable notation for some practitioners.
 
-Note that the last row of the CSV file (shown in \ref{tab:DripCoffee}) has no "Stop" row because the drip coffee maker continues to heat the carafe until it is turned off, which, in this fictitious model, also disconnects power from the internal computer producing the event file. The SPARQL query handles this using an "OPTIONAL" clause. Also note that the UUID from the "Start" is used as a prefix for \textit{all} of the related instance IRIs, which keeps them together when listed and provides a sensible, human-readable suffix.
+Note that the last row of the CSV file (shown in \ref{tab:DripCoffee}) has no "Stop" row because the drip coffee maker continues to heat the carafe until it is turned off, which, in this fictitious model, also disconnects power from the internal computer producing the event file. The SPARQL query handles this using an "OPTIONAL" clause. Also note that the UUID from every row that contained "Start" is used as a prefix for \textit{all} of the related instance IRIs, which keeps them together when listed and provides a sensible, human-readable suffix.
 
 Given a pattern match in the "WHERE" clause, all of the variables are ready for the "CONSTRUCT" clause.
 
