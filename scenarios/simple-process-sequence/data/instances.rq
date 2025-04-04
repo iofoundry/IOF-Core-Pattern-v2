@@ -1,0 +1,81 @@
+prefix ex: <http://example.com/schema/>
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix bfo: <http://purl.obolibrary.org/obo/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix xml: <http://www.w3.org/XML/1998/namespace>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix inst: <https://ontogenesis-solutions.com/ontologies/examples/instances/>
+prefix classes: <https://ontogenesis-solutions.com/ontologies/examples/classes/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix terms: <http://purl.org/dc/terms/>
+prefix iof-av: <https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/>
+prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
+
+CONSTRUCT {
+    $pid 
+        rdf:type
+            $bfoProcess ,
+            $class;
+        $bfoOccupiesTemporalRegion $interval .
+
+
+    $interval
+        rdf:type
+            $bfoTemporalInterval ;
+        $bfoHasFirstInstant $firstInstant ;
+        $bfoHasLastInstant $lastInstant .
+
+    $firstInstant
+        rdf:type
+            $bfoTemporalInstant ;
+        iof-core:hasValueExpressionAtAllTimes $firstVE .
+
+    $lastInstant
+        rdf:type
+            $bfoTemporalInstant ;
+        iof-core:hasValueExpressionAtAllTimes $lastVE .
+
+    $firstVE
+        rdf:type
+            iof-core:TemporalInstantValueExpression ;
+        iof-core:hasDateTimeInstantValue $startTime .
+
+    $lastVE
+           rdf:type
+            iof-core:TemporalInstantValueExpression ;
+        iof-core:hasDateTimeInstantValue $endTime .
+}
+
+WHERE {
+    $startId
+        ex:startStop "Start";
+        ex:eventType $eventType;
+        ex:timestamp $startTime.
+
+    OPTIONAL {
+        $endId
+            ex:startStop "Stop";
+            ex:eventType $eventType;
+            ex:timestamp $endTime.
+    }
+    
+    BIND(bfo:BFO_0000203 AS $bfoTemporalInstant)
+    BIND(bfo:BFO_0000015 AS $bfoProcess)
+    BIND(bfo:BFO_0000199 AS $bfoOccupiesTemporalRegion)
+    BIND(bfo:BFO_0000202 AS $bfoTemporalInterval)
+    BIND(bfo:BFO_0000222 AS $bfoHasFirstInstant)
+    BIND(bfo:BFO_0000224 AS $bfoHasLastInstant)
+
+    BIND(IRI(CONCAT(STR($startId), "/process")) AS $pid)
+    BIND(IRI(CONCAT(STR($startId), "/interval")) AS $interval)
+    BIND(IRI(CONCAT(STR($startId), "/firstInstant")) AS $firstInstant)
+    BIND(IRI(CONCAT(STR($startId), "/lastInstant")) AS $lastInstant)
+    BIND(IRI(CONCAT(STR($startId), "/firstVE")) AS $firstVE)
+    BIND(IRI(CONCAT(STR($startId), "/lastVE")) AS $lastVE)
+
+    BIND(IRI(CONCAT("https://ontogenesis-solutions.com/ontologies/examples/classes/", $eventType)) AS $class)
+
+}
+ORDER BY $startTime

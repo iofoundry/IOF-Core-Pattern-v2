@@ -6,7 +6,29 @@ count, percentage. ratio
 
 \section{Multiple measurements of the same object at the same time}
 different measurement processes 
-measurements using different instruments
+
+\subsection*{Scenario Objective}
+
+This scenario demonstrates how to represent measurements conducted on different attributes of the same material entity within the context of the \textbf{BFO/IOF ontology}.
+
+\subsection*{Key Points}
+\begin{itemize}
+    \item This pattern demonstrates how to capture and represent various attributes (e.g., physical, chemical, mechanical) measured on the same material entity.
+    \item The pattern demonstrates the temporal coincidence of different measurements.
+     \item The pattern highlights how measurements of various attributes can be traced back to the same material entity by using the IOF Core
+\end{itemize}
+\subsection{Use case: Measurement of temperature and pH during fermentation}
+This use case describes a scenario in which temperature and pH measurements are captured during a fermentation process. The temperature sensor records thermal conditions critical for maintaining optimal enzymatic reactions and microbial activity, as deviations can lead to inefficient fermentation or undesirable by-products. Concurrently, the pH sensor monitors the acidity or alkalinity of the fermenting mixture, providing essential insights into the chemical environment that directly affects enzyme functionality, product quality or overall process efficiency.
+This use case will focus on capturing a particular (discrete) measurement of temperature and pH. In practice, both attributes are monitored and captured continuously. For the details on how continuous measurements are captured the reader should look at the time-series measurement usecase.
+
+\section{Measurements of the same attribute by using different instruments}
+
+\subsection*{Scenario Objective}
+
+This scenario demonstrates how to represent measurements conducted on same attribute but with different measurement instruments within the context of the \textbf{BFO/IOF ontology}.
+\subsection{Use case: Measurement of glucose by Raman spectroscopy and a glucose sensor during fermentation}
+In this biomanufacturing use case, glucose concentration—a key parameter for controlling cell culture metabolism—is measured using both Raman spectroscopy and a traditional electrochemical glucose sensor to ensure accuracy and process robustness. The Raman spectrometer provides real-time, non-invasive monitoring of glucose levels by analyzing molecular vibrational signatures, offering a continuous and label-free measurement method. In parallel, an electrochemical glucose sensor, based on enzymatic oxidation, provides direct, quantitative readings through periodic offline sampling. The Raman data enables trend analysis and predictive modeling, while the electrochemical sensor serves as a validation tool to confirm Raman-derived values and detect potential spectral interferences. 
+This hybrid measurement approach enhances confidence in glucose monitoring, ensuring precise feed control strategies that optimize cell growth, productivity, and overall biomanufacturing efficiency.
 
 \section{Time-series measurement}
 (process characteristics)
