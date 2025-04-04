@@ -1,0 +1,26 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+
+oClass(iof:CommerCialServiceAgreement)
+oClass(iof:Agreement)
+oClass(iof:CommercialService)
+oClass(iof:CustomerRole)
+oClass(iof:ServiceProviderRole)
+subClass(iof:CommerCialServiceAgreement, iof:Agreement)
+oClass(iof:ObjectiveSpecification)
+xSome(iof:Agreement, iof:hasContinuantPartAtAllTimes, iof:ObjectiveSpecification, "", down)
+xSome(iof:CommerCialServiceAgreement, iof:isAbout, iof:CommercialService, "", right)
+xSome(iof:CommerCialServiceAgreement, iof:prescribes, iof:CustomerRole, "", down)
+xSome(iof:CommerCialServiceAgreement, iof:prescribes, iof:ServiceProviderRole, "", down)
+
+oClass(iof:SellingServiceProcess)
+xSome(iof:SellingServiceProcess, iof:hasParticipantAtSomeTime, iof:CommerCialServiceAgreement, "", right)
+xSome(iof:CommercialService, iof:hasParticipantAtSomeTime, iof:ServiceProvider, "", down)
+
+oClass(iof:CommercialSeviceSpecification)
+xSome(iof:CommercialSeviceSpecification, iof:prescribes, iof:CommercialService, "", down)
+
+oClass(iof:ServiceProvider)
+xSome(iof:ServiceProvider, iof:hasRole, iof:ServiceProviderRole, "", down)
+
+@enduml

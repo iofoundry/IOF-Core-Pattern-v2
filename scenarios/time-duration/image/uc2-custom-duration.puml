@@ -16,6 +16,6 @@ xSome(ns:FiscalQuarter, time:hasTRS, ns:FiscalQuarterReferenceSystem, "", up)
 xOnlyData(ns:FiscalQuarter, ns:fiscalQuarters, xsd:decimal, "", left)
 oIndividual(ns1:total-fiscal-quarters)
 typeOf(ns1:total-fiscal-quarters, ns:FiscalQuarter)
-data(ns1:total-fiscal-quarters, ns:fiscalQuarters, 12.0^xsd:decimal)
+data(ns1:total-fiscal-quarters, ns:fiscalQuarters, 12.0^^xsd:decimal)
 property(ns1:total-fiscal-quarters, bfo:isValueExpressionOfAtAllTimes, ns1:oc-project-interval, left)
 @enduml
