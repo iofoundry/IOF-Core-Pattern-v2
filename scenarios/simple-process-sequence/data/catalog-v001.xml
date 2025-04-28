@@ -2,9 +2,10 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="https://ontogenesis-solutions.com/ontologies/examples/classes/" uri="classes.rdf"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1743545777331" name="https://ontogenesis-solutions.com/ontologies/examples/advanced-instances/" uri="advanced-instances.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1743545777331" name="https://ontogenesis-solutions.com/ontologies/examples/classes/" uri="classes.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1743545777331" name="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/" uri="classexpr.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1743545777331" name="https://ontogenesis-solutions.com/ontologies/examples/instances/" uri="instances.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1745877101199" name="https://ontogenesis-solutions.com/ontologies/examples/advanced-instances/" uri="advanced-instances.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1745877101199" name="https://ontogenesis-solutions.com/ontologies/examples/classes/" uri="classes.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1745877101199" name="https://ontogenesis-solutions.com/ontologies/examples/classesexpr/" uri="classexpr.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1745877101199" name="duplicate:https://ontogenesis-solutions.com/ontologies/examples/instances/" uri="instances-new.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1745877101199" name="duplicate:https://ontogenesis-solutions.com/ontologies/examples/instances/" uri="instances.rdf"/>
     </group>
 </catalog>
