@@ -1,0 +1,45 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix inst: <https://ontogenesis-solutions.com/ontologies/examples/instances/>
+prefix bfo: <http://purl.obolibrary.org/obo/>
+prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
+
+
+construct {
+  $process1 $bfoPrecedes $process2.
+} 
+where {
+    BIND(bfo:BFO_0000063 AS $bfoPrecedes)
+    BIND(bfo:BFO_0000203 AS $bfoTemporalInstant)
+    BIND(bfo:BFO_0000015 AS $bfoProcess)
+    BIND(bfo:BFO_0000199 AS $bfoOccupiesTemporalRegion)
+    BIND(bfo:BFO_0000202 AS $bfoTemporalInterval)
+    BIND(bfo:BFO_0000222 AS $bfoHasFirstInstant)
+    BIND(bfo:BFO_0000224 AS $bfoHasLastInstant)
+
+    $process1
+        rdf:type $bfoProcess;
+    	$bfoOccupiesTemporalRegion $interval1.
+    $interval1
+        rdf:type $bfoTemporalInterval;
+    	$bfoHasLastInstant $lastInstant1.
+    $lastInstant1
+        rdf:type $bfoTemporalInstant;
+        iof-core:hasValueExpressionAtAllTimes $lastVE.
+    $lastVE
+        rdf:type iof-core:TemporalInstantValueExpression;
+        iof-core:hasDateTimeInstantValue $endTime.
+    
+    $process2
+        rdf:type $bfoProcess;
+    	$bfoOccupiesTemporalRegion $interval2.
+    $interval2
+        rdf:type $bfoTemporalInterval;
+    	$bfoHasFirstInstant $firstInstant2.
+    $firstInstant2
+        rdf:type $bfoTemporalInstant;
+        iof-core:hasValueExpressionAtAllTimes $firstVE.
+    $firstVE
+        rdf:type iof-core:TemporalInstantValueExpression;
+        iof-core:hasDateTimeInstantValue $startTime.
+	FILTER($endTime <= $startTime)
+}
