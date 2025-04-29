@@ -16,7 +16,7 @@ prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 CONSTRUCT {
     $process 
         rdf:type
-			owl:NamedIndividual,
+            owl:NamedIndividual,
             $bfoProcess,
             $class;
         $bfoOccupiesTemporalRegion $interval.
