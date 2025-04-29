@@ -44,6 +44,7 @@
 	
 	<owl:NamedIndividual rdf:about="&inst;process_4">
 		<bfo:BFO_0000062 rdf:resource="&inst;process_2"/>
+		<bfo:BFO_0000062 rdf:resource="&inst;process_0"/>
 	</owl:NamedIndividual>
 
 </rdf:RDF>
