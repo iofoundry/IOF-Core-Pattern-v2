@@ -16,36 +16,42 @@ prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 CONSTRUCT {
     $process 
         rdf:type
-            $bfoProcess ,
+			owl:NamedIndividual,
+            $bfoProcess,
             $class;
-        $bfoOccupiesTemporalRegion $interval .
+        $bfoOccupiesTemporalRegion $interval.
 
 
     $interval
         rdf:type
-            $bfoTemporalInterval ;
-        $bfoHasFirstInstant $firstInstant ;
-        $bfoHasLastInstant $lastInstant .
+            owl:NamedIndividual,
+            $bfoTemporalInterval;
+        $bfoHasFirstInstant $firstInstant;
+        $bfoHasLastInstant $lastInstant.
 
     $firstInstant
         rdf:type
-            $bfoTemporalInstant ;
-        iof-core:hasValueExpressionAtAllTimes $firstVE .
+            owl:NamedIndividual,
+            $bfoTemporalInstant;
+        iof-core:hasValueExpressionAtAllTimes $firstVE.
 
     $lastInstant
         rdf:type
-            $bfoTemporalInstant ;
-        iof-core:hasValueExpressionAtAllTimes $lastVE .
+            owl:NamedIndividual,
+            $bfoTemporalInstant;
+        iof-core:hasValueExpressionAtAllTimes $lastVE.
 
     $firstVE
         rdf:type
-            iof-core:TemporalInstantValueExpression ;
-        iof-core:hasDateTimeInstantValue $startTime .
+            owl:NamedIndividual,
+            iof-core:TemporalInstantValueExpression;
+        iof-core:hasDateTimeInstantValue $startTime.
 
     $lastVE
            rdf:type
-            iof-core:TemporalInstantValueExpression ;
-        iof-core:hasDateTimeInstantValue $endTime .
+            owl:NamedIndividual,
+            iof-core:TemporalInstantValueExpression;
+        iof-core:hasDateTimeInstantValue $endTime.
 }
 
 WHERE {
