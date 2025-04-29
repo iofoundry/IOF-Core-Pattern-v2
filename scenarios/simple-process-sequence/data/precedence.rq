@@ -5,10 +5,10 @@ prefix iof-core: <https://spec.industrialontologies.org/ontology/core/Core/>
 
 
 construct {
-  $process1 $bfoPrecedes $process2.
+  $process1 $bfoPrecededBy $process2.
 } 
 where {
-    BIND(bfo:BFO_0000063 AS $bfoPrecedes)
+    BIND(bfo:BFO_0000062 AS $bfoPrecededBy)
     BIND(bfo:BFO_0000203 AS $bfoTemporalInstant)
     BIND(bfo:BFO_0000015 AS $bfoProcess)
     BIND(bfo:BFO_0000199 AS $bfoOccupiesTemporalRegion)
