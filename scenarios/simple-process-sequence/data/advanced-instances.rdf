@@ -27,34 +27,28 @@
     // Individuals
     //
     ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
+    -->
 
 
-    <!-- https://ontogenesis-solutions.com/ontologies/examples/advanced-instances/overall-process -->
+
+
 
     <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/advanced-instances/overall-process">
-        <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/4cf143e5-fec3-4456-b56a-d6124e13d3e2/process"/>
-        <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/6fe2a9d8-273a-40c7-b1f0-5a9afad0cd48/process"/>
-        <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/d0d951d0-b96b-45ff-93fd-ea89a5f95b77/process"/>
+    <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/process_0"/>
+    <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/process_2"/>
+    <bfo:BFO_0000118 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/process_4"/>
     </owl:NamedIndividual>
-    
 
 
-    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/4cf143e5-fec3-4456-b56a-d6124e13d3e2/process -->
-
-    <rdf:Description rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/4cf143e5-fec3-4456-b56a-d6124e13d3e2/process">
-        <bfo:BFO_0000062 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/6fe2a9d8-273a-40c7-b1f0-5a9afad0cd48/process"/>
-    </rdf:Description>
-    
 
 
-    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/6fe2a9d8-273a-40c7-b1f0-5a9afad0cd48/process -->
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/process_4">
+    <bfo:BFO_0000062 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/process_2"/>
+    </owl:NamedIndividual>
 
-    <rdf:Description rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/6fe2a9d8-273a-40c7-b1f0-5a9afad0cd48/process">
-        <bfo:BFO_0000062 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/d0d951d0-b96b-45ff-93fd-ea89a5f95b77/process"/>
-    </rdf:Description>
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/process_2">
+    <bfo:BFO_0000062 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/process_0"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
