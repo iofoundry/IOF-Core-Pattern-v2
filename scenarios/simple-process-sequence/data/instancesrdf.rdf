@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xml:base="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bfo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:inst="https://ontogenesis-solutions.com/ontologies/examples/instances/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:iof-av="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/"
+     xmlns:iof-core="https://spec.industrialontologies.org/ontology/core/Core/">
+    <owl:Ontology rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000199 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000199"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000222 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000222"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000224 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000224"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes -->
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue -->
+
+    <owl:DatatypeProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeInstantValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000202 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000202"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000203 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000203"/>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classes/HeatCarafe -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatCarafe"/>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater"/>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/classes/SoakCoffee -->
+
+    <owl:Class rdf:about="https://ontogenesis-solutions.com/ontologies/examples/classes/SoakCoffee"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression -->
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_0">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_2">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_4">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_0">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:00</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_2">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:02</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/firstVE_4">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:04</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/interval_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_0">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000202"/>
+        <bfo:BFO_0000222 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_0"/>
+        <bfo:BFO_0000224 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/interval_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_2">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000202"/>
+        <bfo:BFO_0000222 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_2"/>
+        <bfo:BFO_0000224 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/interval_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_4">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000202"/>
+        <bfo:BFO_0000222 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/firstInstant_4"/>
+        <bfo:BFO_0000224 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_0">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_2">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastInstant_4">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000203"/>
+        <iof-core:hasValueExpressionAtAllTimes rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_0">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:02</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_2">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+        <iof-core:hasDateTimeInstantValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-21T07:08:04</iof-core:hasDateTimeInstantValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/lastVE_4">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/TemporalInstantValueExpression"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/process_0 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/process_0">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdf:type rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatWater"/>
+        <bfo:BFO_0000199 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/process_2 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/process_2">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdf:type rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/SoakCoffee"/>
+        <bfo:BFO_0000199 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontogenesis-solutions.com/ontologies/examples/instances/process_4 -->
+
+    <owl:NamedIndividual rdf:about="https://ontogenesis-solutions.com/ontologies/examples/instances/process_4">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdf:type rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/classes/HeatCarafe"/>
+        <bfo:BFO_0000199 rdf:resource="https://ontogenesis-solutions.com/ontologies/examples/instances/interval_4"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
