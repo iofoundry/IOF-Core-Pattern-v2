@@ -16,13 +16,13 @@ Note: I'm unsure what to say about the purpose of doing this!
 
 \subsection*{General Pattern Description}
 
-This pattern creates instances of \cname{bfo}{process}, each of which
+This pattern creates several instances of \cname{bfo}{process}. Each such \cname{bfo}{process}
 \opname{core}{occupiesTemporalRegion}
-one \\
+one
 \cname{bfo}{temporalInterval}
 with single start and end instances of
-\cname{bfo}{TemporalInstant}
-that each \\
+\cname{bfo}{TemporalInstant}.
+Each such \cname{bfo}{TemporalInstant}
 \opname{core}{hasValueExpressionAtAllTimes} some
 \cname{core}{TemporalInstantValueExpression}, according to the earlier pattern in
 \ref{sec-clock-calendar}.
