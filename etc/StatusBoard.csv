@@ -1,16 +1,16 @@
-Aspect / Chapter,Scenario,Description,Status,Developers,Reviewer,Comment
-Time,Clock time and calendar date,Associating clock time and calendar dates with temporal instances.,Completed,Arkopaul Sarkar,Evan Wallace,
-Time,Duration in time units,Representing duration of temporal intervals in standard/custom units.,Completed,Arkopaul Sarkar,Evan Wallace,
-Time,Change of object's location over time,Capturing object location changes using spatial and temporal regions.,Completed,Arkopaul Sarkar,,
-"Objects, Artifacts, and Their Materials",What an Object is Made of (Material constitution ),Describing materials/components composing an object.,Started,Ali Hasnazadeh,,Waitng for the resolution on portion of material
-Assembly Component,Assembly component,Modeling component relationships (permanent/temporal) in assemblies.,Started,Dusan Sormaz,,
-Assembly Component,Being components of different assemblies at different times,Modeling dynamic membership of components in different assemblies over time.,Started,Ali Hasnazadeh,,
-Person and Agent,Person and agent,Representing buyer/supplier roles in business processes.,Started,Perawit Charoenwut,,
-System and Organization,Different types of organisations,Modeling organizations with both business and manufacturing roles.,Completed,Perawit Charoenwut,,
-System and Organization,6.5 System and subsystem,Modeling hierarchical system structures.,Not Started,Will Sobel,Jim Logan,Milos and Jim will support Will
-Process and Event,Simple Process Sequence,Sequencing time-stamped events using temporal intervals.,Completed,Jim Logan,Dusan Sormaz,
-Process and Event,Material flow in a process sequence,"how to show the material flow, i.e., the input and output of the processes.",Not Allocated,,,"The use case should include raw materials as input in the first step, intermediate material entities, and the final product, utilizing hasInput and hasOutput along with raw material and product roles."
-Process and Event,Algorithm execution,Modeling execution of algorithms producing information outputs.,Completed,Milos Drobnjakovic,Dusan Sormaz,
-Information,Information about some entity(s),"Capturing different types of aboutness: designates, denotes, describes, prescribes.",Completed,Arkopaul Sarkar,,
-Information,Plan specification,Capturing a plan information,Not Started,Will Sobel,Jim Logan,Arko will support Will
-Measurement,Simple vs Aggregate Measurement,Distinguishing between individual and aggregate measurements.,Completed,Milos Drobnjakovic,,
+Aspect / Chapter,Scenario,Description,Status,Developers,Reviewer,Due Date,Comment
+Time,Clock time and calendar date,Associating clock time and calendar dates with temporal instances.,Completed,Arkopaul Sarkar,Evan Wallace,8/11/2025,
+Time,Duration in time units,Representing duration of temporal intervals in standard/custom units.,Completed,Arkopaul Sarkar,Evan Wallace,8/11/2025,
+Time,Change of object's location over time,Capturing object location changes using spatial and temporal regions.,Completed,Arkopaul Sarkar,,,
+"Objects, Artifacts, and Their Materials",What an Object is Made of (Material constitution ),Describing materials/components composing an object.,Started,Milos Drobnjakovic,,8/11/2025,Waitng for the resolution on portion of material
+Assembly Component,Assembly component,Modeling component relationships (permanent/temporal) in assemblies.,Started,Dusan Sormaz,,8/11/2025,
+Assembly Component,Being components of different assemblies at different times,Modeling dynamic membership of components in different assemblies over time.,Started,Arkopaul Sarkar,,8/11/2025,
+Person and Agent,Person and agent,Representing buyer/supplier roles in business processes.,Started,Perawit Charoenwut,,,
+System and Organization,Different types of organisations,Modeling organizations with both business and manufacturing roles.,Completed,Perawit Charoenwut,,,
+System and Organization,6.5 System and subsystem,Modeling hierarchical system structures.,Not Started,Will Sobel,,8/4/2025,Arko and Jim will support Will
+Process and Event,Simple Process Sequence,Sequencing time-stamped events using temporal intervals.,Completed,Jim Logan,Dusan Sormaz,8/4/2025,
+Process and Event,Material flow in a process sequence,"how to show the material flow, i.e., the input and output of the processes.",Not Allocated,,,,"The use case should include raw materials as input in the first step, intermediate material entities, and the final product, utilizing hasInput and hasOutput along with raw material and product roles."
+Process and Event,Algorithm execution,Modeling execution of algorithms producing information outputs.,Completed,Milos Drobnjakovic,Dusan Sormaz,8/4/2025,
+Information,Information about some entity(s),"Capturing different types of aboutness: designates, denotes, describes, prescribes.",Completed,Arkopaul Sarkar,,,
+Information,Plan specification,Capturing a plan information,Not Started,Will Sobel,,8/4/2025,Arko and Jim will support Will
+Measurement,Simple vs Aggregate Measurement,Distinguishing between individual and aggregate measurements.,Completed,Milos Drobnjakovic,,,
