@@ -56,14 +56,14 @@ Note that in this first use case, the EventType is used to create a generic \cna
 Each timestamp in a row that is marked "Stop" augments what was already created for a "Start" row with several more instances, and then wires them together as follows:
 the already-created \cname{bfo}{TemporalRegion} \opname{bfo}{hasLastInstant} a \cname{bfo}{TemporalInstant} that \cname{iof}{hasValueExpressionAtAllTimes} a \cname{time}{DateTimeDescription}.
 
- \textit{ 
-Provide a diagram which matches the use-case pattern description. \\
-\noindent \textit{This diagram is generally an object diagram. Please see examples of object diagram here.}
-  }
+% \textit{ 
+%Provide a diagram which matches the use-case pattern description. \\
+%\noindent \textit{This diagram is generally an object diagram. Please see examples of object diagram here.}
+%  }
 
- \textit{ 
-Describe how the general pattern is applied to the use case. It is important to highlight within the description how the use-case-specific concepts align with the general pattern (e.g., SubClassOf Class for general pattern).
-  }
+% \textit{ 
+%Describe how the general pattern is applied to the use case. It is important to highlight within the description how the use-case-specific concepts align with the general pattern (e.g., SubClassOf Class for general pattern).
+%  }
 
 \subsubsection*{Use-Case Example Data}
 The following table shows CSV data resulting from a fictitious machine that makes drip coffee. Each row contains the date and time at which an instance of a type of process started or stopped.
@@ -89,6 +89,9 @@ Given a pattern match in the "WHERE" clause, all of the variables are ready for 
 \lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/instances.rq}
 
 
+
+
+\begin{comment}
 \subsubsection*{Data Validation}
  \textit{ 
 Data validation can be performed in two ways: accessing interesting facts using SPARQL or validating whether the entire data conforms to the ontology using SHACL. It is preferable to provide both. \\
@@ -116,8 +119,6 @@ Describe how the general pattern is applied to the use case. It is important to 
 The following table shows CSV data resulting from a fictitious machine that makes drip coffee. Each row contains the date and time at which a type of event started or stopped.
 
 
-
-
 \subsubsection*{Data Mapping}
  \textit{ 
 Describe how the data was mapped to RDF. Provide an INSERT DATA/ INSERT SPARQL for mapping. Use INSERT only when the use case example data needs further manipulation. \\
@@ -131,4 +132,5 @@ For both, do not use blank nodes.
  \textit{ 
 Data validation can be performed in two ways: accessing interesting facts using SPARQL or validating whether the entire data conforms to the ontology using SHACL. It is preferable to provide both. \\
 Provide the SPARQL query in the code block along with the result of the query. \\
-  }
+  }    
+\end{comment}
