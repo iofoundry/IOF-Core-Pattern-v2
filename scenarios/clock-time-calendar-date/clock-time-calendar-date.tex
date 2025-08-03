@@ -13,10 +13,10 @@ This scenario illustrates how to associate clock time and calendar dates with in
 
 \includegraphics[scale=0.28]{scenarios/clock-time-calendar-date/images/general-clock-calendar.png}
 
-the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \texttt{TemporalInstantValueExpression} or OWL-Time class \texttt{time:General\\DateTimeDescription} as both are subclass of \texttt{time:TemporalPosition} (\texttt{core:TemporalInstantValue\\Expression} is mapped as subclass of \texttt{time:TemporalPosition}.  
+the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \texttt{iof-core:TemporalInstantValueExpression} or OWL-Time class \texttt{time:General\\DateTimeDescription} as both are subclass of \texttt{time:TemporalPosition} (\texttt{iof-core:TemporalInstantValue\\Expression} is mapped as subclass of \texttt{time:TemporalPosition}.  
 
 \subsubsection*{Use Case: Launch of first iPhone} 
-The original iPhone was first launched on June 29, 2007 during the Macworld Conference \& Expo in San Francisco, California. 
+The original iPhone was first released on June 29, 2007. 
 
 The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
 
@@ -26,12 +26,12 @@ The date and time of the launch are captured in 1) XSD dateTime format, 2) in a 
 
 The launch date and time are expressed in three different ways.  
 
-\texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T18:00:00-05:00 for a UTC-5 timezone). However, as XSD:dateTime datatype is the range of \texttt{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
+\texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T14:00:00-04:00 which has a UTC-4 time zone offset for EDT). However, as XSD:dateTime datatype is the range of \texttt{iof-core:hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
 
 \paragraph{Other components of a clock time \\}
 
 In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}.
-Various combinations of data properties of \texttt{GeneralisedDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \texttt{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \texttt{time:timeZone} property.       
+Various combinations of data properties of \texttt{time:GeneralDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \texttt{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \texttt{time:timeZone} property.       
 
 \paragraph{Using custom clock time format \\}
 

@@ -77,3 +77,58 @@ INSERT DATA {
 
 
 \subsubsection*{Data Validation}
+\begin{verbatim}
+#Shape for iof:BusinessOrganization
+ns1:BusinessOrganizationShape a sh:NodeShape ;
+    sh:targetClass iof:BusinessOrganization ;
+    sh:property [
+        sh:path iof:hasFunction ;
+        sh:class iof:BusinessFunction ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:subClassOf ;
+        sh:hasValue iof:Organization ;
+    ] .
+
+#Shape for Manufacturer
+ns1:ManufacturerShape a sh:NodeShape ;
+    sh:targetClass iof:Manufacturer ;
+    sh:property [
+        sh:path iof:hasRole ;
+        sh:class iof:ManufacturerRole ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:subClassOf ;
+        sh:hasValue iof:Organization ;
+    ] .
+
+# Shape for SellingBusinessProcess
+ns1:SellingBusinessProcessShape a sh:NodeShape ;
+    sh:targetClass iof:SellingBusinessProcess ;
+    sh:property [
+        sh:path bfo:realize ;
+        sh:class iof:BusinessFunction ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:hasParticipantAtSomeTime ;
+        sh:class iof:MaterialProduct ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for ProductProductionProcess
+ns1:ProductProductionProcessShape a sh:NodeShape ;
+    sh:targetClass iof:ProductProductionProcess ;
+    sh:property [
+        sh:path bfo:realize ;
+        sh:class iof:ManufacturerRole ;
+        sh:minCount 1 ;xf
+    ] ;
+    sh:property [
+        sh:path iof:hasOutput ;
+        sh:class iof:MaterialProduct ;
+        sh:minCount 1 ;
+    ] .
+\end{verbatim}
