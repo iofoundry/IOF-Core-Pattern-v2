@@ -1,0 +1,48 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/nowl/profiles/iof.iuml
+
+oClass(iof:GainOfRole)
+oIndividual(ns1:assignment-of-safety-officer)
+typeOf(ns1:assignment-of-safety-officer, iof:GainOfRole)
+
+oIndividual(ns1:assigment-interval)
+
+property(ns1:assignment-of-safety-officer, bfo:occupiesTemporalRegion, ns1:assigment-interval, d)
+
+oClass(iof:LossOfRole)
+oIndividual(ns1:termination-of-safety-officer)
+typeOf(ns1:termination-of-safety-officer, iof:LossOfRole)
+
+oIndividual(ns1:termination-interval)
+
+property(ns1:termination-of-safety-officer, bfo:occupiesTemporalRegion, ns1:termination-interval, d)
+
+' oClass(bfo:Role)
+oIndividual(ns1:safety-officer-term, bfo:Role)
+' typeOf(ns1:safety-officer-term, bfo:Role)
+
+property(ns1:assignment-of-safety-officer, iof:hasOutput, ns1:safety-officer-term, r)
+property(ns1:termination-of-safety-officer, iof:hasInput, ns1:safety-officer-term, l)
+
+' oClass(iof:Person)
+oIndividual(ns1:john-lee, iof:Person)
+' typeOf(ns1:john-lee, iof:Person)
+
+property(ns1:john-lee, iof:hasRole, ns1:safety-officer-term, d)
+
+property(ns1:john-lee, bfo:participatesInAtAllTimes, ns1:assignment-of-safety-officer, d)
+property(ns1:john-lee, bfo:participatesInAtAllTimes, ns1:termination-of-safety-officer, d)
+
+oIndividual(ns1:may_1_2024)
+oIndividual(ns1:may_6_2024)
+
+property(ns1:assigment-interval, bfo:hasStartInstant, ns1:may_1_2024, d)
+property(ns1:assigment-interval, bfo:hasEndInstant, ns1:may_6_2024, d)
+
+oIndividual(ns1:march_31_2025)
+oIndividual(ns1:april_4_2025)
+
+property(ns1:termination-interval, bfo:hasStartInstant, ns1:march_31_2025, d)
+property(ns1:termination-interval, bfo:hasEndInstant, ns1:april_4_2025, d)
+
+@enduml

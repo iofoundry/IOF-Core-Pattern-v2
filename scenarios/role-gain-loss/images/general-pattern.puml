@@ -1,0 +1,32 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/nowl/profiles/iof.iuml
+
+oClass(iof:GainOfRole)
+oClass(iof:LossOfRole)
+oClass(bfo:Role)
+oClass(bfo:MaterialEntity)
+
+xSome(iof:GainOfRole, bfo:hasOutput, bfo:Role, "", r)
+xSome(iof:LossOfRole, bfo:hasInput, bfo:Role, "", l)
+
+xSome(iof:GainOfRole, bfo:hasParticipantAtAllTimes, bfo:MaterialEntity, "", u)
+xSome(iof:LossOfRole, bfo:hasParticipantAtAllTimes, bfo:MaterialEntity, "", u)
+
+xSome(bfo:MaterialEntity, iof:hasRole, bfo:Role, "", d)
+
+oIndividual(ns1:interval1, bfo:TemporalInterval)
+oIndividual(ns1:interval2, bfo:TemporalInterval)
+oIndividual(ns1:interval3, bfo:TemporalInterval)
+
+xSome(iof:GainOfRole, bfo:occupiesTemporalRegion, ns1:interval1, " ", d)
+xSome(bfo:Role, bfo:existsAt, ns1:interval2, " ", d)
+xSome(iof:LossOfRole, bfo:occupiesTemporalRegion, ns1:interval3, " ", d)
+
+xSome(ns1:interval1, bfo:meets, ns1:interval2, " ", d)
+xSome(ns1:interval1, bfo:temporallyOverlaps, ns1:interval2, " ", d)
+xSome(ns1:interval1, bfo:temporallyStarts, ns1:interval2, " ", d)
+xSome(ns1:interval3, bfo:metBy, ns1:interval2, " ", d)
+xSome(ns1:interval3, bfo:temporallyOverlappedBy, ns1:interval2, " ", d)
+xSome(ns1:interval3, bfo:temporallyStartedBy, ns1:interval2, " ", d)
+
+@enduml
