@@ -8,9 +8,10 @@ Assembly Component,Being components of different assemblies at different times,M
 Person and Agent,Person and agent,Representing buyer/supplier roles in business processes.,Started,Perawit Charoenwut,,,
 System and Organization,Different types of organisations,Modeling organizations with both business and manufacturing roles.,Completed,Perawit Charoenwut,,,
 System and Organization,6.5 System and subsystem,Modeling hierarchical system structures.,Not Started,Will Sobel,,8/4/2025,Arko and Jim will support Will
-Process and Event,Simple Process Sequence,Sequencing time-stamped events using temporal intervals.,Completed,Jim Logan,Dusan Sormaz,8/4/2025,
+Process and Event,Simple Process Sequence,Sequencing time-stamped events using temporal intervals.,Completed,Jim Logan,Dusan Sormaz,8/4/2025,"extension with a reasoning use case and Arko will generate diagrams from RDF"
 Process and Event,Material flow in a process sequence,"how to show the material flow, i.e., the input and output of the processes.",Not Allocated,,,,"The use case should include raw materials as input in the first step, intermediate material entities, and the final product, utilizing hasInput and hasOutput along with raw material and product roles."
 Process and Event,Algorithm execution,Modeling execution of algorithms producing information outputs.,Completed,Milos Drobnjakovic,Dusan Sormaz,8/4/2025,
 Information,Information about some entity(s),"Capturing different types of aboutness: designates, denotes, describes, prescribes.",Completed,Arkopaul Sarkar,,,
 Information,Plan specification,Capturing a plan information,Not Started,Will Sobel,,8/4/2025,Arko and Jim will support Will
 Measurement,Simple vs Aggregate Measurement,Distinguishing between individual and aggregate measurements.,Completed,Milos Drobnjakovic,,,
+
