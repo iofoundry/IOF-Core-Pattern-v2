@@ -76,7 +76,7 @@ The following table shows CSV data resulting from a fictitious machine that make
 \end{table}    
 
 \subsubsection*{Data Mapping}
-The following SPARQL converts the CSV file into RDF triples. Its WHERE clause connects to a service that makes each row in the CSV file available, it binds each CSV field to a variable, constructs an IRI from a universally unique identifier (UUID). Its INSERT clause then uses those variables from a row in the CSV file to insert a pattern of three triples into a repository. The predicates of those triples exist to connect the IRI (bound to the variable "?id") to the three fields of each row.
+The following SPARQL converts the CSV file into RDF triples. Its WHERE clause connects to a service that makes each row in the CSV file available, it binds each CSV field to a variable, and constructs an IRI from a universally unique identifier (UUID). Its INSERT clause then uses those variables from a row in the CSV file to insert a pattern of three triples into a repository. The predicates of those triples exist to connect the IRI (bound to the variable "?id") to the three fields of each row.
 
 \lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/csv2rdf.rq}
 
