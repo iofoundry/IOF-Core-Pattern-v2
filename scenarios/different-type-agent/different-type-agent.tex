@@ -16,13 +16,14 @@ Both business processes have the same MaterialProduct as a participant
 
 \subsection*{Use Case: Coffee Shop Transaction}
 \subsubsection*{Use-Case Pattern Description}
-This use case demonstrates how a buyer (John), purchases a cup of coffee from a cafe. 
+This use case demonstrates how different types of agents (a person and an organization) participate in commercial transactions involving the purchase and supply of material products.
 
 \includegraphics[scale=0.35]{scenarios/different-type-agent/image/different-type-agent.png}
 
-
 \subsubsection*{Use-Case Example Data}
+John (ns1:john) is both a person (iof:Person) and a buyer (iof:Buyer) of a cup of coffee (ns1:a-cup-of-coffee). John has a buyer role (ns1:coffe-buyer) which is bfo:realize through a buying business process (ns1:coffee-buying-process), where the cup of coffee participates (bfo:hasParticipant) in the buying process.
 
+Simultaneously, a cafe (ns1:cafe) operates as both an organization (iof:Organization) and a supplier (iof:Supplier) with respect to the same cup of coffee (ns1:a-cup-coffee-cup). The coffee shop has a supplier role (ns1:coffee-supplier) which is bfo:realize through a supplying business process (ns1:coffee-supplying-process), where the same cup of coffee participates (bfo:hasParticipant) in the supplying process.
 
 \begin{table}[h]
 % \caption{}
@@ -39,9 +40,102 @@ This use case demonstrates how a buyer (John), purchases a cup of coffee from a 
 
 \subsubsection*{Data Mapping}
 \begin{verbatim}
-
+INSERT DATA {
+    ns1:john a iof:Person, iof:Buyer ;
+        iof:hasRole ns1:coffee-buyer.
+    
+    ns1:cafe a iof:Organization, iof:Supplier ;
+        iof:hasRole ns1:coffee-supplier.
+    
+    ns1:coffee-buyer a iof:BuyerRole .
+    
+    ns1:coffee-supplier a iof:SupplierRole .
+    
+    ns1:coffee-buying-process a iof:BuyingBusinessProcess ;
+        bfo:hasParticipant ns1:a-cup-of-coffee ;
+        bfo:realize ns1:coffee-buyer .
+    
+    ns1:coffee-supplying-process a iof:SupplyingBusinessProcess ;
+        bfo:hasParticipant ns1:a-cup-of-coffee ;
+        bfo:realize ns1:coffee-supplier .
+    
+    ns1:a-cup-of-coffee a iof:MaterialProduct ;
 \end{verbatim}
 
 
 
 \subsubsection*{Data Validation}
+\begin{verbatim}
+#shape for Buyer
+ns1:BuyerShape a sh:NodeShape ;
+    sh:targetClass iof:Buyer ;
+    sh:property [
+        sh:path iof:hasRole ;
+        sh:class iof:BuyerRole ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:subClassOf ;
+        sh:hasValue iof:Agent ;
+    ] .
+
+# Shape for Supplier
+ns1:SupplierShape a sh:NodeShape ;
+    sh:targetClass iof:Supplier ;
+    sh:property [
+        sh:path iof:hasRole ;
+        sh:class iof:SupplierRole ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path rdfs:subClassOf ;
+        sh:hasValue iof:Agent ;
+    ] .
+
+# Shape for BuyerRole
+ns1:BuyerRoleShape a sh:NodeShape ;
+    sh:targetClass iof:BuyerRole ;
+    sh:property [
+        sh:path [ sh:inversePath iof:hasRole ] ;
+        sh:class iof:Buyer ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for SupplierRole
+ns1:SupplierRoleShape a sh:NodeShape ;
+    sh:targetClass iof:SupplierRole .
+
+# Shape for BuyingBusinessProcess
+ns1:BuyingBusinessProcessShape a sh:NodeShape ;
+    sh:targetClass iof:BuyingBusinessProcess ;
+    sh:property [
+        sh:path bfo:realize ;
+        sh:class iof:BuyerRole ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:hasParticipant ;
+        sh:class iof:MaterialProduct ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for SupplyingBusinessProcess
+ns1:SupplyingBusinessProcessShape a sh:NodeShape ;
+    sh:targetClass iof:SupplyingBusinessProcess ;
+    sh:property [
+        sh:path bfo:realize ;
+        sh:class iof:SupplierRole ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bfo:hasParticipant ;
+        sh:class iof:MaterialProduct ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for MaterialProduct
+ns1:MaterialProductShape a sh:NodeShape ;
+    sh:targetClass iof:MaterialProduct .
+
+
+\end{verbatim}

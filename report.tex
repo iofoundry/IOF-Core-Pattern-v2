@@ -21,6 +21,9 @@
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
+%% JL added this to fix long names spilling over the margin.
+\emergencystretch=2em
+
 \titlespacing*{\section}
 {0pt}{4.0ex plus 1ex minus .2ex}{2.2ex plus .2ex}
 \titlespacing*{\subsection}
@@ -44,8 +47,6 @@
 \specialcomment{instruction}{\begingroup\color{red}\itshape}{\endgroup}
 \excludecomment{instruction} % Exclude all instructions from printing
 
-%% Move higher if acceptable to all
-%%
 %% Jim's suggestioned contruct styles,
 %% borrowed from Ian Horrocks' DL macros
 \newcommand{\nsprefix}[1]{%
