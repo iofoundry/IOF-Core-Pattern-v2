@@ -1,0 +1,20 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix bfo:  <http://purl.obolibrary.org/obo/BFO_> .
+@prefix core: <http://example.org/core#> .
+@prefix ex:   <http://example.org/example#> .
+
+### Material Kinds (classes), all under MaterialEntity
+ex:AceticAcid      a owl:Class ; rdfs:subClassOf bfo:MaterialEntity .
+ex:SodiumAcetate   a owl:Class ; rdfs:subClassOf bfo:MaterialEntity .
+
+### Portion individuals that instantiate those kinds
+ex:PortionOfAceticAcid     rdf:type ex:AceticAcid .
+ex:PortionOfSodiumAcetate  rdf:type ex:SodiumAcetate .
+
+### The buffer solution portion and its composition
+ex:PortionOfAcetateBufferSolution1
+    rdf:type bfo:MaterialEntity ;
+    core:isMadeOf ex:PortionOfAceticAcid ,
+                  ex:PortionOfSodiumAcetate .

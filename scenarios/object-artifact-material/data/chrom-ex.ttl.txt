@@ -1,0 +1,28 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix bfo:  <http://purl.obolibrary.org/obo/BFO_> .
+@prefix core: <http://example.org/core#> .
+@prefix ex:   <http://example.org/example#> .
+
+### Material Classes (all subclasses of MaterialEntity)
+ex:Glass a owl:Class ; rdfs:subClassOf bfo:MaterialEntity .
+ex:Sepharose a owl:Class ; rdfs:subClassOf bfo:MaterialEntity .
+ex:DEAE a owl:Class ; rdfs:subClassOf bfo:MaterialEntity .
+
+### Artifact Individuals
+ex:PackedChromatographyColumn rdf:type core:MaterialArtifact ;
+    core:hasComponentPart ex:ChromatographyColumn ,
+                          ex:DEAE-SepharoseResin .
+
+ex:ChromatographyColumn rdf:type core:MaterialArtifact ;
+    core:isMadeOf ex:PortionOfGlass .
+
+ex:DEAE-SepharoseResin rdf:type core:MaterialArtifact ;
+    core:isMadeOf ex:PortionOfSepharose ,
+                  ex:PortionOfDEAEMolecules .
+
+### Material Portion Individuals
+ex:PortionOfGlass rdf:type ex:Glass .
+ex:PortionOfSepharose rdf:type ex:Sepharose .
+ex:PortionOfDEAEMolecules rdf:type ex:DEAE .
