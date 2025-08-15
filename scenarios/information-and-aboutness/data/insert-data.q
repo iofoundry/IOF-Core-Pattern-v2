@@ -1,28 +1,40 @@
-PREFIX iof: <http://example.org/iof#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ns1: <http://example.org/ns1#>
+PREFIX bfo: <http://purl.obolibrary.org/obo/> 
+PREFIX iof: <https://spec.industrialontologies.org/ontology/core/Core/>
 
 INSERT DATA {
-  # Car entity
-  ns1:car1 a iof:MaterialArtifact .
 
-  # Designating a specific instance of the car (e.g., using a VIN)
-  ns1:car1-vin-number a iof:Identifier ;
-      iof:designates ns1:car1 ;
-      rdf:value "1HGCM82633A123456" . # Example VIN
+    ns1:assignment-of-safety-officer a iof:GainOfRole;
+        bfo:occupiesTemporalRegion ns1:assignment-interval.
 
-  # Denoting the model name of the car
-  ns1:car1-model-name a iof:InformationContentEntity ;
-      iof:denotes ns1:car1 ;
-      rdf:value "Toyota Camry" .
+    ns1:assignment-interval a bfo:BFO_0000202;
+        bfo:BFO_0000222 ns1:assignment-start-time;
+        bfo:BFO_0000224 ns1:assignment-end-time.
+    
+    ns1:assignment-start-time a bfo:BFO_0000203;
+        iof:hasValueExpressionAtAllTimes ns1:assignment-start-time-value.
 
-  # Describing the car using a tagline
-  ns1:car1-tagline a iof:DescriptiveInformationContentEntity ;
-      iof:describes ns1:car1 ;
-      rdf:value "Toyota Camry XLE 2025 – Elevate Your Drive" .
+    ns1:assignment-end-time a bfo:TemporalInstant;
+        iof:hasValueExpressionAtAllTimes ns1:assignment-end-time-value. 
 
-  # Prescribing regulatory classification for the car
-  ns1:passenger-vehicle-specification a iof:DirectiveInformationContentEntity ;
-      iof:prescribes ns1:car1 ;
-      rdf:value "Gross Vehicle Weight Rating (GVWR) under 10,000 lbs" .
+    ns1:assignment-start-time-value iof:hasDateTimeInstantValue "2024-05-01T00:00:00Z"^^xsd:dateTime.
+    ns1:assignment-end-time-value iof:hasDateTimeInstantValue "2024-05-06T00:00:00Z"^^xsd:dateTime.
+
+    ns1:termination-of-safety-officer a iof:GainOfRole;  # Check if this should be LossOfRole
+        bfo:occupiesTemporalRegion ns1:termination-interval.
+
+    ns1:termination-interval a bfo:BFO_0000202;
+        bfo:BFO_0000222 ns1:termination-start-time;
+        bfo:BFO_0000224 ns1:termination-end-time.
+    
+    ns1:termination-start-time a bfo:BFO_0000203;
+        iof:hasValueExpressionAtAllTimes ns1:termination-start-time-value.
+
+    ns1:termination-end-time a bfo:TemporalInstant;
+        iof:hasValueExpressionAtAllTimes ns1:termination-end-time-value. 
+
+    ns1:termination-start-time-value iof:hasDateTimeInstantValue "2025-03-31T00:00:00Z"^^xsd:dateTime.
+    ns1:termination-end-time-value iof:hasDateTimeInstantValue "2025-04-04T00:00:00Z"^^xsd:dateTime.
 }
