@@ -8,9 +8,9 @@ This scenario aims to demonstrate how to model relationships between different t
 \subsection*{General Pattern Description}
 The pattern models the relationship between buyers, suppliers, and material products through their roles and participation in business processes. It demonstrates how:
 
-An agent classified as a Buyer has a BuyerRole that participates in a BuyingBusinessProcess
-An agent classified as a Supplier has a SupplierRole that participates in a SupplyingBusinessProcess
-Both business processes have the same MaterialProduct as a participant
+An \cname{iof}{Agent} additionally classified as an \cname{iof}{Buyer} (which by definition has an \cname{iof}{BuyerRole}) participates in an \cname{iof} {BuyingBusinessProcess}.
+An \cname{iof}{Agent} additionally classified as an \cname{iof}{Supplier} (which by definition has a \cname{iof}{SupplierRole}) participates in an \cname{iof} {SupplyingBusinessProcess}.
+Both business processes have the same \cname{iof}{MaterialProduct} as a participant.
 
 \includegraphics[scale=0.4]{scenarios/different-type-agent/image/different-type-agent-schema.png}
 
@@ -21,9 +21,13 @@ This use case demonstrates how different types of agents (a person and an organi
 \includegraphics[scale=0.35]{scenarios/different-type-agent/image/different-type-agent.png}
 
 \subsubsection*{Use-Case Example Data}
-John (ns1:john) is both a person (iof:Person) and a buyer (iof:Buyer) of a cup of coffee (ns1:a-cup-of-coffee). John has a buyer role (ns1:coffe-buyer) which is bfo:realize through a buying business process (ns1:coffee-buying-process), where the cup of coffee participates (bfo:hasParticipant) in the buying process.
+\ind{ns1}{john} is both an \cname{iof}{Person} and an \cname{iof}{Buyer} of \ind{ns1}{a-cup-of-coffee} and he has an \cname{iof}{BuyerRole} called \ind{ns1}{coffee-buyer}.
+An \cname{iof}{BuyingBusinessProcess} called \ind{ns1}{coffee-buying-process} \opname{bfo}{realizes} \ind{ns1}{coffee-buyer} and \opname{bfo}{hasParticipant} the \cname{iof}{MaterialProduct} called \ind{ns1}{a-cup-of-coffee}.
 
-Simultaneously, a cafe (ns1:cafe) operates as both an organization (iof:Organization) and a supplier (iof:Supplier) with respect to the same cup of coffee (ns1:a-cup-coffee-cup). The coffee shop has a supplier role (ns1:coffee-supplier) which is bfo:realize through a supplying business process (ns1:coffee-supplying-process), where the same cup of coffee participates (bfo:hasParticipant) in the supplying process.
+
+Simultaneously, \ind{ns1}{cafe} is both an \cname{iof}{Organization} and an \cname{iof}{Supplier} with respect to \ind{ns1}{a-cup-of-coffee} and it has an \cname{iof}{SupplierRole} called \ind{ns1}{coffee-supplier}.
+An \cname{iof}{SupplyingBusinessProcess} called \ind{ns1}{coffee-supplying-process} \opname{bfo}{realizes} \ind{ns1}{coffee-supplier} and \opname{bfo}{hasParticipant} \ind{ns1}{a-cup-of-coffee}.
+
 
 \begin{table}[h]
 % \caption{}
