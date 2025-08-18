@@ -50,7 +50,7 @@
 %% Jim's suggestioned contruct styles,
 %% borrowed from Ian Horrocks' DL macros
 \newcommand{\nsprefix}[1]{%
-    \ifthenelse{\equal{#1}{}}%
+    \penalty0\hskip0pt\ifthenelse{\equal{#1}{}}%
     {}%
     {%
         {\footnotesize\textsf{#1}:}%
@@ -65,7 +65,15 @@
     \nsprefix{#1}%
     \textsl{#2}%
 }
-\newcommand{\dpname}[1]{\textsf{#1}}
+%%\newcommand{\dpname}[1]{\textsf{#1}}
+\newcommand{\dpname}[2]{%
+    \nsprefix{#1}%
+    \textsl{#2}%
+}
+\newcommand{\ind}[2]{%
+    \nsprefix{#1}%
+    \textsf{#2}%
+}
 
 
 %% ----------------------------------------------------------------------
