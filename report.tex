@@ -47,8 +47,7 @@
 \specialcomment{instruction}{\begingroup\color{red}\itshape}{\endgroup}
 \excludecomment{instruction} % Exclude all instructions from printing
 
-%% Jim's suggestioned contruct styles,
-%% borrowed from Ian Horrocks' DL macros
+% Contruct styles borrowed from Ian Horrocks' DL macros
 \newcommand{\nsprefix}[1]{%
     \penalty0\hskip0pt\ifthenelse{\equal{#1}{}}%
     {}%
@@ -70,11 +69,19 @@
     \nsprefix{#1}%
     \textsl{#2}%
 }
-\newcommand{\ind}[2]{%
+\newcommand{\iname}[2]{%
     \nsprefix{#1}%
     \textsf{#2}%
 }
-\newcommand{\anno}[2]{%
+
+%% Annotation property
+\newcommand{\apname}[2]{%
+    \nsprefix{#1}%
+    \textsf{#2}%
+}
+
+%% Datatype
+\newcommand{\dtname}[2]{%
     \nsprefix{#1}%
     \textsf{#2}%
 }
