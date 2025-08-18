@@ -72,7 +72,7 @@ A library with all basic patterns is available to be used with \href{http://draw
 \subsection*{Naming and style convention}
 
 \begin{enumerate}
-    \item \textbf{Namespace:} Every label of ontological terms that are used in a diagram or text must accompany a namespace. Only a namespace prefix should be used, e.g., bfo:Occurrent. The prefixes should be common across all diagrams and text and should be declared in the front matter. 
+    \item \textbf{Namespace:} Every label of ontological terms that are used in a diagram or text must accompany a namespace. Only a namespace prefix should be used, e.g., \cname{bfo}{Occurrent}. The prefixes should be common across all diagrams and text and should be declared in the front matter. 
         \begin{enumerate}
             \item individuals may use namespace \texttt{ns1}, \texttt{ns2} etc. Multiple namespaces may be used to denote data coming from different sources. However, using a namespace for individuals is not obligatory. 
             \item Any new class that is not part of BFO and IOF must use namespace \texttt{ns}.
@@ -110,27 +110,27 @@ Individual             & ns1             & Mauve \#76608A                     & 
 \hline
 \textbf{Type} & \textbf{Case style} \\ \hline
 
-Class (\texttt{owl:Class}) & 
+Class (\cname{owl}{Class}) & 
 The class name should be written in PascalCase (The first letter of every word is in uppercase and the spaces are removed). \\
-& It is better to use the label (\texttt{rdf:Label}) for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to PascalCase. \\
-& Example: \texttt{bfo:GenericallyDependentContinuant} \\ \hline
+& It is better to use the label (\anno{rdf}{Label}) for better comprehension. If the original \anno{rdf}{Label} has spaces, they should be removed to convert to PascalCase. \\
+& Example: \cname{bfo}{GenericallyDependentContinuant} \\ \hline
 
-Individual (\texttt{owl:Individual}) & 
+Individual (\cname{owl}{Individual}) & 
 The individual name should be in kebab-case (all letters are in lowercase, and spaces are replaced by a single hyphen). \\
 & Avoid using abbreviated or shortened strings as names, e.g., \texttt{bn1}. \\
 & Do not use the same name as the class it is a member of. Use the same name suffixed by indices for multiple individuals of the same class. \\
-& Examples: \texttt{my-bicycle}, \texttt{house-of-joe}, \texttt{engine-1}, \texttt{engine-2}. \\ \hline
+& Examples: \ind{}{my-bicycle}, \ind{}{house-of-joe}, \ind{}{engine-1}, \ind{}{engine-2}. \\ \hline
 
-Object Property (\texttt{owl:ObjectProperty}) & 
+Object Property (\cname{owl}{ObjectProperty}) & 
 The object property name should be written in camelCase (The first letters of every word except the first word are in uppercase, and spaces are removed). \\
-& It is better to use the label (\texttt{rdf:Label}) of the property for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to camelCase. \\
-& Example: \texttt{bfo:hasContinuantPartAtSomeTime}. \\
+& It is better to use the label (\anno{rdf}{Label}) of the property for better comprehension. If the original \anno{rdf}{Label} has spaces, they should be removed to convert to camelCase. \\
+& Example: \cname{bfo}{hasContinuantPartAtSomeTime}. \\
 & Additional symbols may be added before the name to represent qualifiers and cardinalities. Please see details in the next section. \\ \hline
 
-Data Property (\texttt{rdf:DatatypeProperty}) & 
+Data Property (\cname{rdf}{DatatypeProperty}) & 
 The data property name should be written in camelCase (The first letters of every word except the first word are in uppercase, and spaces are removed). \\
-& It is better to use the label (\texttt{rdf:Label}) of the property for better comprehension. If the original \texttt{rdf:Label} has spaces, they should be removed to convert to camelCase. \\
-& Example: \texttt{iof:hasSimpleExpressionValue}. \\ \hline
+& It is better to use the label (\anno{rdf}{Label}) of the property for better comprehension. If the original \anno{rdf}{Label} has spaces, they should be removed to convert to camelCase. \\
+& Example: \dpname{iof}{hasSimpleExpressionValue}. \\ \hline
 
 \end{tabular}
 \end{table}
@@ -141,7 +141,7 @@ The data property name should be written in camelCase (The first letters of ever
 Different intended audiences of this document need to be addressed in a unified manner. For example, the sentence: ``...the developer/data modeller/architect may use the following SPARQL...'' addresses some purported user of some SPARQL query. In the following table, a set of unified names is given for various roles that may be used in this document. This list will grow with time. 
 
 \begin{itemize}
-    \item \textbf{Ontologiest}: 
+    \item \textbf{Ontologist}: 
     \item \textbf{Data modeller}:
     \item \textbf{Developer}:
 \end{itemize}
@@ -157,7 +157,7 @@ Different intended audiences of this document need to be addressed in a unified 
     
     \item All overflowing inline verbatim should be split with a next line, e.g.,
     \begin{verbatim}
-         ...while projecting on a single \texttt{bfo:SpatialReg\\ion}.
+         ...while projecting on a single \cname{bfo}{SpatialReg\\ion}.
     \end{verbatim}
 
     \item  Use cases, particularly those involving data management, should not necessitate the axiomatization of a class. Instead, the system should facilitate the creation of new subclasses dynamically, as required, to accommodate evolving requirements and domain-specific needs.
