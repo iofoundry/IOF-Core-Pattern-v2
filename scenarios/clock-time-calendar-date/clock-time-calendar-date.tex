@@ -13,12 +13,12 @@ This scenario illustrates how to associate clock time and calendar dates with in
 
 \includegraphics[scale=0.28]{scenarios/clock-time-calendar-date/images/general-clock-calendar.png}
 
-the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \texttt{iof-core:TemporalInstantValueExpression} or OWL-Time class \texttt{time:General\\DateTimeDescription} as both are subclass of \texttt{time:TemporalPosition} (\texttt{iof-core:TemporalInstantValue\\Expression} is mapped as subclass of \texttt{time:TemporalPosition}.  
+the calendar and clock time for a specific temporal instant can be expressed by associating different instances of the information class \cname{iof-core}{TemporalInstantValueExpression} or OWL-Time class \cname{time}{GeneralDateTimeDescription} as both are subclass of \cname{time}{TemporalPosition} (\cname{iof-core}{TemporalInstant\\ValueExpression} is mapped as subclass of \cname{time}{TemporalPosition}.  
 
 \subsubsection*{Use Case: Launch of first iPhone} 
 The original iPhone was first released on June 29, 2007. 
 
-The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \texttt{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
+The date and time of the launch are captured in 1) XSD dateTime format, 2) in a specific time zone, and 3) using a custom date and time format. The process \iname{}{launch-of-iphone} is not detailed further except the temporal interval it occupies. This instance of temporal interval is then connected to its first temporal instant, for which the calendar date and clock time are assigned.   
 
 \subsubsection*{Use-Case Pattern Description}
 
@@ -26,18 +26,18 @@ The date and time of the launch are captured in 1) XSD dateTime format, 2) in a 
 
 The launch date and time are expressed in three different ways.  
 
-\texttt{hasDateTimeInstantValue} can associate the date and time value in \texttt{xsd:dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \texttt{xsd:dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T14:00:00-04:00 which has a UTC-4 time zone offset for EDT). However, as XSD:dateTime datatype is the range of \texttt{iof-core:hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
+\dpname{}{hasDateTimeInstantValue} can associate the date and time value in \dtname{xsd}{dateTime} format. If the date and time values can be expressed in XSD format, this pattern does not require any reference to OWL Time ontology. Also, \dtname{xsd}{dateTime} format already has provision for mentioning time zone (e.g., 2007-06-29T14:00:00-04:00 which has a UTC-4 time zone offset for EDT). However, as \dtname{xsd}{dateTime} datatype is the range of \dpname{iof-core}{hasDateTimeInstantValue}, no other XSD type or a different format can be expressed using this pattern. 
 
 \paragraph{Other components of a clock time \\}
 
-In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \texttt{time:dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \texttt{time:DayOfWeek})  and `month', using \texttt{time:month} data property \texttt{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \texttt{xsd:gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}.
-Various combinations of data properties of \texttt{time:GeneralDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \texttt{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \texttt{time:timeZone} property.       
+In the above pattern, the launch date and time of the iPhone in New York are expressed as `day of the week' using \iname{time}{dayOfWeek} (OWL Time ontology provides the days of a week as instances of type \cname{time}{DayOfWeek})  and `month', using \iname{time}{month} data property \dtname{xsd:gMonth} which links to an indexical value based on the order of months in the calendar of type \dtname{xsd}{gMonth} \footnote{\url{https://www.w3.org/TR/xmlschema11-2/\#gMonth}}.
+Various combinations of data properties of \dpname{time}{GeneralDateTimeDescription}, e.g.,  year, month, day, hour, minute, and second, can be used to express a clock time or calendar date, e.g., only date value in year, month and day. The corresponding time zone can be mentioned by linking an instance of \iname{}{TimeZone} \footnote{For detailed guidance about working with time zones, see \url{http://www.w3.org/TR/timezone/} .}, using \dpname{time}{timeZone} property.       
 
 \paragraph{Using custom clock time format \\}
 
 \includegraphics[scale=0.35]{scenarios/clock-time-calendar-date/images/uc1-custom.png}
 
-In the above pattern the launch date is expressed in `GPS time'. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class  \texttt{GPSTimeDescription}, extended from \texttt{time:DateTimeDescription}, should contain values for data properties \texttt{time:second} and \texttt{time:week}. The example does not provide details of \texttt{GPSTimeSystem}, which is a \texttt{time:TemporalReferenceSystem}, and may refer to a suitable description of `GPS time', e.g., A taxonomy of temporal reference systems is provided in ISO 19108:2002. 
+In the above pattern the launch date is expressed in `GPS time'. As GPS time is the number of seconds since an epoch in 1980, encoded as the number of weeks and seconds into the week, the new class  \cname{}{GPSTimeDescription}, extended from \cname{time}{DateTimeDescription}, should contain values for data properties \dpname{time}{second} and \dpname{time}{week}. The example does not provide details of \iname{}{GPSTimeSystem}, which is a \cname{time}{TemporalReferenceSystem}, and may refer to a suitable description of `GPS time', e.g., A taxonomy of temporal reference systems is provided in ISO 19108:2002. 
 
 
 \subsubsection*{Data Mapping Description}
@@ -65,9 +65,9 @@ INSERT DATA {
 }
 \end{verbatim}
 
-\texttt{ns:GPSTimeDescription} class has a temporal reference system as \texttt{ns:GPSTimeSystem}, which refer to the specification of GPS time format. Following the standard, a \texttt{GPSTimeDescription} has a 
+\cname{ns}{GPSTimeDescription} class has a temporal reference system as \iname{ns}{GPSTimeSystem}, which refers to the specification of the GPS time format. Following the standard, a \cname{}{GPSTimeDescription} has a 
 
-e\begin{verbatim}
+\begin{verbatim}
 :GPSTimeDescription rdf:type owl:Class ;
     rdfs:subClassOf 
     <http://www.w3.org/2006/time#GeneralDateTimeDescription> ,
