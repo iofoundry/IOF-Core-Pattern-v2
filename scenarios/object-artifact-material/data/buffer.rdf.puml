@@ -1,9 +1,9 @@
 @startuml
-!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
-class(c1, bfo:Obo.bfoMaterialentity)
-class(c2, ns2:Example#aceticacid)
-class(c3, ns2:Example#sodiumacetate)
-class(c4, ns2:Example#water)
+!include nowl/nowl.iuml
+class(c1, bfo:BFO_MaterialEntity)
+class(c2, ns2:AceticAcid)
+class(c3, ns2:SodiumAcetate)
+class(c4, ns2:Water)
 individual(i1, ns1:PortionOfAcetateBufferSolution1)
 individual(i2, ns1:PortionOfAceticAcid)
 individual(i3, ns1:PortionOfSodiumAcetate)
@@ -12,7 +12,7 @@ typeOf(i1, c1)
 typeOf(i2, c2)
 typeOf(i3, c3)
 typeOf(i4, c4)
-property(i1, ns2:core#isMadeOf, i2, down)
-property(i1, ns2:core#isMadeOf, i3, down)
-property(i1, ns2:core#isMadeOf, i4, down)
+property(i1, ns2:isMadeOf, i2, down)
+property(i1, ns2:isMadeOf, i3, down)
+property(i1, ns2:isMadeOf, i4, down)
 @enduml
