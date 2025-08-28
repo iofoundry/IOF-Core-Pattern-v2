@@ -158,3 +158,31 @@ ex:AssignmentEndValueShape a sh:NodeShape ;
     sh:hasValue "2024-05-06T00:00:00Z"^^xsd:dateTime
   ] .
 \end{verbatim}
+
+\subsection*{Use Case: Shift Monitoring}
+
+A 24-hour control room is staffed continuously by three operators working in rotating shifts of approximately eight hours each. A short change-over period of about ten minutes ensures seamless transition between shifts, during which both incoming and outgoing operators are present. Each operator’s shift officially begins upon arrival in the control room and ends upon departure, with all such events recorded in a logbook.
+
+On 28th May 2016, the logbook captured a sequence of arrivals, departures, and two incidents. The organization seeks to use this information to answer two key monitoring questions in a structured way to audit staff transitions, maintain accountability, and ensure operational continuity during critical events. 
+\begin{enumerate}
+    \item which operator formally took over duties from whom during each shift handover?
+    \item which operators were physically present in the control room at the precise times when incidents occurred?
+\end{enumerate}
+
+Logbook entries on 28th May 2016.
+
+\begin{verbatim}
+[2016-05-28T00:03:00Z] Operator 1 arrived for change-over. 
+[2016-05-28T00:10:00Z] Operator 3 left the control.
+[2016-05-28T03:24:00Z] Incident 1 is observed.
+[2016-05-28T03:26:00Z] Incident 1 is stopped.
+[2016-05-28T07:58:00Z] Operator 2 arrived for change-over.
+[2016-05-28T08:07:00Z] Operator 1 left the control.
+[2016-05-28T16:01:00Z] Operator 3 arrived for change-over.
+[2016-05-28T16:05:00Z] Incident 2 is observed.
+[2016-05-28T16:08:00Z] Operator 2 left the control.
+[2016-05-28T23:43:00Z] Incident 3 is observed.
+\end{verbatim}
+
+\subsubsection*{Use-Case Pattern Description}
+
