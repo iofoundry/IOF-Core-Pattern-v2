@@ -186,3 +186,84 @@ Logbook entries on 28th May 2016.
 
 \subsubsection*{Use-Case Pattern Description}
 
+As the complete graph for the use case is too large to visualize, an important portion which captures when operator 3 arrives to relieve the the operator 2 and during the change-over period incident 2 is observed.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.29]{scenarios/role-gain-loss/images/use-case2.png}
+\end{figure}
+
+\subsubsection*{Data Mapping}
+
+The complete graph for the use case is available at the data folder \footnote{\url{https://github.com/iofoundry/IOF-Core-Pattern-v2/blob/main/scenarios/role-gain-loss/data/gor-lor-inf.rdf}} for this scenario. 
+
+\subsubsection*{Data Validation}
+
+The following query returns the operator who relieves operator 2.
+
+\begin{verbatim}
+PREFIX bfo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX core: <https://spec.industrialontologies.org/ontology/core/Core/>
+
+SELECT ?a1
+WHERE{
+	?l a core:LossOfRole;
+       bfo:BFO_0000199 ?lint;
+       bfo:BFO_0000167 ?a.
+    ?g a core:GainOfRole;       
+       bfo:BFO_0000199 ?gint;
+       bfo:BFO_0000167 ?a1.
+    ?lint bfo:BFO_0000224 ?ins.
+    ?gint bfo:BFO_0000224 ?ins.
+    FILTER(STR(?a) = "http://www.example.com/base#operator2" )
+}
+\end{verbatim}
+
+Result:
+
+\begin{table}[H]
+    \begin{tabular}{l}
+         \verb|a1| \\ \verb|http://www.example.com/base#operator3|   
+    \end{tabular}
+\end{table}
+
+
+The following query returns the oeprator, who were in the control room when incident 2 occurred.
+
+\begin{verbatim}
+PREFIX bfo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX core: <https://spec.industrialontologies.org/ontology/core/Core/>
+
+SELECT ?a
+WHERE{
+    ?inc a core:Event;
+         bfo:BFO_0000199/core:hasValueExpressionAtAllTimes/core:hasDateTimeValue ?i.      
+    {    
+    	?g a core:GainOfRole;
+           bfo:BFO_0000199 ?gint;
+           core:hasOutput ?r;
+           bfo:BFO_0000167 ?a.
+        ?gint bfo:BFO_0000224/core:hasValueExpressionAtAllTimes/core:hasDateTimeValue ?bi.
+        FILTER(?bi <= ?i)
+
+        ?l a core:LossOfRole;
+           bfo:BFO_0000199 ?lint;
+           core:hasInput ?r;
+           bfo:BFO_0000167 ?a.
+        ?lint bfo:BFO_0000222/core:hasValueExpressionAtAllTimes/core:hasDateTimeValue ?ai.
+        FILTER(?i <= ?ai)
+    }UNION
+    {
+        ?int bfo:BFO_0000222/core:hasValueExpressionAtAllTimes/core:hasDateTimeValue ?bi.
+        ?int bfo:BFO_0000224/core:hasValueExpressionAtAllTimes/core:hasDateTimeValue ?ai.
+        ?p bfo:BFO_0000199 ?int;
+           bfo:BFO_0000167 ?a.
+        FILTER(?bi <= ?i)
+        FILTER(?i <= ?ai)       
+        
+    }
+    FILTER (STR(?inc) = "http://www.example.com/base#incident2")
+}
+\end{verbatim}
