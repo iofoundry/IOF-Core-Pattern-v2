@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns="https://saref.etsi.org/core/"
+	xmlns:agg="http://jena.apache.org/ARQ/function/aggregate#"
+	xmlns:iof="https://spec.industrialontologies.org/ontology/core/Core/"
+	xmlns:qudt="http://qudt.org/schema/qudt/"
+	xmlns:pr="http://www.pr.com/raza#"
+	xmlns:constant="http://qudt.org/vocab/constant/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:geof="http://www.opengis.net/def/function/geosparql/"
+	xmlns:prefix="http://qudt.org/vocab/prefix/"
+	xmlns:saref="https://saref.etsi.org/core/"
+	xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:ns1="http://example.org/ns1#"
+	xmlns:spif="http://spinrdf.org/spif#"
+	xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+	xmlns:path="http://www.ontotext.com/path#"
+	xmlns:terms="http://purl.org/dc/terms/"
+	xmlns:apf="http://jena.apache.org/ARQ/property#"
+	xmlns:mc="http://www.linkedmodel.org/owl/schema/core#"
+	xmlns:sou="http://qudt.org/vocab/sou/"
+	xmlns:qkdv="http://qudt.org/vocab/dimensionvector/"
+	xmlns:sensor-core="http://www.ontocommons.eu/test/sensor-core#"
+	xmlns:rep="http://www.openrdf.org/config/repository#"
+	xmlns:vann="http://purl.org/vocab/vann/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:wgs="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:vaem="http://www.linkedmodel.org/schema/vaem#"
+	xmlns:voag="http://voag.linkedmodel.org/schema/voag#"
+	xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+	xmlns:dtype="http://www.linkedmodel.org/schema/dtype#"
+	xmlns:bfo="http://purl.obolibrary.org/obo/"
+	xmlns:iof-core="https://purl.industrialontologies.org/ontology/core/Core/"
+	xmlns:list="http://jena.apache.org/ARQ/list#"
+	xmlns:spl="http://spinrdf.org/spl#"
+	xmlns:intervals="http://reference.data.gov.uk/def/intervals/"
+	xmlns:unit="http://qudt.org/vocab/unit/"
+	xmlns:geoext="http://rdf.useekm.com/ext#"
+	xmlns:sesame="http://www.openrdf.org/schema/sesame#"
+	xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+	xmlns:soqk="http://qudt.org/vocab/soqk/"
+	xmlns:sail="http://www.openrdf.org/config/sail#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:array="http://www.w3.org/2005/xpath-functions/array"
+	xmlns:arg="http://spinrdf.org/arg#"
+	xmlns:iof-av="https://purl.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/"
+	xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+	xmlns:sp="http://spinrdf.org/sp#"
+	xmlns:prov="http://www.w3.org/ns/prov#"
+	xmlns:sr="http://www.openrdf.org/config/repository/sail#"
+	xmlns:rdf4j="http://rdf4j.org/schema/rdf4j#"
+	xmlns:gn="http://www.geonames.org/ontology#"
+	xmlns:afn="http://jena.apache.org/ARQ/function#"
+	xmlns:quantitykind="http://qudt.org/vocab/quantitykind/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:ofn="http://www.ontotext.com/sparql/functions/"
+	xmlns:spin="http://spinrdf.org/spin#"
+	xmlns:graphdb="http://www.ontotext.com/config/graphdb#"
+	xmlns:AnnotationVocabulary="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/"
+	xmlns:time="http://www.w3.org/2006/time#"
+	xmlns:omgeo="http://www.ontotext.com/owlim/geo#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000222">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000224">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasOutput">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasInput">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000199">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000196">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000056">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasDateTimeValue">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#incident2">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T16:05:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#incident3">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T23:43:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator1">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#role-of-operator1">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor-int">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T07:58:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T08:07:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator2">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor-int">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#role-of-operator2">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T07:58:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T08:07:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T16:05:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T23:43:00Z">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor-int">
+	<bfo:BFO_0000222 rdf:resource="http://www.example.com/base#I2016-05-28T07:58:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor-int">
+	<bfo:BFO_0000222 rdf:resource="http://www.example.com/base#I2016-05-28T07:58:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor-int">
+	<bfo:BFO_0000224 rdf:resource="http://www.example.com/base#I2016-05-28T08:07:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor-int">
+	<bfo:BFO_0000224 rdf:resource="http://www.example.com/base#I2016-05-28T08:07:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T16:05:00Z">
+	<iof:hasValueExpressionAtAllTimes rdf:resource="http://www.example.com/base#TI2016-05-28T16:05:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T23:43:00Z">
+	<iof:hasValueExpressionAtAllTimes rdf:resource="http://www.example.com/base#TI2016-05-28T23:43:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T07:58:00Z">
+	<iof:hasValueExpressionAtAllTimes rdf:resource="http://www.example.com/base#TI2016-05-28T07:58:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#I2016-05-28T08:07:00Z">
+	<iof:hasValueExpressionAtAllTimes rdf:resource="http://www.example.com/base#TI2016-05-28T08:07:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor">
+	<iof:hasOutput rdf:resource="http://www.example.com/base#role-of-operator2"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor">
+	<iof:hasInput rdf:resource="http://www.example.com/base#role-of-operator1"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#incident2">
+	<bfo:BFO_0000199 rdf:resource="http://www.example.com/base#I2016-05-28T16:05:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#incident3">
+	<bfo:BFO_0000199 rdf:resource="http://www.example.com/base#I2016-05-28T23:43:00Z"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op1-lor">
+	<bfo:BFO_0000199 rdf:resource="http://www.example.com/base#op1-lor-int"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#op2-gor">
+	<bfo:BFO_0000199 rdf:resource="http://www.example.com/base#op2-gor-int"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator1">
+	<bfo:BFO_0000196 rdf:resource="http://www.example.com/base#role-of-operator1"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator2">
+	<bfo:BFO_0000196 rdf:resource="http://www.example.com/base#role-of-operator2"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator1">
+	<bfo:BFO_0000056 rdf:resource="http://www.example.com/base#op1-lor"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#operator2">
+	<bfo:BFO_0000056 rdf:resource="http://www.example.com/base#op2-gor"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T07:58:00Z">
+	<iof:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-28T07:58:00Z</iof:hasDateTimeValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T08:07:00Z">
+	<iof:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-28T08:07:00Z</iof:hasDateTimeValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T16:05:00Z">
+	<iof:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-28T16:05:00Z</iof:hasDateTimeValue>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://www.example.com/base#TI2016-05-28T23:43:00Z">
+	<iof:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-05-28T23:43:00Z</iof:hasDateTimeValue>
+</rdf:Description>
+
+</rdf:RDF>
