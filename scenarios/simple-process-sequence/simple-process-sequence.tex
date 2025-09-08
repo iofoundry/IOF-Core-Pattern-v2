@@ -78,7 +78,25 @@ The following table shows CSV data resulting from a fictitious machine that make
 \subsubsection*{Data Mapping}
 The following SPARQL converts the CSV file into RDF triples. Its WHERE clause connects to a service that makes each row in the CSV file available, it binds each CSV field to a variable, and constructs an IRI from a universally unique identifier (UUID). Its INSERT clause then uses those variables from a row in the CSV file to insert a pattern of three triples into a repository. The predicates of those triples exist to connect the IRI (bound to the variable "?id") to the three fields of each row.
 
-\lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/csv2rdf.rq}
+% \lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/csv2rdf.rq}
+
+\begin{verbatim}
+INSERT {
+    ?id ex:rowNumber ?rowNumber ;
+        ex:timestamp ?Timestamp ;
+        ex:eventType ?EventType ;
+        ex:startStop ?StartStop .
+}
+WHERE {
+  SERVICE <http://example.com/repositories/ontorefine:XXXXXXX> {
+    BIND(?row_index as ?rowNumber) .
+    BIND(xsd:dateTime(?c_Timestamp) as ?Timestamp) .
+    BIND( ?c_EventType AS ?EventType ) .
+    BIND( ?c_StartStop AS ?StartStop ) .
+    BIND(IRI(CONCAT("https://ontogenesis-solutions.com/ontologies/examples/instances/row_", STR(?rowNumber))) AS ?id)
+  }
+}
+\end{verbatim}
 
 After the content of the CSV file is inserted into the triple store, the next SPARQL query pairs up the start and end of each type of event and then properly instantiates classes and properties from the IOF Core ontology. The syntax here demonstrates what may be a more familiar variable notation for some practitioners.
 
@@ -86,7 +104,46 @@ Note that the last row of the CSV file (shown in \ref{tab:DripCoffee}) has no "S
 
 Given a pattern match in the "WHERE" clause, all of the variables are ready for the "CONSTRUCT" clause.
 
-\lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/instances.rq}
+% \lstinputlisting[language=sparql]{scenarios/simple-process-sequence/data/instances.rq}
+
+\begin{verbatim}
+CONSTRUCT {
+    $process rdf:type bfo:BFO_0000015, $class ;     # Process            
+             bfo:BFO_0000199 $interval . # occupiesTemporalRegion
+    $interval rdf:type bfo:BFO_0000202 ;      # Temporal Interval
+              bfo:BFO_0000222 $firstInstant ; # hasFirstInstant
+              bfo:BFO_0000224 $lastInstant .  # hasLastInstant
+    $firstInstant rdf:type bfo:BFO_0000203 ;      # Temporal Instant
+                  iof-core:hasValueExpressionAtAllTimes $firstVE.
+    $lastInstant rdf:type bfo:BFO_0000203 ;      # Temporal Instant
+                 iof-core:hasValueExpressionAtAllTimes $lastVE .
+    $firstVE rdf:type iof-core:TemporalInstantValueExpression ;
+             iof-core:hasDateTimeInstantValue $startTime .
+    $lastVE rdf:type iof-core:TemporalInstantValueExpression ;
+            iof-core:hasDateTimeInstantValue $endTime .
+}
+WHERE {
+    $startId ex:rowNumber $rowNumber ;
+             ex:startStop "Start" ;
+             ex:eventType $eventType ;
+             ex:timestamp $startTime .
+    OPTIONAL {
+        $endId ex:startStop "Stop" ;
+               ex:eventType $eventType ;
+               ex:timestamp $endTime .
+    }
+    BIND(STR(inst:) AS $inst)
+    BIND(STR($rowNumber) AS $rowNumberString)
+    BIND(IRI(CONCAT($inst, "process_",      $rowNumberString)) AS $process)
+    BIND(IRI(CONCAT($inst, "interval_",     $rowNumberString)) AS $interval)
+    BIND(IRI(CONCAT($inst, "firstInstant_", $rowNumberString)) AS $firstInstant)
+    BIND(IRI(CONCAT($inst, "lastInstant_",  $rowNumberString)) AS $lastInstant)
+    BIND(IRI(CONCAT($inst, "firstVE_",      $rowNumberString)) AS $firstVE)
+    BIND(IRI(CONCAT($inst, "lastVE_",       $rowNumberString)) AS $lastVE)
+    BIND(STR(classes:) AS $classes)
+    BIND(IRI(CONCAT($classes, $eventType)) AS $class)
+}
+\end{verbatim}
 
 
 
