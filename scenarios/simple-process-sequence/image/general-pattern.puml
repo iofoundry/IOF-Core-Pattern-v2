@@ -1,0 +1,7 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/nowl/profiles/iof.iuml
+left to right direction
+class(c1, bfo:Process)
+xSome(c1, bfo:precedes, c1)
+xSome(c1, bfo:hasProperOccurrentPart, c1)
+@enduml
