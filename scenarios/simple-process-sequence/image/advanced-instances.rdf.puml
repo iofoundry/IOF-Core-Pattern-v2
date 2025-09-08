@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/nowl/profiles/iof.iuml
+
+class(c1, ns:MakeCoffee)
+class(c2, ns:HeatWater)
+class(c3, ns:SoakCoffee)
+class(c4, ns:HeatCarafe)
+xSome(c1, bfo:hasProperOccurrentPart, c2, "", d)
+xSome(c1, bfo:hasProperOccurrentPart, c3, "", d)
+xSome(c1, bfo:hasProperOccurrentPart, c4, "", d)
+xSome(c3, bfo:precededBy, c2, "", l)
+xSome(c4, bfo:precededBy, c3, "", l)
+
+
+individual(i1, ns1:process-x, ns:MakeCoffee)
+individual(i2, ns1:process-0, ns:HeatWater)
+individual(i3, ns1:process-2, ns:SoakCoffee)
+individual(i4, ns1:process-4, ns:HeatCarafe)
+property(i1, bfo:hasProperOccurrentPart, i2, d)
+property(i1, bfo:hasProperOccurrentPart, i3, d)
+property(i1, bfo:hasProperOccurrentPart, i4, d)
+property(i3, bfo:precededBy, i2)
+property(i4, bfo:precededBy, i3)
+@enduml

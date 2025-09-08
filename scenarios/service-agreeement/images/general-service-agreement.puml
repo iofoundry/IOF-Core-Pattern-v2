@@ -1,5 +1,5 @@
 @startuml
-!include https://raw.githubusercontent.com/iofoundry/ontopuml/main/iof.iuml
+!include https://raw.githubusercontent.com/iofoundry/ontopuml/refs/heads/main/nowl/profiles/iof.iuml
 
 oClass(iof:CommerCialServiceAgreement)
 oClass(iof:Agreement)
