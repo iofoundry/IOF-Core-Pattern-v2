@@ -1,0 +1,42 @@
+@startuml
+!include C:\Users\arkop\git\IOF-Visual\ontopuml\nowl\profiles\iof.iuml
+
+individual(o0, ns1:mazak800i, iof:System)
+individual(o9, ns1:mazak-base-y, ns:LinearMotionSystem)
+individual(o10, ns1:base-y-ball-screw, ns:BallScrew)
+individual(o11, ns1:motor-linear-forces-200, ns:Motor)
+individual(o21, ns1:mazak-controller, iof:MaterialArtifact)
+individual(o25, ns1:mazak-electric-system, ns:ElectricSystem)
+individual(o27, ns1:mazak-coolant, iof:MaterialArtifact)
+
+individual(i1, ns1:milling-capability, iof:Capability)
+individual(i2, ns1:prismatic-motion-capability, iof:Capability)
+individual(i3, ns1:rotational-motion-capability, iof:Capability)
+individual(i4, ns1:linear-motion-capability, iof:Capability)
+
+property(o0, iof:hasComponentPartAtAllTimes, o9, d)
+property(o9, iof:hasComponentPartAtAllTimes, o10, d)
+property(o9, iof:hasComponentPartAtAllTimes, o11, d)
+property(o0, iof:hasComponentPartAtAllTimes, o21, d)
+property(o0, iof:hasComponentPartAtAllTimes, o25, d)
+property(o0, iof:hasComponentPartAtAllTimes, o27, d)
+
+property(i1, bfo:hasContinuantPartAtAllTimes, i2, d)
+property(i2, bfo:hasContinuantPartAtAllTimes, i3, d)
+property(i2, bfo:hasContinuantPartAtAllTimes, i4, d)
+
+property(o0, iof:hasCapability, i1, r)
+property(o9, iof:hasCapability, i2, r)
+property(o11, iof:hasCapability, i3, r)
+property(o10, iof:hasCapability, i4, r)
+
+@enduml
+
+@startuml
+!include C:\Users\arkop\git\IOF-Visual\ontopuml\nowl\profiles\iof.iuml
+
+individual(o0, ns1:mazak800i, iof:System)
+
+
+
+@enduml
