@@ -8,7 +8,7 @@ individual(o21, ns1:mazak-controller, iof:MaterialArtifact)
 xIndividual(o25, ns1:mazak-electric-system, '["ns:ElectricSystem", "iof:System"]')
 individual(o27, ns1:mazak-coolant, iof:MaterialArtifact)
 
-individual(i1, ns1:milling-capability, iof:Capability)
+individual(i1, ns1:milling-function, iof:DesignedFunction)
 individual(i2, ns1:prismatic-motion-capability, iof:Capability)
 individual(i3, ns1:rotational-motion-capability, iof:Capability)
 individual(i4, ns1:linear-motion-capability, iof:Capability)
@@ -24,28 +24,24 @@ property(i1, bfo:hasContinuantPartAtAllTimes, i2, d)
 property(i2, bfo:hasContinuantPartAtAllTimes, i3, d)
 property(i2, bfo:hasContinuantPartAtAllTimes, i4, d)
 
-property(o0, iof:hasCapability, i1, r)
+property(o0, iof:hasFunction, i1, r)
 property(o9, iof:hasCapability, i2, r)
 property(o11, iof:hasCapability, i3, r)
 property(o10, iof:hasCapability, i4, r)
 
 ''' roles
-individual(p1, ns:selling1, iof:SellingBusinessProcess)
-individual(p2, ns:manufacturing1, iof:ManufacturingProcess)
-individual(r1, ns:product1, iof:MaterialProductRole)
-individual(r2, ns:equipment1, iof:EquipmentRole)
+individual(p1, ns1:selling1, iof:SellingBusinessProcess)
+individual(p2, ns1:manufacturing1, iof:ManufacturingProcess)
+individual(r1, ns1:product1, iof:MaterialProductRole)
+individual(r2, ns1:equipment1, iof:EquipmentRole)
 
 property(r1, iof:roleOf, o0, d)
 property(r2, iof:roleOf, o0, d)
 property(p1, bfo:realizes, r1, l)
 property(p2, bfo:realizes, r2, r)
-@enduml
 
-@startuml
-!include C:\Users\arkop\git\IOF-Visual\ontopuml\nowl\profiles\iof.iuml
-
-individual(o0, ns1:mazak800i, iof:System)
-
-
+individual(d1, ns1:mazak-design1, iof:DesignSpecification)
+property(d1, iof:prescribes, i1, d)
+property(d1, iof:prescribes, o0, d)
 
 @enduml
