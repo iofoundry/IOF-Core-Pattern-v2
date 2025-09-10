@@ -29,6 +29,16 @@ property(o9, iof:hasCapability, i2, r)
 property(o11, iof:hasCapability, i3, r)
 property(o10, iof:hasCapability, i4, r)
 
+''' roles
+individual(p1, ns:selling1, iof:SellingBusinessProcess)
+individual(p2, ns:manufacturing1, iof:ManufacturingProcess)
+individual(r1, ns:product1, iof:MaterialProductRole)
+individual(r2, ns:equipment1, iof:EquipmentRole)
+
+property(r1, iof:roleOf, o0, d)
+property(r2, iof:roleOf, o0, d)
+property(p1, bfo:realizes, r1, l)
+property(p2, bfo:realizes, r2, r)
 @enduml
 
 @startuml
