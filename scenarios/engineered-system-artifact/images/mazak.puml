@@ -1,12 +1,11 @@
 @startuml
-!include C:\Users\arkop\git\IOF-Visual\ontopuml\nowl\profiles\iof.iuml
-
-individual(o0, ns1:mazak800i, iof:System)
-individual(o9, ns1:mazak-base-y, ns:LinearMotionSystem)
+!include C:\Users\ans83\git\nowl\nowl\profiles\iof.iuml
+individual(o0, ns1:mazak800i, '["ns:CNCMachine", "iof:System"]')
+individual(o9, ns1:mazak-base-y, '["ns:LinearMotionSystem", "iof:System"]')
 individual(o10, ns1:base-y-ball-screw, ns:BallScrew)
-individual(o11, ns1:motor-linear-forces-200, ns:Motor)
+individual(o11, ns1:motor-linear-forces-200, '["ns:Motor", "iof:MaterialArtifact"]')
 individual(o21, ns1:mazak-controller, iof:MaterialArtifact)
-individual(o25, ns1:mazak-electric-system, ns:ElectricSystem)
+xIndividual(o25, ns1:mazak-electric-system, '["ns:ElectricSystem", "iof:System"]')
 individual(o27, ns1:mazak-coolant, iof:MaterialArtifact)
 
 individual(i1, ns1:milling-capability, iof:Capability)
