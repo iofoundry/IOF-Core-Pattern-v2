@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:bfo="http://purl.obolibrary.org/obo/"
+   xmlns:core="https://spec.industrialontologies.org/ontology/core/Core/"
+   xmlns:qudt="http://qudt.org/schema/qudt/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="http://example.org/ns#TemperatureMeasurementProcess">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+    <bfo:BFO_0000057 rdf:resource="http://example.org/ns#TemperatureSensor"/>
+    <bfo:BFO_0000199 rdf:resource="http://example.org/ns#MeasurementTime1"/>
+    <core:occursSimultaneouslyWith rdf:resource="http://example.org/ns#pHMeasurementProcess"/>
+    <core:hasSpecifiedOutput rdf:resource="http://example.org/ns#TemperatureMeasurementInformationContentEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#TempMeasuredValue">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+    <core:isMeasuredValueOfAtSomeTime rdf:resource="http://example.org/ns#CellCultureTemperature"/>
+    <core:hasSimpleExpressionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">310.15</core:hasSimpleExpressionValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Kelvin"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#pHMeasuredValue">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+    <core:isMeasuredValueOfAtSomeTime rdf:resource="http://example.org/ns#CellCulturepH"/>
+    <core:hasSimpleExpressionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.90</core:hasSimpleExpressionValue>
+    <qudt:unit rdf:resource="http://qudt.org/vocab/unit/PH"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#pHMeasurementProcess">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+    <bfo:BFO_0000057 rdf:resource="http://example.org/ns#pHProbe"/>
+    <bfo:BFO_0000199 rdf:resource="http://example.org/ns#MeasurementTime1"/>
+    <core:hasSpecifiedOutput rdf:resource="http://example.org/ns#pHMeasurementInformationContentEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#TemperatureMeasurementInformationContentEntity">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+    <core:isAbout rdf:resource="http://example.org/ns#CellCulture1"/>
+    <bfo:BFO_0000110 rdf:resource="http://example.org/ns#TempMeasuredValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#CellCulturepH">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    <core:qualityOf rdf:resource="http://example.org/ns#CellCulture1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#MeasurementTime1">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/TemporalInterval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#pHMeasurementInformationContentEntity">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+    <core:isAbout rdf:resource="http://example.org/ns#CellCulture1"/>
+    <bfo:BFO_0000110 rdf:resource="http://example.org/ns#pHMeasuredValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#TemperatureSensor">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#CellCulture1">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/MaterialEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#CellCultureTemperature">
+    <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    <core:qualityOf rdf:resource="http://example.org/ns#CellCulture1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/ns#pHProbe">
+    <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+  </rdf:Description>
+</rdf:RDF>
