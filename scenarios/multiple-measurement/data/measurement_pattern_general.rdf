@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/measurement-pattern#"
+     xml:base="http://example.org/measurement-pattern"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:AnnotationVocabulary="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/">
+    <owl:Ontology rdf:about="http://example.org/measurement-pattern#">
+        <owl:imports rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/"/>
+        <rdfs:comment>Schema axioms for multiple simultaneous measurements pattern; no instances.</rdfs:comment>
+        <rdfs:label>Measurement Pattern (Schema Only)</rdfs:label>
+    </owl:Ontology>
+    
+
+
+ 
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/measurement-pattern#MeasurableAttribute -->
+
+    <owl:Class rdf:about="http://example.org/measurement-pattern#MeasurableAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000008"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000144"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:label>Measurable Attribute (SDC ⊔ ProcessProfile ⊔ TemporalRegion)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000144 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000144">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:label>process profile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression -->
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/isMeasuredValueOfAtSomeTime"/>
+                <owl:someValuesFrom rdf:resource="http://example.org/measurement-pattern#MeasurableAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Measured Value Expression</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity -->
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000110"/>
+                <owl:someValuesFrom rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/isAbout"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000035"/>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000006"/>
+                                    </owl:Class>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Measurement Information Content Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess -->
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/measuresAtSomeTime"/>
+                                <owl:someValuesFrom rdf:resource="http://example.org/measurement-pattern#MeasurableAttribute"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000199"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000008"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/hasSpecifiedOutput"/>
+                <owl:someValuesFrom rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/occursSimultaneouslyWith"/>
+                <owl:someValuesFrom rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>Measurement Process</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
