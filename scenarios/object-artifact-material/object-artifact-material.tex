@@ -36,6 +36,7 @@ Because these constituents are dispersed throughout the solution rather than exi
 An acetate buffer can be used in various laboratory procedures to maintain a stable pH in the acidic range. In this scenario, a specific buffer portion (ex:PortionOfAcetateBufferSolution1, a bfo:MaterialEntity) is core:isMadeOf a portion of acetic acid (ex:PortionOfAceticAcid), a portion of sodium acetate (ex:PortionOfSodiumAcetate), and a portion of water (ex:PortionOfWater). The constituent portions instantiate material kinds (ex:AceticAcid, ex:SodiumAcetate, ex:Water), each modeled as a subclass of bfo:MaterialEntity.
 This example is chosen to highlight the use of core:isMadeOf for representing a mixture in which constituents are dispersed throughout the whole, as opposed to discrete structural parts modeled with core:hasComponentPart.
 
+\includegraphics[scale=0.5]{scenarios/object-artifact-material/image/buffer.rdf.png}
 
 \subsection*{Use Case: Packed Chromatography column}
 A packed chromatography column consists of a glass chromatography column filled with DEAE–Sepharose resin. The resin comprises a sepharose matrix to which diethylaminoethyl (DEAE) functional groups are covalently attached, enabling anion-exchange separation of biomolecules based on charge.
@@ -55,6 +56,7 @@ A packed chromatography column can be used in biomolecule purification processes
 The chromatography column is core:isMadeOf a portion of glass (ex:PortionOfGlass), while the DEAE–Sepharose resin is core:isMadeOf a portion of sepharose (ex:PortionOfSepharose) and core:isMadeOf a portion of diethylaminoethyl molecules (ex:PortionOfDEAEMolecules). The DEAE functional groups are covalently attached to the sepharose matrix, giving the resin its anion-exchange capability.
 
 This example is chosen to illustrate the combined use of core:hasComponentPart for discrete, structural parts (the column and the resin) and core:isMadeOf for the materials from which those parts are composed. In other words, the packed chromatography column core:hasComponentPart its glass column and its resin, while each of these parts is linked to the materials it is composed of via core:isMadeOf.
+\includegraphics[scale=0.5]{scenarios/object-artifact-material/image/chrome.png}
 
 \subsection*{Use Case Pattern Description}
 

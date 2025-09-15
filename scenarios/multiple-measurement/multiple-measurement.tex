@@ -13,9 +13,82 @@ This scenario demonstrates how to represent measurements conducted on different 
     \item The pattern demonstrates the temporal coincidence of different measurements.
      \item The pattern highlights how measurements of various attributes can be traced back to the same material entity by using the IOF Core
 \end{itemize}
+
+
+\subsection*{General Pattern Description}
+
+When multiple attributes of the same entity are measured at the same time, this is represented by multiple measurement processes, each of which is an instance of \texttt{bfo:Process} classified as a \texttt{core:MeasurementProcess}. Each measurement process is distinct and captures the act of measuring one attribute of the entity.
+
+Each measurement process:
+
+\begin{itemize}
+    \item \textbf{Occurs simultaneously} with the other measurement processes. Simultaneity can be expressed by relating each measurement process to a common temporal region (via \texttt{bfo:occupiesTemporalRegion}) or by linking them directly using \texttt{ core:occursSimultaneouslyWith}.
+    \item \textbf{bfo:hasParticipantAtSomeTime} the bfO:MaterialEntity which core:measuresAtSomeTime the attribute of interest (e.g., a sensor measuring pH)
+    \item \textbf{core:hasSpecifiedOutput} a distinct \texttt{core:MeasurementInformationContentEntity}.
+\end{itemize}
+
+Each \texttt{core:MeasurementInformationContentEntity}:
+
+\begin{itemize}
+    \item \textbf{Is about} the entity being measured (using \texttt{core:isAbout}).
+    \item \textbf{Has part} a \texttt{core:MeasuredValueExpression} that represents the measured unit-value pair (using \texttt{core:hasContinuantPartAtAllTimes}.
+\end{itemize}
+
+Each \texttt{core:MeasuredValueExpression}:
+
+\begin{itemize}
+    \item \textbf{core:isMeasuredValueOfAtSomeTime} the attribute being measured, where the attribute is an instance of either:
+    \begin{itemize}
+        \item \texttt{bfo:SpecificallyDependentContinuant} (e.g., pH, color, concentration), or
+        \item \texttt{core:ProcessProfile} (e.g., rate, frequency) or \texttt{bfo:TemporalRegion} (e.g., duration).
+    \end{itemize}
+\end{itemize}
+
+This pattern ensures that each attribute measured at the same time is represented by a distinct measurement process and a distinct measurement information content entity, making it possible to query each result independently while preserving the fact that they were obtained simultaneously.
+
 \subsection{Use case: Measurement of temperature and pH during fermentation}
 This use case describes a scenario in which temperature and pH measurements are captured during a fermentation process. The temperature sensor records thermal conditions critical for maintaining optimal enzymatic reactions and microbial activity, as deviations can lead to inefficient fermentation or undesirable by-products. Concurrently, the pH sensor monitors the acidity or alkalinity of the fermenting mixture, providing essential insights into the chemical environment that directly affects enzyme functionality, product quality or overall process efficiency.
 This use case will focus on capturing a particular (discrete) measurement of temperature and pH. In practice, both attributes are monitored and captured continuously. For the details on how continuous measurements are captured the reader should look at the time-series measurement usecase.
+
+\subsubsection*{Use Case Pattern Description}
+
+This scenario captures a particular measurement of temperature and pH taken simultaneously during a fermentation process. The entity whose attributes are being measured being measured is the cell culture (\texttt{ex:CellCulture}), which is an instance of \texttt{bfo:MaterialEntity}. Temperature and pH are modeled as instances of \texttt{bfo:Quality} that are each \texttt{core:qualityOf} \texttt{ex:CellCulture}.
+
+Two distinct instances of \texttt{core:MeasurementProcess} and of \texttt{core:MeasurementInformationContentEntity}  are created:
+
+\begin{itemize}
+    \item \texttt{ex:TemperatureMeasurementProcess}, which \texttt{core:hasSpecifiedOutput} a \texttt{ex:TemperaturMeasurementInformationContentEntity} about the cell culture's temperature.
+    \item \texttt{ex:pHMeasurementProcess}, which \texttt{core:hasSpecifiedOutput} a \texttt{ex:pHMeasurementInformationContentEntity}.
+\end{itemize}
+
+Both measurement processes:
+
+\begin{itemize}
+    \item \texttt{bfo:occursSimoultaneouslyWith} each other, or share a common temporal region via \texttt{bfo:occupiesTemporalRegion}.
+    \item \texttt{bfo:hasParticipantAtSomeTime} their respective instruments: \texttt{ex:TemperatureSensor} (instance of \texttt{core:MaterialArtifact}) and \texttt{ex:pHProbe} (instance of \texttt{core:MaterialArtifact}) which measure  \texttt{ex:CellCultureTemperature} and \texttt{ex:CellCulturepH} respectively.
+    \item both \texttt{ex:CellCultureTemperature} and \texttt{ex:CellCulturepH} are \texttt{core:qualityOf} \texttt{ex:CellCulture} 
+\end{itemize}
+
+Each \texttt{core:MeasurementInformationContentEntity}:
+
+\begin{itemize}
+    \item \texttt{core:isAbout} \texttt{ex:CellCulture}.
+    \item \texttt{bfo:hasContinuantPartAtAllTime} a distinct instance of \texttt{core:MeasuredValueExpression}.
+\end{itemize}
+
+Each \texttt{core:MeasuredValueExpression}:
+
+\begin{itemize}
+    \item \texttt{core:isMeasuredValueOfAtSomeTime} the attribute being measured:
+    \begin{itemize}
+        \item \texttt{ex:CellCultureTemperature} for the temperature measurement.
+        \item \texttt{ex:CellCulturepH} for the pH measurement.
+    \end{itemize}
+    \item Records its value (e.g., \texttt{"310.15" qudt:Kelvin} or \texttt{"7"qudt:PH}) - details of capture unit-value pairs are given in the qudt guideline
+\end{itemize}
+
+This pattern ensures that temperature and pH are represented as independent but concurrent measurements, preserving their provenance (measurement process, instrument, time) while allowing downstream queries to retrieve them together or separately. The pattern also aligns with time-series monitoring use cases by allowing repetition of this structure for subsequent measurement instants.
+
 
 \section{Measurements of the same attribute by using different instruments}
 
