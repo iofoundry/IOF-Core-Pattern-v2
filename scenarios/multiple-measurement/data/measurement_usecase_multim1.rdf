@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:bfo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://spec.industrialontologies.org/ontology/core/Core/"
+     xmlns:qudt="http://qudt.org/schema/qudt/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
+
+    <ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000057"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000110 -->
+
+    <ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000110"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000199 -->
+
+    <ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000199"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/unit -->
+
+    <ObjectProperty rdf:about="http://qudt.org/schema/qudt/unit"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasSpecifiedOutput -->
+
+    <ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasSpecifiedOutput"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/isAbout -->
+
+    <ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/isAbout"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/isMeasuredValueOfAtSomeTime -->
+
+    <ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/isMeasuredValueOfAtSomeTime"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/occursSimultaneouslyWith -->
+
+    <ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/occursSimultaneouslyWith"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/qualityOf -->
+
+    <ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/qualityOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasSimpleExpressionValue -->
+
+    <DatatypeProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasSimpleExpressionValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000019 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MaterialEntity -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/MaterialEntity"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TemporalInterval -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/TemporalInterval"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact -->
+
+    <Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression -->
+
+    <Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity -->
+
+    <Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess -->
+
+    <Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/ns#CellCulture1 -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#CellCulture1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/MaterialEntity"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#CellCultureTemperature -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#CellCultureTemperature">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <core:qualityOf rdf:resource="http://example.org/ns#CellCulture1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#CellCulturepH -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#CellCulturepH">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <core:qualityOf rdf:resource="http://example.org/ns#CellCulture1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#MeasurementTime1 -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#MeasurementTime1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/TemporalInterval"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#TempMeasuredValue -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#TempMeasuredValue">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+        <qudt:unit rdf:resource="http://qudt.org/vocab/unit/Kelvin"/>
+        <core:isMeasuredValueOfAtSomeTime rdf:resource="http://example.org/ns#CellCultureTemperature"/>
+        <core:hasSimpleExpressionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">310.15</core:hasSimpleExpressionValue>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#TemperatureMeasurementInformationContentEntity -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#TemperatureMeasurementInformationContentEntity">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+        <bfo:BFO_0000110 rdf:resource="http://example.org/ns#TempMeasuredValue"/>
+        <core:isAbout rdf:resource="http://example.org/ns#CellCulture1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#TemperatureMeasurementProcess -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#TemperatureMeasurementProcess">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+        <bfo:BFO_0000057 rdf:resource="http://example.org/ns#TemperatureSensor"/>
+        <bfo:BFO_0000199 rdf:resource="http://example.org/ns#MeasurementTime1"/>
+        <core:hasSpecifiedOutput rdf:resource="http://example.org/ns#TemperatureMeasurementInformationContentEntity"/>
+        <core:occursSimultaneouslyWith rdf:resource="http://example.org/ns#pHMeasurementProcess"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#TemperatureSensor -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#TemperatureSensor">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#pHMeasuredValue -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#pHMeasuredValue">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasuredValueExpression"/>
+        <qudt:unit rdf:resource="http://qudt.org/vocab/unit/PH"/>
+        <core:isMeasuredValueOfAtSomeTime rdf:resource="http://example.org/ns#CellCulturepH"/>
+        <core:hasSimpleExpressionValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.90</core:hasSimpleExpressionValue>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#pHMeasurementInformationContentEntity -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#pHMeasurementInformationContentEntity">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity"/>
+        <bfo:BFO_0000110 rdf:resource="http://example.org/ns#pHMeasuredValue"/>
+        <core:isAbout rdf:resource="http://example.org/ns#CellCulture1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#pHMeasurementProcess -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#pHMeasurementProcess">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess"/>
+        <bfo:BFO_0000057 rdf:resource="http://example.org/ns#pHProbe"/>
+        <bfo:BFO_0000199 rdf:resource="http://example.org/ns#MeasurementTime1"/>
+        <core:hasSpecifiedOutput rdf:resource="http://example.org/ns#pHMeasurementInformationContentEntity"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.org/ns#pHProbe -->
+
+    <NamedIndividual rdf:about="http://example.org/ns#pHProbe">
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/Kelvin -->
+
+    <NamedIndividual rdf:about="http://qudt.org/vocab/unit/Kelvin"/>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/PH -->
+
+    <NamedIndividual rdf:about="http://qudt.org/vocab/unit/PH"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
